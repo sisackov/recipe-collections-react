@@ -60,6 +60,7 @@ You can find React README [here](./misc/React_README.md).
         | Spoonacular   | 150 points/day(request = 1, each query param = 0.1) | [Docs](https://spoonacular.com/food-api/docs)                |
         | TheMealDB     | None                                                | [Docs](https://www.themealdb.com/api.php)                    |
         | Zestful       | 30/day                                              | [Docs](https://zestfuldata.com/docs)                         |
+        | MockApi       | None                                                | [Docs](https://mockapi.io/docs)                              |
 
     -   ### **Contexts**
 
