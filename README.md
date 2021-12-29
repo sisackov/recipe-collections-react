@@ -1,3 +1,8 @@
+# Recipe Collections App
+
+This is the mid-project Appleseeds Bootcamp.
+The diagram outline can be seen with [Drawing.io](./recipe-diagram.drawio)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
