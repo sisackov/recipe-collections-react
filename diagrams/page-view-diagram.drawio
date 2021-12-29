@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-12-29T13:24:59.801Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36" etag="Lp2Bacp08j5e7klqkp97" version="16.1.0" type="github" pages="10">
+<mxfile host="app.diagrams.net" modified="2021-12-29T13:35:59.653Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36" etag="yZe22cYlIHUch_W3MiN6" version="16.1.0" type="github" pages="10">
   <diagram id="piDafpqhtRUU5qUU-vj8" name="LandingPage pre login">
     <mxGraphModel dx="1662" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -110,6 +110,12 @@
         </mxCell>
         <mxCell id="4Olz915Wrehx2gw6hDar-5" value="Social Link Component" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;opacity=50;" vertex="1" parent="1">
           <mxGeometry x="860" y="1370" width="150" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="8fkK2GJt-3GDj99vTlLd-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.612;entryY=0.526;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="8fkK2GJt-3GDj99vTlLd-1" target="8962rQQDY3VNNf6We3Pp-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8fkK2GJt-3GDj99vTlLd-1" value="Card&lt;br&gt;Grid Component" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="1241" y="585" width="150" height="65" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
