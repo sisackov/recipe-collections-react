@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-12-29T13:55:09.296Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36" etag="f-ozxVk5CfQATkj_iqFr" version="16.1.0" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-12-29T14:13:45.189Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36" etag="h5Wp3ycMhM83myq6zfB-" version="16.1.0" type="github" pages="5">
   <diagram id="piDafpqhtRUU5qUU-vj8" name="App Tree">
     <mxGraphModel dx="1422" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -132,34 +132,180 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram name="Search Tree" id="bKfig4rRmTpaA8GGpbJE">
+  <diagram name="Search Tree" id="AZVmoKoNFL1py3Kx0FpQ">
+    <mxGraphModel dx="1422" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-0" />
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-1" parent="LuIPpxXMfS5bYFDTtpGf-0" />
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-2" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.431;entryY=-0.05;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#46495D;strokeColor=#788AA3;fillColor=#B2C9AB;strokeWidth=2;" edge="1" parent="LuIPpxXMfS5bYFDTtpGf-1" source="LuIPpxXMfS5bYFDTtpGf-3" target="LuIPpxXMfS5bYFDTtpGf-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-3" value="SearchBar Component" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="LuIPpxXMfS5bYFDTtpGf-1">
+          <mxGeometry x="560" y="150" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#788AA3;fontColor=#46495D;" edge="1" parent="LuIPpxXMfS5bYFDTtpGf-1" source="LuIPpxXMfS5bYFDTtpGf-5" target="LuIPpxXMfS5bYFDTtpGf-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-5" value="Card Grid" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="LuIPpxXMfS5bYFDTtpGf-1">
+          <mxGeometry x="700" y="360" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-11" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#46495D;strokeColor=#788AA3;strokeWidth=2;fillColor=#B2C9AB;" edge="1" parent="LuIPpxXMfS5bYFDTtpGf-1" source="LuIPpxXMfS5bYFDTtpGf-6" target="LuIPpxXMfS5bYFDTtpGf-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-6" value="Recipe Cards" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="LuIPpxXMfS5bYFDTtpGf-1">
+          <mxGeometry x="700" y="510" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-7" value="results array" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;align=center;fontStyle=2;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="LuIPpxXMfS5bYFDTtpGf-1">
+          <mxGeometry x="700" y="290" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-8" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=14;align=center;" vertex="1" parent="LuIPpxXMfS5bYFDTtpGf-1">
+          <mxGeometry x="670" y="290" width="20" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-9" value="&lt;b style=&quot;font-size: 17px;&quot;&gt;Props&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;" vertex="1" parent="LuIPpxXMfS5bYFDTtpGf-1">
+          <mxGeometry x="620" y="300" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-10" value="Recipe Page" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="LuIPpxXMfS5bYFDTtpGf-1">
+          <mxGeometry x="700" y="670" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-12" value="recipe object" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;align=center;fontStyle=2;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="LuIPpxXMfS5bYFDTtpGf-1">
+          <mxGeometry x="700" y="440" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-13" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=14;align=center;" vertex="1" parent="LuIPpxXMfS5bYFDTtpGf-1">
+          <mxGeometry x="670" y="440" width="20" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-14" value="&lt;b style=&quot;font-size: 17px;&quot;&gt;Props&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;" vertex="1" parent="LuIPpxXMfS5bYFDTtpGf-1">
+          <mxGeometry x="620" y="450" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-15" value="recipe object" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;align=center;fontStyle=2;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="LuIPpxXMfS5bYFDTtpGf-1">
+          <mxGeometry x="700" y="600" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-16" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=14;align=center;" vertex="1" parent="LuIPpxXMfS5bYFDTtpGf-1">
+          <mxGeometry x="670" y="600" width="20" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LuIPpxXMfS5bYFDTtpGf-17" value="&lt;b style=&quot;font-size: 17px;&quot;&gt;Props&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;" vertex="1" parent="LuIPpxXMfS5bYFDTtpGf-1">
+          <mxGeometry x="620" y="610" width="40" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Recipe Page" id="bKfig4rRmTpaA8GGpbJE">
     <mxGraphModel dx="1422" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="-mfuQ2gg1epHu_yLqydC-0" />
         <mxCell id="-mfuQ2gg1epHu_yLqydC-1" parent="-mfuQ2gg1epHu_yLqydC-0" />
-        <mxCell id="yMbagNrxrqL4DiVTUL6X-0" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.431;entryY=-0.05;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#46495D;strokeColor=#788AA3;fillColor=#B2C9AB;strokeWidth=2;" edge="1" parent="-mfuQ2gg1epHu_yLqydC-1" source="-mfuQ2gg1epHu_yLqydC-4" target="-mfuQ2gg1epHu_yLqydC-6">
+        <mxCell id="yMbagNrxrqL4DiVTUL6X-0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.431;entryY=-0.05;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#46495D;strokeColor=#788AA3;fillColor=#B2C9AB;strokeWidth=2;" edge="1" parent="-mfuQ2gg1epHu_yLqydC-1" source="-mfuQ2gg1epHu_yLqydC-4" target="-mfuQ2gg1epHu_yLqydC-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="675" y="320" />
+              <mxPoint x="139" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#46495D;strokeColor=#788AA3;strokeWidth=2;fillColor=#B2C9AB;" edge="1" parent="-mfuQ2gg1epHu_yLqydC-1" source="-mfuQ2gg1epHu_yLqydC-4" target="DdcoFIv0XMZjR7IwYDql-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="675" y="320" />
+              <mxPoint x="380" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#46495D;strokeColor=#788AA3;strokeWidth=2;fillColor=#B2C9AB;" edge="1" parent="-mfuQ2gg1epHu_yLqydC-1" source="-mfuQ2gg1epHu_yLqydC-4" target="DdcoFIv0XMZjR7IwYDql-4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="-mfuQ2gg1epHu_yLqydC-4" value="SearchBar Component" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#46495D;strokeColor=#788AA3;strokeWidth=2;fillColor=#B2C9AB;" edge="1" parent="-mfuQ2gg1epHu_yLqydC-1" source="-mfuQ2gg1epHu_yLqydC-4" target="DdcoFIv0XMZjR7IwYDql-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="675" y="320" />
+              <mxPoint x="980" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#46495D;strokeColor=#788AA3;strokeWidth=2;fillColor=#B2C9AB;" edge="1" parent="-mfuQ2gg1epHu_yLqydC-1" source="-mfuQ2gg1epHu_yLqydC-4" target="DdcoFIv0XMZjR7IwYDql-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="675" y="320" />
+              <mxPoint x="1270" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#46495D;strokeColor=#788AA3;strokeWidth=2;fillColor=#B2C9AB;" edge="1" parent="-mfuQ2gg1epHu_yLqydC-1" source="-mfuQ2gg1epHu_yLqydC-4" target="DdcoFIv0XMZjR7IwYDql-19">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="675" y="320" />
+              <mxPoint x="1500" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-mfuQ2gg1epHu_yLqydC-4" value="Recipe Page Component" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
           <mxGeometry x="560" y="150" width="230" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="-mfuQ2gg1epHu_yLqydC-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#788AA3;fontColor=#46495D;" edge="1" parent="-mfuQ2gg1epHu_yLqydC-1" source="-mfuQ2gg1epHu_yLqydC-6" target="-mfuQ2gg1epHu_yLqydC-8">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="-mfuQ2gg1epHu_yLqydC-6" value="Button Components" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="70" y="520" width="160" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="-mfuQ2gg1epHu_yLqydC-6" value="Card Grid" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
-          <mxGeometry x="700" y="360" width="160" height="60" as="geometry" />
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#46495D;strokeColor=#788AA3;strokeWidth=2;fillColor=#B2C9AB;dashed=1;" edge="1" parent="-mfuQ2gg1epHu_yLqydC-1" source="yMbagNrxrqL4DiVTUL6X-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="140" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="-mfuQ2gg1epHu_yLqydC-8" value="Recipe Cards" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
-          <mxGeometry x="700" y="550" width="160" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="yMbagNrxrqL4DiVTUL6X-1" value="results array" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;align=center;fontStyle=2;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
-          <mxGeometry x="700" y="290" width="120" height="40" as="geometry" />
+        <mxCell id="yMbagNrxrqL4DiVTUL6X-1" value="recipe object" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;align=center;fontStyle=2;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="610" y="50" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="yMbagNrxrqL4DiVTUL6X-2" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=14;align=center;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
-          <mxGeometry x="670" y="290" width="20" height="40" as="geometry" />
+          <mxGeometry x="560" y="50" width="20" height="40" as="geometry" />
         </mxCell>
         <mxCell id="yMbagNrxrqL4DiVTUL6X-3" value="&lt;b style=&quot;font-size: 17px;&quot;&gt;Props&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
-          <mxGeometry x="620" y="300" width="40" height="20" as="geometry" />
+          <mxGeometry x="510" y="60" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-2" value="Social Link Components" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="300" y="520" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-4" value="Recipe Summary Component" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="595" y="520" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-6" value="Nutritional&lt;br&gt;Card Component" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="900" y="520" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-7" value="recipe ingredients#, prep time, calories#" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;align=center;fontStyle=2;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="630" y="380" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-8" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=14;align=center;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="580" y="380" width="20" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-9" value="&lt;b style=&quot;font-size: 17px;&quot;&gt;Props&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="530" y="390" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-11" value="recipe ingredients array" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;align=center;fontStyle=2;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="910" y="380" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-12" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=14;align=center;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="860" y="380" width="20" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-13" value="&lt;b style=&quot;font-size: 17px;&quot;&gt;Props&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="810" y="390" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-14" value="Ingredients View Component" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="1190" y="520" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-16" value="recipe ingredients array" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;align=center;fontStyle=2;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="1210" y="380" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-17" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=14;align=center;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="1160" y="380" width="20" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-18" value="&lt;b style=&quot;font-size: 17px;&quot;&gt;Props&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="1110" y="390" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-19" value="Related Carousel Component" style="rounded=0;whiteSpace=wrap;html=1;fontSize=28;align=center;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="1420" y="520" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-21" value="recipe title, ingredients array" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;align=center;fontStyle=2;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="1450" y="380" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-22" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=14;align=center;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="1400" y="380" width="20" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DdcoFIv0XMZjR7IwYDql-23" value="&lt;b style=&quot;font-size: 17px;&quot;&gt;Props&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;" vertex="1" parent="-mfuQ2gg1epHu_yLqydC-1">
+          <mxGeometry x="1350" y="390" width="40" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
