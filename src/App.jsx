@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { getEdamamRecipes } from './api/edamamAPI';
+import { getEdamamRecipes, getEdamamRecipeByID } from './api/edamamAPI';
 // import { getUserList } from './api/mockAPI';
 import './App.css';
 
-function App() {
+function APITests() {
     // const [userList, setUserList] = useState([]);
     // const [recipeList, setRecipeList] = useState([]);
     const [recipe, setRecipe] = useState({});
@@ -39,35 +39,61 @@ function App() {
     //     });
     // };
 
+    // const renderRecipesData = () => {
+    //     return recipeList.map((recipe) => {
+    //         return (
+    //             <div key={recipe.id}>
+    //                 <h2>{recipe.title}</h2>
+    //                 <img
+    //                     src={recipe.images.THUMBNAIL.url}
+    //                     alt={recipe.source.label}
+    //                 />
+    //                 <div>
+    //                     <span style={{ margin: '14px', fontWeight: '600' }}>
+    //                         Preparation Time: {recipe.prepTime} mins
+    //                     </span>
+    //                     <span>|</span>
+    //                     <span style={{ margin: '14px', fontWeight: '600' }}>
+    //                         Total Calories: {recipe.calories}
+    //                     </span>
+    //                     <span>|</span>
+    //                     <span style={{ margin: '14px', fontWeight: '600' }}>
+    //                         Serve: {recipe.servings} servings
+    //                     </span>
+    //                 </div>
+    //                 <p>{recipe.ingredients.lines}</p>
+    //             </div>
+    //         );
+    //     });
+    // };
+
     const renderRecipeData = () => {
-        return recipeList.map((recipe) => {
-            return (
-                <div key={recipe.id}>
-                    <h2>{recipe.title}</h2>
-                    <img
-                        src={recipe.images.THUMBNAIL.url}
-                        alt={recipe.source.label}
-                    />
-                    <div>
-                        <span style={{ margin: '14px', fontWeight: '600' }}>
-                            Preparation Time: {recipe.prepTime} mins
-                        </span>
-                        <span>|</span>
-                        <span style={{ margin: '14px', fontWeight: '600' }}>
-                            Total Calories: {recipe.calories}
-                        </span>
-                        <span>|</span>
-                        <span style={{ margin: '14px', fontWeight: '600' }}>
-                            Serve: {recipe.servings} servings
-                        </span>
-                    </div>
-                    <p>{recipe.ingredients.lines}</p>
+        return (
+            <div>
+                <h2>{recipe.title}</h2>
+                <img
+                    src={recipe.images.THUMBNAIL.url}
+                    alt={recipe.source.label}
+                />
+                <div>
+                    <span style={{ margin: '14px', fontWeight: '600' }}>
+                        Preparation Time: {recipe.prepTime} mins
+                    </span>
+                    <span>|</span>
+                    <span style={{ margin: '14px', fontWeight: '600' }}>
+                        Total Calories: {recipe.calories}
+                    </span>
+                    <span>|</span>
+                    <span style={{ margin: '14px', fontWeight: '600' }}>
+                        Serve: {recipe.servings} servings
+                    </span>
                 </div>
-            );
-        });
+                <p>{recipe.ingredients.lines}</p>
+            </div>
+        );
     };
 
     return <div className='App'>{renderRecipeData()}</div>;
 }
 
-export default App;
+export default APITests;

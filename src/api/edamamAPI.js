@@ -20,8 +20,8 @@ const parseMealType = (mealType) => {
 };
 
 /**
- * @param {*} query
- * @returns
+ * @param {string} query
+ * @returns returns a list of up to 20 recipes based on the query
  */
 export const getEdamamRecipes = async (query) => {
     try {
@@ -60,8 +60,53 @@ export const getEdamamRecipes = async (query) => {
                 link: recipe.shareAs,
             },
         }));
-        // console.log('recipes', recipes);
-        // return recipes;
+    } catch (error) {
+        console.log(error);
+    }
+    return [];
+};
+
+/**
+ * @param {string} recipeId
+ * @returns returns a recipe object based on the recipeId
+ */
+export const getEdamamRecipes = async (query) => {
+    try {
+        const {
+            data: { hits },
+        } = await edamamAPI.get('', {
+            params: {
+                q: query,
+            },
+        });
+        // const recipes = response.data.map((user) => ({
+
+        return hits.map(({ recipe }) => ({
+            id: extractRecipeId(recipe.uri),
+            title: recipe.label,
+            images: recipe.images,
+            servings: recipe.yield,
+            prepTime: recipe.totalTime,
+            calories: recipe.calories,
+            cuisineType: recipe.cuisineType,
+            mealType: parseMealType(recipe.mealType) || [],
+            weight: recipe.totalWeight,
+            ingredients: {
+                lines: recipe.ingredientLines,
+                items: recipe.ingredients,
+            },
+            tags: {
+                diet: recipe.dietLabels,
+                health: recipe.healthLabels,
+                cautions: recipe.cautions,
+            },
+            nutrients: recipe.totalNutrients,
+            source: {
+                label: recipe.source,
+                url: recipe.url,
+                link: recipe.shareAs,
+            },
+        }));
     } catch (error) {
         console.log(error);
     }

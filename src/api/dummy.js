@@ -1,3 +1,4 @@
+//endpoint -> https://api.edamam.com/api/recipes/v2?type=public&beta=true&app_id={appid}&app_key={appkey}&q={query}
 const hits = [
     {
         recipe: {
