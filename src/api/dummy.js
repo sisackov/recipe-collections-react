@@ -1,5 +1,5 @@
 //endpoint -> https://api.edamam.com/api/recipes/v2?type=public&beta=true&app_id={appid}&app_key={appkey}&q={query}
-const hits = [
+export const hits = [
     {
         recipe: {
             uri: 'http://www.edamam.com/ontologies/edamam.owl#recipe_b79327d05b8e5b838ad6cfd9576b30b6',
@@ -16364,4 +16364,4 @@ export const recipeHit = {
         },
     },
 };
-export default hits;
+// export default hits;

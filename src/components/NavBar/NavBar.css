@@ -1,0 +1,14 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: #afab76;
+    border-bottom: 1px solid black;
+    height: 50px;
+    width: 100%;
+    position: sticky;
+}
+
+.navbar__item {
+    margin-right: 1rem;
+}
