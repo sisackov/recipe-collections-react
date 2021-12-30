@@ -14,7 +14,9 @@ function APITests() {
             try {
                 // const recipes = await getEdamamRecipes('chicken');
                 // console.log('recipes: ', recipes);
-                const recipe = await getEdamamRecipeByID('');
+                const recipe = await getEdamamRecipeByID(
+                    '8275bb28647abcedef0baaf2dcf34f8b'
+                );
                 console.log('recipes: ', recipe);
                 setRecipe(recipe);
                 // setRecipeList(recipes);
@@ -67,31 +69,32 @@ function APITests() {
     //     });
     // };
 
-    const renderRecipeData = () => {
-        return (
-            <div>
-                <h2>{recipe.title}</h2>
-                <img
-                    src={recipe.images.THUMBNAIL.url}
-                    alt={recipe.source.label}
-                />
-                <div>
-                    <span style={{ margin: '14px', fontWeight: '600' }}>
-                        Preparation Time: {recipe.prepTime} mins
-                    </span>
-                    <span>|</span>
-                    <span style={{ margin: '14px', fontWeight: '600' }}>
-                        Total Calories: {recipe.calories}
-                    </span>
-                    <span>|</span>
-                    <span style={{ margin: '14px', fontWeight: '600' }}>
-                        Serve: {recipe.servings} servings
-                    </span>
-                </div>
-                <p>{recipe.ingredients.lines}</p>
-            </div>
-        );
-    };
+    // const renderRecipeData = () => {
+    //     if (!recipe.id) return null;
+    //     return (
+    //         <div>
+    //             <h2>{recipe.title}</h2>
+    //             <img
+    //                 src={recipe.images.THUMBNAIL.url}
+    //                 alt={recipe.source.label}
+    //             />
+    //             <div>
+    //                 <span style={{ margin: '14px', fontWeight: '600' }}>
+    //                     Preparation Time: {recipe.prepTime} mins
+    //                 </span>
+    //                 <span>|</span>
+    //                 <span style={{ margin: '14px', fontWeight: '600' }}>
+    //                     Total Calories: {recipe.calories}
+    //                 </span>
+    //                 <span>|</span>
+    //                 <span style={{ margin: '14px', fontWeight: '600' }}>
+    //                     Serve: {recipe.servings} servings
+    //                 </span>
+    //             </div>
+    //             <p>{recipe.ingredients.lines}</p>
+    //         </div>
+    //     );
+    // };
 
     return <div className='App'>{renderRecipeData()}</div>;
 }

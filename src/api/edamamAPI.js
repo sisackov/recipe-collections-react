@@ -70,18 +70,15 @@ export const getEdamamRecipes = async (query) => {
  * @param {string} recipeId
  * @returns returns a recipe object based on the recipeId
  */
-export const getEdamamRecipes = async (query) => {
+export const getEdamamRecipeByID = async (recipeId) => {
     try {
         const {
-            data: { hits },
-        } = await edamamAPI.get('', {
-            params: {
-                q: query,
-            },
-        });
+            data: { recipe },
+        } = await edamamAPI.get(recipeId);
+        console.log(recipe);
         // const recipes = response.data.map((user) => ({
 
-        return hits.map(({ recipe }) => ({
+        return {
             id: extractRecipeId(recipe.uri),
             title: recipe.label,
             images: recipe.images,
@@ -106,9 +103,9 @@ export const getEdamamRecipes = async (query) => {
                 url: recipe.url,
                 link: recipe.shareAs,
             },
-        }));
+        };
     } catch (error) {
         console.log(error);
     }
-    return [];
+    return {};
 };
