@@ -65,3 +65,4 @@ You can find React README [here](./misc/React_README.md).
     -   ### **Contexts**
 
         -   LoginContext
+        -   WindowSize?
