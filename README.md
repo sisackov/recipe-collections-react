@@ -83,6 +83,7 @@ You can find React README [here](./misc/React_README.md).
 |                  |                     | Mockup          | :white_check_mark:    | 0.5 hours      | Thursday     |
 |                  |                     | Spoonacular     | :black_square_button: | 0.5 hours      | Thursday     |
 |                  | **Recipes**         |                 | :black_square_button: | **11.5 hours** |              |
+|                  |                     | RecipeCard      | :white_check_mark:    | 2 hours        | Thursday     |
 |                  |                     | RecipeView      | :black_square_button: | 2 hours        | Thursday     |
 |                  |                     | RecipeEdit      | :black_square_button: | 2 hours        | Saturday eve |
 |                  |                     | RecipeSummary   | :black_square_button: | 0.5 hours      | Saturday eve |
