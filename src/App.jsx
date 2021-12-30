@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react';
 import { getEdamamRecipes } from './api/edamamAPI';
-import { getUserList } from './api/mockAPI';
+// import { getUserList } from './api/mockAPI';
 import './App.css';
 
 function App() {
     // const [userList, setUserList] = useState([]);
-    const [recipeList, setRecipeList] = useState([]);
+    // const [recipeList, setRecipeList] = useState([]);
+    const [recipe, setRecipe] = useState({});
 
     useEffect(() => {
         const fetchedData = async () => {
             console.log('initial fetching...');
             try {
-                const recipes = await getEdamamRecipes('chicken');
+                // const recipes = await getEdamamRecipes('chicken');
                 // console.log('recipes: ', recipes);
-                setRecipeList(recipes);
+                const recipe = await getEdamamRecipeByID('');
+                console.log('recipes: ', recipe);
+                setRecipe(recipe);
+                // setRecipeList(recipes);
                 // const users = await getUserList();
                 // setUserList(users);
             } catch (err) {

@@ -1,6 +1,12 @@
 # Recipe Collections App
 
-This is the mid-project Appleseeds Bootcamp done in React.
+This is my mid-project Appleseeds Bootcamp done in React.
+
+The idea for building a recipe app came to me a long while ago because I love cooking and baking.
+I wanted to share my recipes with others and have the ability to scale my recipe based on
+the amount of servings I need or the amount of flour I have :worried: .
+
+**https://recipe-collections.netlify.app/**
 
 You can find React README [here](./misc/React_README.md).
 
@@ -32,7 +38,6 @@ You can find React README [here](./misc/React_README.md).
         | --------------------- | ---------------------------------------------------- |
         | NavBar                |                                                      |
         | Footer                |                                                      |
-        | Search                |                                                      |
         | ButtonComponent       | clickHandler, style                                  |
         | SocialLink            | clickHandler, style                                  |
         | FormComponent         | array of formObjects`{label,inputType}`, saveHandler |
@@ -66,3 +71,7 @@ You can find React README [here](./misc/React_README.md).
 
         -   LoginContext
         -   WindowSize?
+
+## TODOs
+
+-   infinite scroll on landing page
