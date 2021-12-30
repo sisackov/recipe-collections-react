@@ -74,42 +74,42 @@ You can find React README [here](./misc/React_README.md).
 
 ## **Timeline**
 
-| Type             | Feature             | Task            | Done  | Time           | Day          |
-| ---------------- | ------------------- | --------------- | ----- | -------------- | ------------ |
-| **Must Have**    |                     |                 |       |                |              |
-|                  | **APIs**            |                 | - [x] | **3.5 hours**  | Thursday     |
-|                  |                     | Edamam          | - [x] | 2 hours        | Thursday     |
-|                  |                     | FDC             | [x]   | 0.5 hours      | Thursday     |
-|                  |                     | Mockup          | [x]   | 0.5 hours      | Thursday     |
-|                  |                     | Spoonacular     | [ ]   | 0.5 hours      | Thursday     |
-|                  | **Recipes**         |                 | [ ]   | **11.5 hours** |              |
-|                  |                     | RecipeView      | [ ]   | 2 hours        | Thursday     |
-|                  |                     | RecipeEdit      | [ ]   | 2 hours        | Saturday eve |
-|                  |                     | RecipeSummary   | [ ]   | 0.5 hours      | Saturday eve |
-|                  |                     | NutritionalCard | [ ]   | 3 hours        | Saturday eve |
-|                  |                     | IngredientsView | [ ]   | 2 hours        | Sunday       |
-|                  |                     | IngredientsForm | [ ]   | 2 hours        | Sunday       |
-|                  | **Netlify**         |                 | [ ]   | **2 hours**    | Sunday       |
-|                  | **Login**           |                 | [ ]   | **6 hours**    |              |
-|                  |                     | LoginPage       | [ ]   | 3 hours        | Sunday       |
-|                  |                     | SignUpPage      | [ ]   | 3 hours        | Monday       |
-|                  | **Collections**     |                 | [ ]   | **6 hours**    | Monday       |
-|                  |                     | List            | [ ]   | 2 hours        | Monday       |
-|                  |                     | Recipes         | [ ]   | 2 hours        | Monday       |
-|                  |                     | Create          | [ ]   | 2 hours        | Monday       |
-|                  | **Search**          |                 | [ ]   | **4 hours**    | Monday       |
-|                  |                     | SearchBar       | [ ]   | 3 hours        |              |
-|                  |                     | SearchList      | [ ]   | 1 hours        |              |
-|                  | **Styling**         |                 | [ ]   | **8 hours**    | Tuesday      |
-| **Nice To Have** |                     |                 |       |                |              |
-|                  | **Hamburger**       |                 | [ ]   | **2 hours**    | Tuesday      |
-|                  | **Shop Cart**       |                 | [ ]   | **3 hours**    | Tuesday      |
-|                  | **Calculator**      |                 | [ ]   | **8 hours**    | Wednesday    |
-|                  | **RelatedCarousel** |                 | [ ]   | **1.5 hours**  | Wednesday    |
-|                  | **SocialLinks**     |                 | [ ]   | **1.5 hours**  | Wednesday    |
-| **Future**       |                     |                 |       |                |              |
-|                  | **scroll** \*       |                 | [ ]   |                |              |
-|                  | **postman** \*\*    |                 | [ ]   |                |              |
+| Type             | Feature             | Task            | Done                  | Time           | Day          |
+| ---------------- | ------------------- | --------------- | --------------------- | -------------- | ------------ |
+| **Must Have**    |                     |                 |                       |                |              |
+|                  | **APIs**            |                 | <ul><li>[x]</li></ul> | **3.5 hours**  | Thursday     |
+|                  |                     | Edamam          | <ul><li>[x]</li></ul> | 2 hours        | Thursday     |
+|                  |                     | FDC             | <ul><li>[x]</li></ul> | 0.5 hours      | Thursday     |
+|                  |                     | Mockup          | <ul><li>[x]</li></ul> | 0.5 hours      | Thursday     |
+|                  |                     | Spoonacular     | <ul><li>[ ]</li></ul> | 0.5 hours      | Thursday     |
+|                  | **Recipes**         |                 | <ul><li>[ ]</li></ul> | **11.5 hours** |              |
+|                  |                     | RecipeView      | <ul><li>[ ]</li></ul> | 2 hours        | Thursday     |
+|                  |                     | RecipeEdit      | <ul><li>[ ]</li></ul> | 2 hours        | Saturday eve |
+|                  |                     | RecipeSummary   | <ul><li>[ ]</li></ul> | 0.5 hours      | Saturday eve |
+|                  |                     | NutritionalCard | <ul><li>[ ]</li></ul> | 3 hours        | Saturday eve |
+|                  |                     | IngredientsView | <ul><li>[ ]</li></ul> | 2 hours        | Sunday       |
+|                  |                     | IngredientsForm | <ul><li>[ ]</li></ul> | 2 hours        | Sunday       |
+|                  | **Netlify**         |                 | <ul><li>[ ]</li></ul> | **2 hours**    | Sunday       |
+|                  | **Login**           |                 | <ul><li>[ ]</li></ul> | **6 hours**    |              |
+|                  |                     | LoginPage       | <ul><li>[ ]</li></ul> | 3 hours        | Sunday       |
+|                  |                     | SignUpPage      | <ul><li>[ ]</li></ul> | 3 hours        | Monday       |
+|                  | **Collections**     |                 | <ul><li>[ ]</li></ul> | **6 hours**    | Monday       |
+|                  |                     | List            | <ul><li>[ ]</li></ul> | 2 hours        | Monday       |
+|                  |                     | Recipes         | <ul><li>[ ]</li></ul> | 2 hours        | Monday       |
+|                  |                     | Create          | <ul><li>[ ]</li></ul> | 2 hours        | Monday       |
+|                  | **Search**          |                 | <ul><li>[ ]</li></ul> | **4 hours**    | Monday       |
+|                  |                     | SearchBar       | <ul><li>[ ]</li></ul> | 3 hours        |              |
+|                  |                     | SearchList      | <ul><li>[ ]</li></ul> | 1 hours        |              |
+|                  | **Styling**         |                 | <ul><li>[ ]</li></ul> | **8 hours**    | Tuesday      |
+| **Nice To Have** |                     |                 |                       |                |              |
+|                  | **Hamburger**       |                 | <ul><li>[ ]</li></ul> | **2 hours**    | Tuesday      |
+|                  | **Shop Cart**       |                 | <ul><li>[ ]</li></ul> | **3 hours**    | Tuesday      |
+|                  | **Calculator**      |                 | <ul><li>[ ]</li></ul> | **8 hours**    | Wednesday    |
+|                  | **RelatedCarousel** |                 | <ul><li>[ ]</li></ul> | **1.5 hours**  | Wednesday    |
+|                  | **SocialLinks**     |                 | <ul><li>[ ]</li></ul> | **1.5 hours**  | Wednesday    |
+| **Future**       |                     |                 |                       |                |              |
+|                  | **scroll** \*       |                 | <ul><li>[ ]</li></ul> |                |              |
+|                  | **postman** \*\*    |                 | <ul><li>[ ]</li></ul> |                |              |
 
 #### **Notes**
 
