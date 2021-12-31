@@ -82,8 +82,8 @@ You can find React README [here](./misc/React_README.md).
 |                  |                     | RecipeCard      | :white_check_mark:    | 2 hours        | Thursday     |
 |                  |                     | RecipeView      | :black_square_button: | 2 hours        | Thursday     |
 |                  |                     | RecipeEdit      | :black_square_button: | 2 hours        | Saturday eve |
-|                  |                     | RecipeSummary   | :black_square_button: | 0.5 hours      | Saturday eve |
-|                  |                     | NutritionalCard | :black_square_button: | 3 hours        | Saturday eve |
+|                  |                     | RecipeSummary   | :white_check_mark:    | 0.5 hours      | Saturday eve |
+|                  |                     | NutrientsCard   | :white_check_mark:    | 3 hours        | Saturday eve |
 |                  |                     | IngredientsView | :black_square_button: | 2 hours        | Sunday       |
 |                  |                     | IngredientsForm | :black_square_button: | 2 hours        | Sunday       |
 |                  | **Netlify**         |                 | :black_square_button: | **2 hours**    | Sunday       |

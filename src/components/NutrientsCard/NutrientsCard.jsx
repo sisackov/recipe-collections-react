@@ -41,7 +41,7 @@ const NutrientsCard = ({ nutrients }) => {
 
     return (
         <div className='nutrients-card'>
-            <h3>Nutrinional Values</h3>
+            <h3>Nutritional Values</h3>
             {renderNutrients()}
         </div>
     );

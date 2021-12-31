@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 // import { getRecipes } from '../api/dummy';
 // import RecipeCard from '../components/RecipeCard/RecipeCard';
 import RecipeSummary from '../components/RecipeSummary/RecipeSummary';
