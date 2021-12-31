@@ -12,65 +12,61 @@ You can find React README [here](./misc/React_README.md).
 
 ## System Design
 
--   The **mockup outline** can be found [here](./misc/component-diagrams.drawio)
--   The **component hierarchy trees** can be found [here](./misc/page-view-diagrams.drawio)
--   The diagrams can be opened with [Drawing.io](https://app.diagrams.net/)
+-   The **mockup outline** can be found [here](./misc/page-view-diagram.pdf).
 
-    ### **Components Pseudo Code**
+*   ### **Pages**
 
-    -   ### **Pages**
+    | Page Component    | Page Route                  | Component Hierarchy Tree                                   |
+    | ----------------- | --------------------------- | ---------------------------------------------------------- |
+    | LandingPage       | /                           | [App](./misc/app-diagram.pdf)                              |
+    | LoginPage         | /login                      | [Login](./misc/login-diagram.pdf)                          |
+    | SignUpPage        | /signup                     |                                                            |
+    | Search            | /search                     | [Search](./misc/search-diagram.pdf)                        |
+    | RecipeView        | /recipe/:recipe_id          | [RecipeView](./misc/recipe-view-diagram.pdf)               |
+    | RecipeEdit        | /recipe/edit/:recipe_id     | [RecipeEdit](./misc/recipe-edit-diagram.pdf)               |
+    | CollectionsList   | /collections                | [CollectionsList](./misc/collection-list-diagram.pdf)      |
+    | CollectionRecipes | /collections/:collection_id | [CollectionRecipes](./misc/collection-recipes-diagram.pdf) |
+    | ShopCart          | /cart                       | [ShopCart](./misc/shop-cart-diagram.pdf)                   |
+    | BakingCalculator  | /calculator                 | [BakingCalculator](./misc/calculator-diagram.pdf)          |
 
-        | Page Component    | Page Route                  |
-        | ----------------- | --------------------------- |
-        | LandingPage       | /                           |
-        | LoginPage         | /login                      |
-        | SignUpPage        | /signup                     |
-        | Search            | /search                     |
-        | RecipeView        | /recipe/:recipe_id          |
-        | RecipeEdit        | /recipe/edit/:recipe_id     |
-        | CollectionsList   | /collections                |
-        | CollectionRecipes | /collections/:collection_id |
-        | ShopCart          | /cart                       |
-        | BakingCalculator  | /calculator                 |
+*   ### **Components**
 
-    -   ### **Components**
+    | Component             | Props                                                |
+    | --------------------- | ---------------------------------------------------- |
+    | NavBar                |                                                      |
+    | Footer                |                                                      |
+    | ButtonComponent       | clickHandler, style                                  |
+    | SocialLink            | clickHandler, style                                  |
+    | FormComponent         | array of formObjects`{label,inputType}`, saveHandler |
+    | HamburgerMenu         |                                                      |
+    | SearchBar             |                                                      |
+    | RecipeCard            | recipeData                                           |
+    | RecipeSummary         | recipe ingredients#, prep time, calories#            |
+    | NutritionalCard       | recipe ingredients array                             |
+    | IngredientsView       | recipe ingredients array                             |
+    | RelatedCarousel       | recipe title, ingredients array                      |
+    | IngredientsForm       | recipe ingredients array                             |
+    | CollectionCard        | collectionData`{title, recipeId array }`             |
+    | CollectionRecipesCard | recipeId                                             |
+    | ShopCartForm          | array of cartItems`{ingredient,quantity,unit}`       |
+    | PrintButton           | array of cartItems?????                              |
+    | CalculatorForm        | recipe ingredients array                             |
 
-        | Component             | Props                                                |
-        | --------------------- | ---------------------------------------------------- |
-        | NavBar                |                                                      |
-        | Footer                |                                                      |
-        | ButtonComponent       | clickHandler, style                                  |
-        | SocialLink            | clickHandler, style                                  |
-        | FormComponent         | array of formObjects`{label,inputType}`, saveHandler |
-        | HamburgerMenu         |                                                      |
-        | SearchBar             |                                                      |
-        | RecipeCard            | recipeData                                           |
-        | RecipeSummary         | recipe ingredients#, prep time, calories#            |
-        | NutritionalCard       | recipe ingredients array                             |
-        | IngredientsView       | recipe ingredients array                             |
-        | RelatedCarousel       | recipe title, ingredients array                      |
-        | IngredientsForm       | recipe ingredients array                             |
-        | CollectionCard        | collectionData`{title, recipeId array }`             |
-        | CollectionRecipesCard | recipeId                                             |
-        | ShopCartForm          | array of cartItems`{ingredient,quantity,unit}`       |
-        | PrintButton           | array of cartItems?????                              |
-        | CalculatorForm        | recipe ingredients array                             |
+-   ### **APIs**
 
-    -   ### **APIs**
+    | API           | Call Limits                                         | Documentation                                                |
+    | ------------- | --------------------------------------------------- | ------------------------------------------------------------ |
+    | FDC Food Data | 3,600/hour                                          | [Docs](https://fdc.nal.usda.gov/api-spec/fdc_api.html#/FDC/) |
+    | Edamam        | 10,000/month                                        | [Docs](https://developer.edamam.com/edamam-docs-recipe-api)  |
+    | Spoonacular   | 150 points/day(request = 1, each query param = 0.1) | [Docs](https://spoonacular.com/food-api/docs)                |
+    | TheMealDB     | None                                                | [Docs](https://www.themealdb.com/api.php)                    |
+    | Zestful       | 30/day                                              | [Docs](https://zestfuldata.com/docs)                         |
+    | MockApi       | None                                                | [Docs](https://mockapi.io/docs)                              |
 
-        | API           | Call Limits                                         | Documentation                                                |
-        | ------------- | --------------------------------------------------- | ------------------------------------------------------------ |
-        | FDC Food Data | 3,600/hour                                          | [Docs](https://fdc.nal.usda.gov/api-spec/fdc_api.html#/FDC/) |
-        | Edamam        | 10,000/month                                        | [Docs](https://developer.edamam.com/edamam-docs-recipe-api)  |
-        | Spoonacular   | 150 points/day(request = 1, each query param = 0.1) | [Docs](https://spoonacular.com/food-api/docs)                |
-        | TheMealDB     | None                                                | [Docs](https://www.themealdb.com/api.php)                    |
-        | Zestful       | 30/day                                              | [Docs](https://zestfuldata.com/docs)                         |
-        | MockApi       | None                                                | [Docs](https://mockapi.io/docs)                              |
+-   ### **Contexts**
 
-    -   ### **Contexts**
-
-        -   LoginContext
-        -   WindowSize?
+    -   LoginContext
+    -   WindowSize?
 
 ## **Timeline**
 
