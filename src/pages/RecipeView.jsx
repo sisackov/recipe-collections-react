@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 // import { getRecipes } from '../api/dummy';
 // import RecipeCard from '../components/RecipeCard/RecipeCard';
 import RecipeSummary from '../components/RecipeSummary/RecipeSummary';
-import NutritionCard from '../components/NutritionCard/NutritionCard';
+import NutrientsCard from '../components/NutrientsCard/NutrientsCard';
 // import Spinner from '../components/Spinner/Spinner';
 import '../styles/RecipeView.css';
 import { getLoremIpsum } from '../utils/utils';
@@ -58,8 +58,8 @@ function RecipeView({ recipe }) {
                     </div>
                 </div>
                 <div className='recipe-page__details'>
-                    <p>{getLoremIpsum(7)}</p>
-                    <NutritionCard nutrients={recipe.nutrients} />
+                    <div className='ingredients'>{getLoremIpsum(7)}</div>
+                    <NutrientsCard nutrients={recipe.nutrients} />
                 </div>
             </div>
         );

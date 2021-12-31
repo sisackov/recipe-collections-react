@@ -1,0 +1,30 @@
+.nutrients-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 31%;
+}
+
+.nutrients-card__nutrient {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    margin-bottom: 0.2rem;
+}
+
+.nutrients-card__nutrient-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 0.2rem;
+}
+
+.nutrients-card__nutrient-value {
+    margin-right: 0.2rem;
+}

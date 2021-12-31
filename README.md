@@ -42,7 +42,7 @@ You can find React README [here](./misc/React_README.md).
     | SearchBar             |                                                      |
     | RecipeCard            | recipeData                                           |
     | RecipeSummary         | recipe ingredients#, prep time, calories#            |
-    | NutritionalCard       | recipe ingredients array                             |
+    | NutrientsCard         | recipe ingredients array                             |
     | IngredientsView       | recipe ingredients array                             |
     | RelatedCarousel       | recipe title, ingredients array                      |
     | IngredientsForm       | recipe ingredients array                             |

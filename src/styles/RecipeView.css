@@ -11,5 +11,10 @@
 .recipe-page__description,
 .recipe-page__details {
     display: flex;
+    justify-content: space-between;
     height: fit-content;
+}
+
+.ingredients {
+    width: 50%;
 }

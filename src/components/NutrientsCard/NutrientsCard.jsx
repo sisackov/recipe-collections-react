@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import './NutritionCard.css';
+import './NutrientsCard.css';
 
-const NutritionCard = ({ nutrients }) => {
+const NutrientsCard = ({ nutrients }) => {
     const [data, setData] = useState([]);
     console.log('nutrients: ', nutrients);
 
@@ -32,13 +32,18 @@ const NutritionCard = ({ nutrients }) => {
                         {nutrient.label}
                     </div>
                     <div className='nutrients-card__nutrient-value'>
-                        {nutrient.quantity}
+                        {`${nutrient.quantity} ${nutrient.unit}`}
                     </div>
                 </div>
             );
         });
     };
 
-    return <div className='nutrients-card'>{renderNutrients()}</div>;
+    return (
+        <div className='nutrients-card'>
+            <h3>Nutrinional Values</h3>
+            {renderNutrients()}
+        </div>
+    );
 };
-export default NutritionCard;
+export default NutrientsCard;
