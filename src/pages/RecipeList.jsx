@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getRecipes } from '../api/dummy';
 import RecipeCard from '../components/RecipeCard/RecipeCard';
 import Spinner from '../components/Spinner/Spinner';
-import './RecipeList.css';
+import '../styles/RecipeList.css';
 
 function RecipeList() {
     // const [data, setData] = useState({});

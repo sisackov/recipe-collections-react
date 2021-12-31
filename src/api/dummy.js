@@ -15583,6 +15583,35 @@ export const getRecipes = () => {
     }));
 };
 
+export const getRecipe = (recipe) => {
+    return {
+        id: extractRecipeId(recipe.uri),
+        title: recipe.label,
+        images: recipe.images,
+        servings: recipe.yield,
+        prepTime: recipe.totalTime,
+        calories: recipe.calories && recipe.calories.toFixed(2),
+        cuisineType: recipe.cuisineType,
+        mealType: parseMealType(recipe.mealType) || [],
+        weight: recipe.totalWeight,
+        ingredients: {
+            lines: recipe.ingredientLines,
+            items: recipe.ingredients,
+        },
+        tags: {
+            diet: recipe.dietLabels,
+            health: recipe.healthLabels,
+            cautions: recipe.cautions,
+        },
+        nutrients: recipe.totalNutrients,
+        source: {
+            label: recipe.source,
+            url: recipe.url,
+            link: recipe.shareAs,
+        },
+    };
+};
+
 export const recipeHit = {
     recipe: {
         uri: 'http://www.edamam.com/ontologies/edamam.owl#recipe_8275bb28647abcedef0baaf2dcf34f8b',
