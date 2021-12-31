@@ -7,3 +7,9 @@
     height: 100%;
     background-color: #ddd;
 }
+
+.recipe-page__description,
+.recipe-page__details {
+    display: flex;
+    height: fit-content;
+}

@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 // import { getRecipes } from '../api/dummy';
 // import RecipeCard from '../components/RecipeCard/RecipeCard';
 import RecipeSummary from '../components/RecipeSummary/RecipeSummary';
+import NutritionCard from '../components/NutritionCard/NutritionCard';
 // import Spinner from '../components/Spinner/Spinner';
 import '../styles/RecipeView.css';
+import { getLoremIpsum } from '../utils/utils';
 
 function RecipeView({ recipe }) {
     // const [data, setData] = useState({});
@@ -27,18 +29,37 @@ function RecipeView({ recipe }) {
     //     fetchData();
     // }, []);
 
+    const getImage = (images) => {
+        return (
+            images.REGULAR ||
+            images.SMALL ||
+            images.THUMBNAIL || { url: 'https://via.placeholder.com/150' }
+        );
+    };
+
     const renderRecipe = () => {
         console.log('recipe: ', recipe);
         return (
             <div className='recipe-page'>
-                <div className='recipe-page__title'>{recipe.title}</div>
+                <h1 className='recipe-page__title'>{recipe.title}</h1>
                 <RecipeSummary
                     prepTime={recipe.prepTime}
                     calories={recipe.calories}
                     servings={recipe.servings}
                 />
-                <div className='recipe-page__image'>
-                    <img src={recipe.images.LARGE.url} alt={recipe.title} />
+
+                <div className='recipe-page__description'>
+                    <p>{getLoremIpsum(7)}</p>
+                    <div className='recipe-page__image'>
+                        <img
+                            src={getImage(recipe.images).url}
+                            alt={recipe.title}
+                        />
+                    </div>
+                </div>
+                <div className='recipe-page__details'>
+                    <p>{getLoremIpsum(7)}</p>
+                    <NutritionCard nutrients={recipe.nutrients} />
                 </div>
             </div>
         );
