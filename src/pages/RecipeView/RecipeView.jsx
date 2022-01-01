@@ -8,6 +8,7 @@ import './RecipeView.css';
 import { getLoremIpsum } from '../../utils/utils';
 import IngredientsView from '../../components/IngredientsView/IngredientsView';
 import { useState } from 'react';
+import RelatedItems from '../../components/RelatedItems/RelatedItems';
 
 function RecipeView({ recipe }) {
     const [selectedIngredients, setSelectedIngredients] = useState(
@@ -53,6 +54,7 @@ function RecipeView({ recipe }) {
                     {/* </div> */}
                     <NutrientsCard nutrients={recipe.nutrients} />
                 </div>
+                <RelatedItems recipe={recipe} />
             </div>
         );
     };
