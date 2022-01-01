@@ -34,6 +34,7 @@ function RecipeView({ recipe }) {
             <div className='recipe-page'>
                 <h1 className='recipe-page__title'>{recipe.title}</h1>
                 <div className='recipe-page__subtitle'>
+                    {/* TODO: add TAG components */}
                     <RecipeSummary
                         prepTime={recipe.prepTime}
                         calories={recipe.calories}

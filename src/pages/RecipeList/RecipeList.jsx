@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react';
-import { getEdmamRecipes } from '../../api/dummy';
+import {
+    // getDummyEdmamRecipes,
+    // getDummySpoonacularRecipe,
+    getDummySpoonacularRecipes,
+} from '../../api/dummy';
+import { getSpoonacularComplexSearch } from '../../api/spoonacularAPI';
+// import { getEdamamRecipes } from '../../api/edamamAPI';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import Spinner from '../../components/Spinner/Spinner';
 import './RecipeList.css';
@@ -15,7 +21,11 @@ function RecipeList() {
             console.log('initial fetching...');
             setIsLoading(true);
             try {
-                const data = getEdmamRecipes(); //instead of API call, we are using dummy data
+                // const data = getDummyEdmamRecipes(); //instead of API call, we are using dummy data
+                // const data = await getEdamamRecipes('fish');
+                // const data = await getSpoonacularComplexSearch('', 20);
+                const data = getDummySpoonacularRecipes();
+                console.log('data: ', data);
                 setRecipeList(data);
             } catch (err) {
                 console.log(err.message);
