@@ -43,12 +43,14 @@ function RecipeView({ recipe }) {
                     </div>
                 </div>
                 <div className='recipe-page__details'>
+                    {/* <div> */}
                     <IngredientsView
                         ingredients={recipe.ingredients}
                         selectedIngredients={selectedIngredients}
                         setSelectedIngredients={setSelectedIngredients}
                         isForm={false}
                     />
+                    {/* </div> */}
                     <NutrientsCard nutrients={recipe.nutrients} />
                 </div>
             </div>

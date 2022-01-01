@@ -3,9 +3,47 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* justify-self: flex-start; */
     align-self: flex-start;
 
-    border: 3px solid black;
+    border: 3px solid transparent;
+    box-shadow: tomato 0px 0px 10px;
     border-radius: 10px;
-    width: 70%;
+    margin: 0 0.5rem;
+    width: 68%;
+}
+
+.ingredients-view__ingredient--line {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: flex-start;
+
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+}
+
+.ingredients-view__ingredient--line > input {
+    margin-left: 5px;
+    /* flex: 1; */
+}
+
+.ingredients-view__ingredient--line > span {
+    margin-left: 10px;
+    /* width: max-content; */
+}
+
+.ingredients-view__ingredient--button {
+    /* flex-grow: 1; */
+    /* justify-self: flex-end; */
+    /* align-self: flex-end; */
+    /* width: 15rem; */
+    margin-left: auto;
+}
+
+.ingredients-view__cart-button {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
 }
