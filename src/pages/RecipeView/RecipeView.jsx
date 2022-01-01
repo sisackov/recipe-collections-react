@@ -6,28 +6,13 @@ import NutrientsCard from '../../components/NutrientsCard/NutrientsCard';
 // import Spinner from '../components/Spinner/Spinner';
 import './RecipeView.css';
 import { getLoremIpsum } from '../../utils/utils';
+import IngredientsView from '../../components/IngredientsView/IngredientsView';
+import { useState } from 'react';
 
 function RecipeView({ recipe }) {
-    // const [data, setData] = useState({});
-    // const [recipeList, setRecipeList] = useState([]);
-    // const [isLoading, setIsLoading] = useState(false);
-    // const [errorMessage, setErrorMessage] = useState('');
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         console.log('initial fetching...');
-    //         setIsLoading(true);
-    //         try {
-    //             const data = getRecipes(); //instead of API call, we are using dummy data
-    //             setRecipeList(data);
-    //         } catch (err) {
-    //             console.log(err.message);
-    //         }
-    //         setIsLoading(false);
-    //     };
-
-    //     fetchData();
-    // }, []);
+    const [selectedIngredients, setSelectedIngredients] = useState(
+        Array(recipe.ingredients.lines.length).fill(false)
+    );
 
     const getImage = (images) => {
         return (
@@ -58,7 +43,12 @@ function RecipeView({ recipe }) {
                     </div>
                 </div>
                 <div className='recipe-page__details'>
-                    <div className='ingredients'>{getLoremIpsum(7)}</div>
+                    <IngredientsView
+                        ingredients={recipe.ingredients}
+                        selectedIngredients={selectedIngredients}
+                        setSelectedIngredients={setSelectedIngredients}
+                        isForm={false}
+                    />
                     <NutrientsCard nutrients={recipe.nutrients} />
                 </div>
             </div>

@@ -8,13 +8,17 @@
     background-color: #ddd;
 }
 
-.recipe-page__description,
-.recipe-page__details {
+.recipe-page__description {
     display: flex;
     justify-content: space-between;
     height: fit-content;
 }
 
-.ingredients {
-    width: 50%;
+.recipe-page__details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    /* row-gap: 0.5rem; */
 }
