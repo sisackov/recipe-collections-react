@@ -24,15 +24,34 @@ const NutrientsCard = ({ nutrients }) => {
         flattenNutrients();
     }, [nutrients]);
 
+    const parseQuantity = (quantity, unit) => {
+        if (quantity < 1000) {
+            return `${quantity} ${unit}`;
+        }
+        const normalizedQuantity = (quantity / 1000).toFixed(2);
+        switch (unit) {
+            case 'g':
+                return `${normalizedQuantity} kg`;
+            case 'mg':
+                return `${normalizedQuantity} g`;
+            case 'µg':
+                return `${normalizedQuantity} mg`;
+
+            default:
+                return `${quantity} ${unit}`;
+            // return `${normalizedQuantity} ${unit.slice(1)}`;
+        }
+    };
+
     const renderNutrients = () => {
-        return data.map((nutrient, index) => {
+        return data.map((nutrient) => {
             return (
                 <div className='nutrients-card__nutrient' key={nutrient.key}>
                     <div className='nutrients-card__nutrient-label'>
                         {nutrient.label}
                     </div>
                     <div className='nutrients-card__nutrient-value'>
-                        {`${nutrient.quantity} ${nutrient.unit}`}
+                        {parseQuantity(nutrient.quantity, nutrient.unit)}
                     </div>
                 </div>
             );

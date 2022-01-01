@@ -15554,7 +15554,7 @@ const parseMealType = (mealType) => {
     return mealType.length && mealType[0].split('/');
 };
 
-export const getRecipes = () => {
+export const getEdmamRecipes = () => {
     return hits.map(({ recipe }) => ({
         id: extractRecipeId(recipe.uri),
         title: recipe.label,
@@ -15583,7 +15583,7 @@ export const getRecipes = () => {
     }));
 };
 
-export const getRecipe = (recipe) => {
+export const getEdmamRecipe = (recipe) => {
     return {
         id: extractRecipeId(recipe.uri),
         title: recipe.label,
