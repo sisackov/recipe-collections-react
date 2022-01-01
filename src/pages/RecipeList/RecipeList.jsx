@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { getRecipes } from '../api/dummy';
-import RecipeCard from '../components/RecipeCard/RecipeCard';
-import Spinner from '../components/Spinner/Spinner';
-import '../styles/RecipeList.css';
+import { getEdmamRecipes } from '../../api/dummy';
+import RecipeCard from '../../components/RecipeCard/RecipeCard';
+import Spinner from '../../components/Spinner/Spinner';
+import './RecipeList.css';
 
 function RecipeList() {
     // const [data, setData] = useState({});
@@ -15,7 +15,7 @@ function RecipeList() {
             console.log('initial fetching...');
             setIsLoading(true);
             try {
-                const data = getRecipes(); //instead of API call, we are using dummy data
+                const data = getEdmamRecipes(); //instead of API call, we are using dummy data
                 setRecipeList(data);
             } catch (err) {
                 console.log(err.message);

@@ -1,11 +1,11 @@
 // import { useEffect, useState } from 'react';
 // import { getRecipes } from '../api/dummy';
 // import RecipeCard from '../components/RecipeCard/RecipeCard';
-import RecipeSummary from '../components/RecipeSummary/RecipeSummary';
-import NutrientsCard from '../components/NutrientsCard/NutrientsCard';
+import RecipeSummary from '../../components/RecipeSummary/RecipeSummary';
+import NutrientsCard from '../../components/NutrientsCard/NutrientsCard';
 // import Spinner from '../components/Spinner/Spinner';
-import '../styles/RecipeView.css';
-import { getLoremIpsum } from '../utils/utils';
+import './RecipeView.css';
+import { getLoremIpsum } from '../../utils/utils';
 
 function RecipeView({ recipe }) {
     // const [data, setData] = useState({});
@@ -38,7 +38,7 @@ function RecipeView({ recipe }) {
     };
 
     const renderRecipe = () => {
-        console.log('recipe: ', recipe);
+        // console.log('recipe: ', recipe);
         return (
             <div className='recipe-page'>
                 <h1 className='recipe-page__title'>{recipe.title}</h1>

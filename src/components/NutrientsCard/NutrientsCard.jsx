@@ -3,12 +3,13 @@ import './NutrientsCard.css';
 
 const NutrientsCard = ({ nutrients }) => {
     const [data, setData] = useState([]);
-    console.log('nutrients: ', nutrients);
+    // console.log('nutrients: ', nutrients);
 
     useEffect(() => {
         const flattenNutrients = () => {
             const nutrientData = [];
             Object.keys(nutrients).forEach((key) => {
+                //TODO: move to utils or dataFetching
                 const nutrient = nutrients[key];
                 nutrientData.push({
                     key,
@@ -17,7 +18,7 @@ const NutrientsCard = ({ nutrients }) => {
                     unit: nutrient.unit,
                 });
             });
-            console.log('nutrientData: ', nutrientData);
+            // console.log('nutrientData: ', nutrientData);
             setData(nutrientData);
         };
 

@@ -1,7 +1,7 @@
 import { getEdmamRecipe, hits } from './api/dummy';
-import './App.css';
-// import RecipeList from './pages/RecipeList';
-import RecipeView from './pages/RecipeView';
+import './styles/App.css';
+// import RecipeList from './pages/RecipeList/RecipeList';
+import RecipeView from './pages/RecipeView/RecipeView';
 
 function App() {
     return (
