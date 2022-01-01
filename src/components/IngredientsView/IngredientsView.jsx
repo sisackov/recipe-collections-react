@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import React, { useEffect } from 'react';
 import CheckboxComponent from '../CheckboxComponent/CheckboxComponent';
 import './IngredientsView.css';
@@ -15,10 +15,10 @@ const IngredientsView = ({
     // console.log(lines);
     // console.log(items);
 
-    useEffect(() => {
-        console.log('useEffect');
-        console.log(cartItems);
-    }, [cartItems]);
+    // useEffect(() => {
+    //     console.log('useEffect');
+    //     console.log(cartItems);
+    // }, [cartItems]);
 
     const handleCheckedUpdate = (index) => {
         setSelectedIngredients((prevState) => {

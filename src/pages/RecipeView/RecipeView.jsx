@@ -23,16 +23,34 @@ function RecipeView({ recipe }) {
         );
     };
 
+    const handleAddToCollections = () => {
+        console.log('add to collections');
+        //todo: add to collections
+    };
+
     const renderRecipe = () => {
         // console.log('recipe: ', recipe);
         return (
             <div className='recipe-page'>
                 <h1 className='recipe-page__title'>{recipe.title}</h1>
-                <RecipeSummary
-                    prepTime={recipe.prepTime}
-                    calories={recipe.calories}
-                    servings={recipe.servings}
-                />
+                <div className='recipe-page__subtitle'>
+                    <RecipeSummary
+                        prepTime={recipe.prepTime}
+                        calories={recipe.calories}
+                        servings={recipe.servings}
+                    />
+                    <div className='rps__buttons'>
+                        {/* TODO */}
+                        <button
+                            className='recipe-page--button'
+                            onClick={handleAddToCollections}
+                        >
+                            Add to Collections
+                        </button>
+                        <button className='recipe-page--button'>Edit</button>
+                        <button className='recipe-page--button'>Delete</button>
+                    </div>
+                </div>
 
                 <div className='recipe-page__description'>
                     <p>{getLoremIpsum(7)}</p>
