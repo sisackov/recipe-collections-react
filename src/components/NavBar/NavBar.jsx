@@ -1,39 +1,54 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
+import { auth, logout } from '../../utils/firebase.js';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
-class NavBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cartItemsCount: this.props.cartItemsCount,
-        };
-    }
+const NavBar = (props) => {
+    const [user, loading, error] = useAuthState(auth);
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.cartItemsCount !== this.props.cartItemsCount) {
-            this.setState({ cartItemsCount: this.props.cartItemsCount });
+    useEffect(() => {
+        if (user) {
+            console.log('user', user);
+        } else {
+            console.log('no user');
         }
-    }
+    }, [user]);
 
-    render() {
-        return (
-            <div className='navbar'>
-                <Link className='navbar__item' to='/'>
-                    Home
+    const renderLeftNav = () => {
+        if (user) {
+            return (
+                <div className='nav__left'>
+                    <Link to='/' className='navbar__item'>
+                        Home
+                    </Link>
+                    <Link to='/search' className='navbar__item'>
+                        Search
+                    </Link>
+                    <div className='navbar__item' onClick={logout}>
+                        Logout
+                    </div>
+                </div>
+            );
+        } else {
+            return (
+                <Link to='/login' className='navbar__item'>
+                    Login
                 </Link>
-                <Link className='navbar__item' to='/shop'>
-                    Shop
-                </Link>
-                <Link className='navbar__item' to='/categories'>
-                    Categories
-                </Link>
-                <Link className='navbar__item' to='/checkout'>
-                    {`Cart ${this.state.cartItemsCount}`}
-                </Link>
-            </div>
-        );
-    }
-}
+            );
+        }
+    };
+
+    return (
+        <header className='navbar'>
+            {/* TODO: hamburger menu goes here */}
+            <div className='navbar__title navbar__item'>RecipeCollections</div>
+            {renderLeftNav()}
+            {/* <div className='navbar__item'>About Us</div>
+            <div className='navbar__item'>Contact</div>
+            <div className='navbar__item'>Help</div> */}
+        </header>
+    );
+};
 
 export default NavBar;

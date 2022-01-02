@@ -36,3 +36,14 @@
 .login div {
     margin-top: 7px;
 }
+
+.login__facebook {
+    background-color: #1877f2;
+    cursor: pointer;
+}
+
+.login__facebook img {
+    height: 24px;
+    aspect-ratio: auto 24 / 24;
+    width: 24px;
+}

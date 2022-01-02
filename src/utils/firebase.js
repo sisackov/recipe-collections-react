@@ -3,8 +3,6 @@
 
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { getAnalytics } from 'firebase/analytics';
-// import { GoogleAuthProvider } from 'firebase/auth';
 import {
     getAuth,
     signInWithPopup,
@@ -16,8 +14,9 @@ import {
     FacebookAuthProvider,
     firestore,
 } from 'firebase/auth';
+import { useContext } from 'react';
+import { UserContext } from '../hooks/UserProvider';
 
-const provider = new GoogleAuthProvider();
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -76,7 +75,7 @@ const signInWithFacebook = async () => {
 
 const signInWithEmailAndPassword = async (email, password) => {
     try {
-        await auth.signInWithEmailAndPassword(email, password);
+        // await auth.signInWithEmailAndPassword(email, password);
 
         const userCredential = await signInWithEmailAndPasswordAuth(
             auth,
@@ -123,9 +122,11 @@ const sendPasswordResetEmail = async (email) => {
     }
 };
 
-const logout = () => {
-    // auth.signOut();
-    signOut(auth);
+const logout = async () => {
+    await signOut(auth);
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    // return res;
 };
 
 export {

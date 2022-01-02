@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import fb_login from '../../assets/images/fb_login.png';
 import {
     auth,
     signInWithEmailAndPassword,
@@ -53,12 +54,14 @@ function Login() {
                 >
                     Login with Google
                 </button>
-                <button
+
+                <div
                     className='login__btn login__facebook'
                     onClick={signInWithFacebook}
                 >
+                    <img class='img' src={fb_login} alt='fb_login' />
                     Login with Facebook
-                </button>
+                </div>
                 <div>
                     <Link to='/reset'>Forgot Password</Link>
                 </div>

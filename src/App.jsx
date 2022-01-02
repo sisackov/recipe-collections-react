@@ -1,12 +1,12 @@
 // import { getDummySpoonacularRecipes } from './api/dummy';
 // import { getDummySpoonacularRecipes, getEdmamRecipe, hits } from './api/dummy';
 import './styles/App.css';
-// import RecipeList from './pages/RecipeList/RecipeList';
-// import RecipeView from './pages/RecipeView/RecipeView';
+import RecipeList from './pages/RecipeList/RecipeList';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Reset from './pages/Reset/Reset';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
     return (
@@ -16,7 +16,9 @@ function App() {
             {/* <RecipeView recipe={getDummySpoonacularRecipes()[4]} /> */}
 
             <Router>
+                <NavBar />
                 <Switch>
+                    <Route exact path='/' component={RecipeList} />
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/register' component={Register} />
                     <Route exact path='/reset' component={Reset} />
