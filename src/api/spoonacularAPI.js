@@ -130,12 +130,23 @@ const getSpoonacularAutocomplete = async (query, numOfResults) => {
     return data.results;
 };
 
+const getSpoonacularSimilar = async (id, numOfRecipes) => {
+    const { data } = await spoonacularAPI.get(`${id}/similar`, {
+        params: {
+            number: numOfRecipes,
+        },
+    });
+    console.log('getSpoonacularSimilar', data);
+    return mapSpoonacularId(data);
+};
+
 export {
     getSpoonacularComplexSearch,
     getSpoonacularRecipeInfo,
     getSpoonacularRecipeInfoBulk,
     getSpoonacularRandomRecipes,
     getSpoonacularAutocomplete,
+    getSpoonacularSimilar,
 };
 
 //Get Similar Recipes - 1 point and 0.01 points per recipe returned

@@ -1,26 +1,41 @@
 import { useCallback, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useRef } from 'react/cjs/react.development';
+import { getSpoonacularSimilar } from '../../api/spoonacularAPI';
+import Spinner from '../Spinner/Spinner';
 import './RelatedItems.css';
 
-function RelatedItems({ recipe }) {
-    const [data, setData] = useState([]);
+// const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+const corsProxy = 'https://intense-mesa-62220.herokuapp.com/';
 
-    const fakeData = useCallback(() => {
-        return Array(5).fill({
-            title: recipe.title,
-            imageUrl: recipe.image,
-        });
-    }, [recipe]);
+function RelatedItems({ recipe }) {
+    const recipeId = useRef(recipe.id);
+    const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
 
     useEffect(() => {
-        // console.log('useEffect');
-        // console.log(data);
-        //TODO: get data from API
-        const newData = fakeData();
-        console.log('newData: ', newData);
-        setData(newData);
-    }, [fakeData]);
+        const fetchData = async () => {
+            setIsLoading(true);
+            try {
+                const res = await getSpoonacularSimilar(recipeId.current);
+                console.log('getSpoonacularSimilar: ', recipeId.current);
+                console.log('RelatedItems data: ', res);
+                setData(res);
+            } catch (err) {
+                // console.log(err.message);
+                setErrorMsg(err.message);
+            }
+            setIsLoading(false);
+        };
+
+        fetchData();
+    }, []);
 
     const renderItems = () => {
+        if (isLoading) return <Spinner />;
+        if (errorMsg) return <div className='error-message'>{errorMsg}</div>;
+
         return data.map((item, index) => {
             return (
                 <div
@@ -28,11 +43,19 @@ function RelatedItems({ recipe }) {
                     key={`related-items-${item.title}${index}`}
                 >
                     <div className='related-items__list--item__image'>
-                        <img src={item.imageUrl} alt={item.title} />
+                        <img
+                            src={`${corsProxy}${item.sourceUrl}`}
+                            alt={item.sourceUrl}
+                        />
                     </div>
                     <div className='related-items__list--item__title'>
                         {item.title}
                     </div>
+                    <Link to={`/recipe/${item.recipeId}`}>
+                        <div className='related-items__list--item__link'>
+                            View Recipe
+                        </div>
+                    </Link>
                 </div>
             );
         });
