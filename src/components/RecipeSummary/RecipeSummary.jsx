@@ -17,7 +17,8 @@ const RecipeSummary = ({ prepTime, calories, servings }) => {
     return (
         <div className='recipe-summary'>
             {getSummaryItem('Preparation Time', prepTime, ' minutes')}
-            {getSummaryItem('Calories', calories, ' kcal')}
+            {/* {getSummaryItem('Calories', calories, ' kcal')} */}
+            {getSummaryItem('Calories', calories)}
             {getSummaryItem('Serve', servings, ' servings')}
         </div>
     );

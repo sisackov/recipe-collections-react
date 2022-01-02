@@ -27,3 +27,10 @@ const loremIpsumArray = [
 export function getLoremIpsum(count) {
     return loremIpsumArray.slice(0, count).join('');
 }
+
+export const getCaloriesInSpoonacular = (recipe) => {
+    const calories = recipe.nutrition.nutrients.find(
+        (nutrient) => nutrient.title === 'Calories'
+    );
+    return calories ? `${calories.amount} ${calories.unit}` : 0;
+};

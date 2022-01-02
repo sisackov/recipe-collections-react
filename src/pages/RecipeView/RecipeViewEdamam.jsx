@@ -1,21 +1,27 @@
 // import { useEffect, useState } from 'react';
 // import { getRecipes } from '../api/dummy';
 // import RecipeCard from '../components/RecipeCard/RecipeCard';
-import parse from 'html-react-parser';
 import RecipeSummary from '../../components/RecipeSummary/RecipeSummary';
 import NutrientsCard from '../../components/NutrientsCard/NutrientsCard';
 // import Spinner from '../components/Spinner/Spinner';
 import './RecipeView.css';
-import { getCaloriesInSpoonacular } from '../../utils/utils';
+import { getLoremIpsum } from '../../utils/utils';
 import IngredientsView from '../../components/IngredientsView/IngredientsView';
 import { useState } from 'react';
 import RelatedItems from '../../components/RelatedItems/RelatedItems';
 
 function RecipeView({ recipe }) {
-    // console.log('recipe: ', recipe);
     const [selectedIngredients, setSelectedIngredients] = useState(
-        Array(recipe.extendedIngredients.length).fill(false)
+        Array(recipe.ingredients.lines.length).fill(false)
     );
+
+    const getImage = (images) => {
+        return (
+            images.REGULAR ||
+            images.SMALL ||
+            images.THUMBNAIL || { url: 'https://via.placeholder.com/150' }
+        );
+    };
 
     const handleAddToCollections = () => {
         console.log('add to collections');
@@ -31,7 +37,7 @@ function RecipeView({ recipe }) {
                     {/* TODO: add TAG components */}
                     <RecipeSummary
                         prepTime={recipe.prepTime}
-                        calories={getCaloriesInSpoonacular(recipe)}
+                        calories={recipe.calories}
                         servings={recipe.servings}
                     />
                     <div className='rps__buttons'>
@@ -48,24 +54,24 @@ function RecipeView({ recipe }) {
                 </div>
 
                 <div className='recipe-page__description'>
-                    <div className='recipe-page__description--p'>
-                        {parse(recipe.summary)}
-                    </div>
-                    <div className='recipe-page__description--image'>
-                        <img src={recipe.image} alt={recipe.title} />
+                    <p>{getLoremIpsum(7)}</p>
+                    <div className='recipe-page__image'>
+                        <img
+                            src={getImage(recipe.images).url}
+                            alt={recipe.title}
+                        />
                     </div>
                 </div>
                 <div className='recipe-page__details'>
                     {/* <div> */}
                     <IngredientsView
-                        ingredients={recipe.extendedIngredients}
+                        ingredients={recipe.ingredients}
                         selectedIngredients={selectedIngredients}
                         setSelectedIngredients={setSelectedIngredients}
                         isForm={false}
                     />
                     {/* </div> */}
-                    {/* <NutrientsCard nutrients={recipe.nutrients} /> */}
-                    <NutrientsCard nutrients={recipe.nutrition.nutrients} />
+                    <NutrientsCard nutrients={recipe.nutrients} />
                 </div>
                 <RelatedItems recipe={recipe} />
             </div>

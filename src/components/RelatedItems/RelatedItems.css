@@ -4,3 +4,9 @@
     justify-content: space-between;
     width: 100%;
 }
+
+.related-items__list--item__image img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}

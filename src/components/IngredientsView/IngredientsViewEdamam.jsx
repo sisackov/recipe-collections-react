@@ -4,7 +4,8 @@ import CheckboxComponent from '../CheckboxComponent/CheckboxComponent';
 import './IngredientsView.css';
 
 const IngredientsView = ({
-    ingredients,
+    ingredients: { lines },
+    ingredients: { items },
     selectedIngredients,
     setSelectedIngredients,
     isForm,
@@ -29,12 +30,22 @@ const IngredientsView = ({
 
     const handleCartUpdate = (index) => {
         if (index < 0) {
-            const newCartItems = [...ingredients];
+            const newCartItems = lines.map((line, i) => {
+                return {
+                    line,
+                    index: i,
+                    ingredients: items[i],
+                };
+            });
             console.log('newCartItems: ', newCartItems);
             setCartItems(newCartItems);
             setIsAllInCart(true);
         } else {
-            const newItem = ingredients[index];
+            const newItem = {
+                line: lines[index],
+                index,
+                ingredients: items[index],
+            };
             const updatedCartItems = [...cartItems];
             const itemIndex = cartItems.findIndex(
                 (item) => item.index === index
@@ -49,19 +60,18 @@ const IngredientsView = ({
     const ingredientsList = () => {
         return (
             !isForm &&
-            ingredients.map((ingredient, index) => {
-                // console.log('ingredient: ', ingredient);
+            lines.map((ingredient, index) => {
                 return (
                     <div
                         className='ingredients-view__ingredient--line'
-                        key={`ingredient-${ingredient.originalString}`}
+                        key={`ingredient-${ingredient}`}
                     >
                         <CheckboxComponent
                             isChecked={selectedIngredients[index]}
                             updateChecked={() => handleCheckedUpdate(index)}
                             index={index}
                         />
-                        <span>{ingredient.original}</span>
+                        <span>{ingredient}</span>
                         <button
                             className='ingredients-view__ingredient--button'
                             disabled={isAllInCart}

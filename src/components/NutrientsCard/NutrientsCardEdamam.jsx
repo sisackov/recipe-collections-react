@@ -1,7 +1,29 @@
+import { useEffect, useState } from 'react';
 import './NutrientsCard.css';
 
 const NutrientsCard = ({ nutrients }) => {
+    const [data, setData] = useState([]);
     // console.log('nutrients: ', nutrients);
+
+    useEffect(() => {
+        const flattenNutrients = () => {
+            const nutrientData = [];
+            Object.keys(nutrients).forEach((key) => {
+                //TODO: move to utils or dataFetching
+                const nutrient = nutrients[key];
+                nutrientData.push({
+                    key,
+                    label: nutrient.label,
+                    quantity: nutrient.quantity.toFixed(2),
+                    unit: nutrient.unit,
+                });
+            });
+            // console.log('nutrientData: ', nutrientData);
+            setData(nutrientData);
+        };
+
+        flattenNutrients();
+    }, [nutrients]);
 
     const parseQuantity = (quantity, unit) => {
         if (quantity < 1000) {
@@ -23,14 +45,14 @@ const NutrientsCard = ({ nutrients }) => {
     };
 
     const renderNutrients = () => {
-        return nutrients.map((nutrient) => {
+        return data.map((nutrient) => {
             return (
-                <div className='nutrients-card__nutrient' key={nutrient.name}>
+                <div className='nutrients-card__nutrient' key={nutrient.key}>
                     <div className='nutrients-card__nutrient-label'>
-                        {nutrient.title}
+                        {nutrient.label}
                     </div>
                     <div className='nutrients-card__nutrient-value'>
-                        {parseQuantity(nutrient.amount, nutrient.unit)}
+                        {parseQuantity(nutrient.quantity, nutrient.unit)}
                     </div>
                 </div>
             );

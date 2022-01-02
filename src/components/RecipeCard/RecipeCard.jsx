@@ -1,3 +1,4 @@
+import { getCaloriesInSpoonacular } from '../../utils/utils';
 import './RecipeCard.css';
 
 const RecipeCard = ({ recipe }) => {
@@ -17,7 +18,7 @@ const RecipeCard = ({ recipe }) => {
             <div className='recipe-card__title'>{recipe.title}</div>
             <div className='recipe-card__description'>
                 <p>Preparation Time: {recipe.readyInMinutes} minutes</p>
-                <p>Calories: {getCalories()}</p>
+                <p>Calories: {getCaloriesInSpoonacular(recipe)}</p>
                 <p>Serve: {recipe.servings} servings</p>
             </div>
         </div>

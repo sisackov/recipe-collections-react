@@ -5,11 +5,9 @@ function RelatedItems({ recipe }) {
     const [data, setData] = useState([]);
 
     const fakeData = useCallback(() => {
-        return recipe.ingredients.lines.map((line) => {
-            return {
-                title: line,
-                imageUrl: recipe.images.THUMBNAIL.url,
-            };
+        return Array(5).fill({
+            title: recipe.title,
+            imageUrl: recipe.image,
         });
     }, [recipe]);
 
@@ -18,15 +16,16 @@ function RelatedItems({ recipe }) {
         // console.log(data);
         //TODO: get data from API
         const newData = fakeData();
+        console.log('newData: ', newData);
         setData(newData);
     }, [fakeData]);
 
     const renderItems = () => {
-        return data.map((item) => {
+        return data.map((item, index) => {
             return (
                 <div
                     className='related-items__list--item'
-                    key={`related-items-${item.title}`}
+                    key={`related-items-${item.title}${index}`}
                 >
                     <div className='related-items__list--item__image'>
                         <img src={item.imageUrl} alt={item.title} />
