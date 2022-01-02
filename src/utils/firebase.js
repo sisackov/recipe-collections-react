@@ -6,16 +6,16 @@ import { getFirestore } from 'firebase/firestore';
 import {
     getAuth,
     signInWithPopup,
-    signInWithRedirect,
+    // signInWithRedirect,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword as signInWithEmailAndPasswordAuth,
     signOut,
     GoogleAuthProvider,
     FacebookAuthProvider,
-    firestore,
+    // firestore,
 } from 'firebase/auth';
-import { useContext } from 'react';
-import { UserContext } from '../hooks/UserProvider';
+// import { useContext } from 'react';
+// import { UserContext } from '../hooks/UserProvider';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -33,7 +33,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 

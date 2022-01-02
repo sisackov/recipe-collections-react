@@ -19,12 +19,12 @@ const NavBar = (props) => {
         if (user) {
             return (
                 <div className='nav__left'>
-                    <Link to='/' className='navbar__item'>
-                        Home
-                    </Link>
-                    <Link to='/search' className='navbar__item'>
-                        Search
-                    </Link>
+                    <div className='navbar__item'>
+                        <Link to='/'>Home</Link>
+                    </div>
+                    <div className='navbar__item'>
+                        <Link to='/search'>Search</Link>
+                    </div>
                     <div className='navbar__item' onClick={logout}>
                         Logout
                     </div>
@@ -44,9 +44,6 @@ const NavBar = (props) => {
             {/* TODO: hamburger menu goes here */}
             <div className='navbar__title navbar__item'>RecipeCollections</div>
             {renderLeftNav()}
-            {/* <div className='navbar__item'>About Us</div>
-            <div className='navbar__item'>Contact</div>
-            <div className='navbar__item'>Help</div> */}
         </header>
     );
 };

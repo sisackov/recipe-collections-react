@@ -29,8 +29,20 @@
     padding: 12px 16px;
 }
 
+.nav__left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .navbar__item {
+    font-size: 1.1rem;
     padding: 16px 16px;
     cursor: pointer;
     vertical-align: middle;
+}
+
+.navbar__item > Link {
+    text-decoration: none;
+    color: white;
 }

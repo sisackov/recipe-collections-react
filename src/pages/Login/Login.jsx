@@ -13,7 +13,7 @@ import './Login.css';
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const history = useHistory();
 
     useEffect(() => {
@@ -23,7 +23,7 @@ function Login() {
         }
         if (user) history.replace('/');
         //TODO:  if user is logged in - update login context and redirect to landing page
-    }, [user, loading]);
+    }, [user, loading, history]);
 
     return (
         <div className='login'>

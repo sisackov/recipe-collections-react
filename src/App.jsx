@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Reset from './pages/Reset/Reset';
+import RecipeView from './pages/RecipeView/RecipeView';
 import NavBar from './components/NavBar/NavBar';
 
 function App() {
@@ -22,6 +23,11 @@ function App() {
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/register' component={Register} />
                     <Route exact path='/reset' component={Reset} />
+                    <Route
+                        exact
+                        path='/recipe/:recipeId'
+                        component={RecipeView}
+                    />
                 </Switch>
             </Router>
         </div>
