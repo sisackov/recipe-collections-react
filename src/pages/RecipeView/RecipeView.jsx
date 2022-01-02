@@ -10,6 +10,8 @@ import { getCaloriesInSpoonacular } from '../../utils/utils';
 import IngredientsView from '../../components/IngredientsView/IngredientsView';
 import { useState } from 'react';
 import RelatedItems from '../../components/RelatedItems/RelatedItems';
+import InstructionsView from '../../components/InstructionsView/InstructionsView';
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
 
 function RecipeView({ recipe }) {
     // console.log('recipe: ', recipe);
@@ -30,20 +32,29 @@ function RecipeView({ recipe }) {
                 <div className='recipe-page__subtitle'>
                     {/* TODO: add TAG components */}
                     <RecipeSummary
-                        prepTime={recipe.prepTime}
+                        prepTime={recipe.readyInMinutes}
                         calories={getCaloriesInSpoonacular(recipe)}
                         servings={recipe.servings}
                     />
                     <div className='rps__buttons'>
                         {/* TODO */}
-                        <button
-                            className='recipe-page--button'
-                            onClick={handleAddToCollections}
-                        >
-                            Add to Collections
-                        </button>
-                        <button className='recipe-page--button'>Edit</button>
-                        <button className='recipe-page--button'>Delete</button>
+                        <ButtonComponent
+                            label='Add to collections'
+                            clickHandler={handleAddToCollections}
+                            styleName='btn-primary btn--green'
+                        />
+                        <ButtonComponent
+                            label='Edit'
+                            clickHandler={handleAddToCollections}
+                            styleName='btn-primary btn--orangered'
+                            // styleName='recipe-page--button'
+                        />
+                        <ButtonComponent
+                            label='Delete'
+                            clickHandler={handleAddToCollections}
+                            styleName='btn-primary btn--orangered'
+                            // styleName='recipe-page--button'
+                        />
                     </div>
                 </div>
 
@@ -56,16 +67,22 @@ function RecipeView({ recipe }) {
                     </div>
                 </div>
                 <div className='recipe-page__details'>
-                    {/* <div> */}
-                    <IngredientsView
-                        ingredients={recipe.extendedIngredients}
-                        selectedIngredients={selectedIngredients}
-                        setSelectedIngredients={setSelectedIngredients}
-                        isForm={false}
-                    />
-                    {/* </div> */}
-                    {/* <NutrientsCard nutrients={recipe.nutrients} /> */}
-                    <NutrientsCard nutrients={recipe.nutrition.nutrients} />
+                    <div className='rpd--left'>
+                        <IngredientsView
+                            ingredients={recipe.extendedIngredients}
+                            selectedIngredients={selectedIngredients}
+                            setSelectedIngredients={setSelectedIngredients}
+                            isForm={false}
+                        />
+                        <InstructionsView
+                            instructions={recipe.analyzedInstructions[0].steps}
+                            isForm={false}
+                        />
+                    </div>
+                    <div className='rpd--right'>
+                        {/* <NutrientsCard nutrients={recipe.nutrients} /> */}
+                        <NutrientsCard nutrients={recipe.nutrition.nutrients} />
+                    </div>
                 </div>
                 <RelatedItems recipe={recipe} />
             </div>

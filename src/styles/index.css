@@ -13,3 +13,33 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
+
+hr {
+    border: 0;
+    clear: both;
+    display: block;
+    width: 96%;
+    background-color: #ffff00;
+    height: 1px;
+}
+
+/* Dashed border */
+hr.dashed {
+    border-top: 3px dashed #333;
+}
+
+/* Dotted border */
+hr.dotted {
+    border-top: 3px dotted #333;
+}
+
+/* Solid border */
+hr.solid {
+    border-top: 3px solid #333;
+}
+
+/* Rounded border */
+hr.rounded {
+    border-top: 8px solid #333;
+    border-radius: 5px;
+}

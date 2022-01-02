@@ -30,8 +30,12 @@ export const getSpoonacularComplexSearch = async (query = '', count = 0) => {
                 addRecipeNutrition: true,
             },
         });
-        // console.log('getSpoonacularComplexSearch', data.results);
-        return data.results;
+        return data.results.map((item) => {
+            return {
+                recipeId: `sponacular-${item.id}`,
+                ...item,
+            };
+        });
     } catch (error) {
         console.log(error);
     }

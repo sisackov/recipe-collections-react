@@ -16433,6 +16433,7 @@ export const recipeHit = {
 
 export const spoonacularRecipesComplex = [
     {
+        recipeId: 'sponacular-716426',
         vegetarian: true,
         vegan: true,
         glutenFree: true,
@@ -20568,6 +20569,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-715594',
         vegetarian: true,
         vegan: true,
         glutenFree: false,
@@ -22379,6 +22381,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-715497',
         vegetarian: true,
         vegan: false,
         glutenFree: false,
@@ -24150,6 +24153,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-644387',
         vegetarian: true,
         vegan: true,
         glutenFree: true,
@@ -25577,6 +25581,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-716268',
         vegetarian: false,
         vegan: false,
         glutenFree: true,
@@ -30235,6 +30240,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-716381',
         vegetarian: false,
         vegan: false,
         glutenFree: true,
@@ -33541,6 +33547,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-782601',
         vegetarian: true,
         vegan: true,
         glutenFree: true,
@@ -39490,6 +39497,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-794349',
         vegetarian: true,
         vegan: true,
         glutenFree: true,
@@ -44630,6 +44638,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-715446',
         vegetarian: false,
         vegan: false,
         glutenFree: true,
@@ -47739,6 +47748,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-715415',
         vegetarian: false,
         vegan: false,
         glutenFree: true,
@@ -51824,6 +51834,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-766453',
         vegetarian: true,
         vegan: true,
         glutenFree: true,
@@ -54886,6 +54897,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-716627',
         vegetarian: true,
         vegan: true,
         glutenFree: true,
@@ -57928,6 +57940,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-716408',
         vegetarian: false,
         vegan: false,
         glutenFree: true,
@@ -61828,6 +61841,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-795751',
         vegetarian: false,
         vegan: false,
         glutenFree: true,
@@ -65441,6 +65455,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-640941',
         vegetarian: true,
         vegan: false,
         glutenFree: true,
@@ -67830,6 +67845,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-798400',
         vegetarian: true,
         vegan: true,
         glutenFree: true,
@@ -72453,6 +72469,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-756814',
         vegetarian: false,
         vegan: false,
         glutenFree: true,
@@ -75292,6 +75309,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-729366',
         vegetarian: false,
         vegan: false,
         glutenFree: true,
@@ -78585,6 +78603,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-715769',
         vegetarian: true,
         vegan: true,
         glutenFree: true,
@@ -80877,6 +80896,7 @@ export const spoonacularRecipesComplex = [
         unusedIngredients: [],
     },
     {
+        recipeId: 'sponacular-782600',
         vegetarian: true,
         vegan: true,
         glutenFree: true,

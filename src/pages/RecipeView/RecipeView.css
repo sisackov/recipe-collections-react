@@ -19,19 +19,32 @@
     /* margin: 0 0.5rem; */
 }
 
-.recipe-page__description--p {
-    /* justify-self: flex-start; */
-    text-align: start;
+.recipe-page__details {
+    display: flex;
+    /* justify-content: center; */
+    align-items: flex-start;
+    /* align-content: center; */
+    /* padding: 0.2rem; */
+    width: 100%;
+    margin: 0 0.5rem;
+}
+
+.rpd--left {
+    align-self: flex-start;
+    width: 68%;
+}
+
+.rpd--right {
+    align-self: flex-start;
+    width: 30%;
 }
 
 .rps__buttons {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     column-gap: 10px;
-    justify-self: flex-end;
+    /* justify-self: flex-end; */
     align-self: center;
-    /* text-align: end; */
-    /* margin-left: auto; */
     width: 100%;
 }
 

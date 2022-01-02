@@ -9,17 +9,15 @@
     border: 3px solid transparent;
     box-shadow: tomato 0px 0px 10px;
     border-radius: 10px;
-    margin: 0 0.5rem;
-    width: 68%;
+    /* margin: 0 0.5rem; */
+    /* width: 100%; */
 }
 
 .ingredients-view__ingredient--line {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    align-self: flex-start;
-
+    flex-wrap: wrap;
+    align-items: flex-start;
     font-size: 1.2rem;
     line-height: 1.7rem;
 }

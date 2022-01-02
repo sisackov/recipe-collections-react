@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-// import React, { useEffect } from 'react';
-import CheckboxComponent from '../CheckboxComponent/CheckboxComponent';
 import './IngredientsView.css';
 
 const IngredientsView = ({
@@ -11,21 +9,6 @@ const IngredientsView = ({
 }) => {
     const [cartItems, setCartItems] = useState([]);
     const [isAllInCart, setIsAllInCart] = useState(false);
-    // console.log(lines);
-    // console.log(items);
-
-    // useEffect(() => {
-    //     console.log('useEffect');
-    //     console.log(cartItems);
-    // }, [cartItems]);
-
-    const handleCheckedUpdate = (index) => {
-        setSelectedIngredients((prevState) => {
-            const newState = [...prevState];
-            newState[index] = !newState[index];
-            return newState;
-        });
-    };
 
     const handleCartUpdate = (index) => {
         if (index < 0) {
@@ -52,27 +35,20 @@ const IngredientsView = ({
             ingredients.map((ingredient, index) => {
                 // console.log('ingredient: ', ingredient);
                 return (
-                    <div
-                        className='ingredients-view__ingredient--line'
-                        key={`ingredient-${ingredient.originalString}`}
-                    >
-                        <CheckboxComponent
-                            isChecked={selectedIngredients[index]}
-                            updateChecked={() => handleCheckedUpdate(index)}
-                            index={index}
-                        />
-                        <span>{ingredient.original}</span>
-                        <button
-                            className='ingredients-view__ingredient--button'
-                            disabled={isAllInCart}
-                            onClick={() => {
-                                handleCartUpdate(index);
-                            }}
-                        >
-                            {/* <i className='fas fa-plus'></i> */}
-                            Add To Cart
-                        </button>
-                    </div>
+                    <li key={`ingredient-${ingredient.originalString}`}>
+                        <div className='ingredients-view__ingredient--line'>
+                            <span>{ingredient.original}</span>
+                            <button
+                                className='ingredients-view__ingredient--button'
+                                disabled={isAllInCart}
+                                onClick={() => {
+                                    handleCartUpdate(index);
+                                }}
+                            >
+                                Add To Cart
+                            </button>
+                        </div>
+                    </li>
                 );
             })
         );
@@ -81,7 +57,9 @@ const IngredientsView = ({
     return (
         <div className='ingredients-container'>
             <h3>Ingredient List</h3>
-            {ingredientsList()}
+            <ol className='ingredients-view__ingredient-list'>
+                {ingredientsList()}
+            </ol>
             <button
                 className='ingredients-view__cart-button'
                 onClick={() => {
