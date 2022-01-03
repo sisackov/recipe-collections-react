@@ -1,21 +1,21 @@
-// Import the functions you need from the SDKs you need
-// import firebase from 'firebase';
-
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import {
+    collection,
+    doc,
+    getDoc,
+    getDocs,
+    getFirestore,
+    setDoc,
+} from 'firebase/firestore';
 import {
     getAuth,
     signInWithPopup,
-    // signInWithRedirect,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword as signInWithEmailAndPasswordAuth,
     signOut,
     GoogleAuthProvider,
     FacebookAuthProvider,
-    // firestore,
 } from 'firebase/auth';
-// import { useContext } from 'react';
-// import { UserContext } from '../hooks/UserProvider';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -37,6 +37,9 @@ initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 
+//****************************************************************************/
+//**                  Login Functions                                       **/
+//****************************************************************************/
 const googleProvider = new GoogleAuthProvider();
 const signInWithGoogle = async () => {
     try {
@@ -55,7 +58,6 @@ const signInWithGoogle = async () => {
 };
 
 //TODO: handle errors
-
 const facebookProvider = new FacebookAuthProvider();
 const signInWithFacebook = async () => {
     try {
@@ -129,6 +131,44 @@ const logout = async () => {
     // return res;
 };
 
+//****************************************************************************/
+//**                  Firestore database Functions                          **/
+//****************************************************************************/
+const getUsersFirestore = async () => {
+    const querySnapshot = await getDocs(collection(db, 'users'));
+    const userData = [];
+    querySnapshot.forEach((collDoc) => {
+        userData.push(collDoc.data());
+    });
+    return userData;
+};
+
+const getUserByIdFirestore = async (userId) => {
+    const docRef = doc(db, 'users', userId);
+    const docSnap = await getDoc(docRef);
+    return docSnap.data();
+};
+
+const setUserFirestore = async (userId, userData) => {
+    return setDoc(doc(db, 'users', userId), userData);
+};
+
+const isUserExists = async (userId) => {
+    const docRef = doc(db, 'users', userId);
+    const docSnap = await getDoc(docRef);
+    return docSnap.exists();
+};
+
+const setRecipeInFirestore = async (recipeId, recipe) => {
+    return setDoc(doc(db, 'recipes', recipeId), recipe);
+};
+
+const isRecipeExists = async (recipeId) => {
+    const docRef = doc(db, 'recipes', recipeId);
+    const docSnap = await getDoc(docRef);
+    return docSnap.exists();
+};
+
 export {
     auth,
     db,
@@ -138,4 +178,10 @@ export {
     registerWithEmailAndPassword,
     sendPasswordResetEmail,
     logout,
+    getUsersFirestore,
+    getUserByIdFirestore,
+    setUserFirestore,
+    isUserExists,
+    setRecipeInFirestore,
+    isRecipeExists,
 };

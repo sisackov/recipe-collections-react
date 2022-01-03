@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
 import { auth, logout } from '../../utils/firebase.js';
@@ -7,13 +7,13 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 const NavBar = (props) => {
     const [user /* , loading, error */] = useAuthState(auth);
 
-    useEffect(() => {
-        if (user) {
-            console.log('user', user);
-        } else {
-            console.log('no user');
-        }
-    }, [user]);
+    // useEffect(() => {
+    //     if (user) {
+    //         console.log('user', user);
+    //     } else {
+    //         console.log('no user');
+    //     }
+    // }, [user]);
 
     const renderLeftNav = () => {
         if (user) {

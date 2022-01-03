@@ -1,19 +1,27 @@
 import axios from 'axios';
 
 const mockAPI = axios.create({
-    baseURL: 'https://61c5b1c3c003e70017b79865.mockapi.io/', //gmail account
+    baseURL: 'https://61d2c38eb4c10c001712b58c.mockapi.io/', //gmail account
 });
 
-export const getUserList = async () => {
-    try {
-        const response = await mockAPI.get('users');
-        return response.data.map((user) => ({
-            id: user.id,
-            name: user.name,
-            email: user.email,
-        }));
-    } catch (error) {
-        console.log(error);
-    }
-    return [];
+const getUsers = async () => {
+    const response = await mockAPI.get('users');
+    return response.data;
 };
+
+const getUser = async (id) => {
+    const response = await mockAPI.get(`users/${id}`);
+    return response.data;
+};
+
+const postUser = async (user) => {
+    const response = await mockAPI.post('users', user);
+    return response.data;
+};
+
+const putUser = async (user) => {
+    const response = await mockAPI.put(`users/${user.id}`, user);
+    return response.data;
+};
+
+export { getUsers, getUser, postUser, putUser };

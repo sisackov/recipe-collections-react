@@ -16,7 +16,7 @@ function RecipeList() {
 
     useEffect(() => {
         const fetchData = async () => {
-            localStorage.clear();
+            // localStorage.clear();TODO
             setIsLoading(true);
             try {
                 // const res = await getSpoonacularRandomRecipes(20);

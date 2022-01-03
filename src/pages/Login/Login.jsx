@@ -6,9 +6,13 @@ import {
     signInWithEmailAndPassword,
     signInWithGoogle,
     signInWithFacebook,
+    isUserExists,
+    setUserFirestore,
 } from '../../utils/firebase.js';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import './Login.css';
+import { defaultCollections } from '../../utils/collectionsUtils';
+import Spinner from '../../components/Spinner/Spinner';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -17,13 +21,39 @@ function Login() {
     const history = useHistory();
 
     useEffect(() => {
-        if (loading) {
-            // maybe trigger a loading screen
-            return;
+        // console.log('login user: ', user);
+        const saveUserInFirestore = async () => {
+            try {
+                const userExists = await isUserExists(user.uid);
+                // console.log('userExists: ', userExists);
+
+                if (!userExists) {
+                    const setUserRes = await setUserFirestore(user.uid, {
+                        displayName: user.displayName,
+                        email: user.email,
+                        collections: defaultCollections,
+                    });
+                    console.log('setUserFirestore: ', setUserRes);
+                }
+            } catch (err) {
+                console.log('setUserFirestore error: ', err);
+            }
+        };
+
+        if (user) {
+            saveUserInFirestore();
+            history.replace('/');
         }
-        if (user) history.replace('/');
         //TODO:  if user is logged in - update login context and redirect to landing page
     }, [user, loading, history]);
+
+    if (loading) {
+        return (
+            <div className='login'>
+                <Spinner />
+            </div>
+        );
+    }
 
     return (
         <div className='login'>
@@ -59,7 +89,7 @@ function Login() {
                     className='login__btn login__facebook'
                     onClick={signInWithFacebook}
                 >
-                    <img class='img' src={fb_login} alt='fb_login' />
+                    <img src={fb_login} alt='fb_login' />
                     Login with Facebook
                 </div>
                 <div>
