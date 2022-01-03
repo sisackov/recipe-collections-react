@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import CollectionCard from '../../components/CollectionCard/CollectionCard';
 import Spinner from '../../components/Spinner/Spinner';
 import {
     auth,
@@ -38,12 +39,16 @@ const Collections = () => {
     }, [user]);
 
     const renderGrid = () => {
-        console.log('renderGrid', data, isLoading, errorMsg);
+        // console.log('renderGrid', data, isLoading, errorMsg);
         if (isLoading) return <Spinner />;
         if (errorMsg) return <div className='error-message'>{errorMsg}</div>;
 
         return data.map((collection, index) => {
-            return <div key={collection.id}>{collection.title}</div>;
+            return (
+                <div key={collection.id}>
+                    <CollectionCard collection={collection} />
+                </div>
+            );
         });
     };
 
