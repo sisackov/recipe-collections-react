@@ -13,7 +13,7 @@ function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const history = useHistory();
 
     const register = () => {
@@ -24,7 +24,7 @@ function Register() {
     useEffect(() => {
         if (loading) return;
         if (user) history.replace('/');
-    }, [user, loading]);
+    }, [user, loading, history]);
 
     return (
         <div className='register'>

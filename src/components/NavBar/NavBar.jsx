@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
 import { auth, logout } from '../../utils/firebase.js';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 const NavBar = (props) => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user /* , loading, error */] = useAuthState(auth);
 
     useEffect(() => {
         if (user) {
