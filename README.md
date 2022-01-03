@@ -102,7 +102,7 @@ You can find React README [here](./misc/React_README.md).
 |                  | **Hamburger**       |                 | :black_square_button: | **2 hours**    | Tuesday      |
 |                  | **Shop Cart**       |                 | :black_square_button: | **3 hours**    | Tuesday      |
 |                  | **Calculator**      |                 | :black_square_button: | **8 hours**    | Wednesday    |
-|                  | **RelatedCarousel** |                 | :black_square_button: | **1.5 hours**  | Wednesday    |
+|                  | **RelatedCarousel** |                 | :white_check_mark:    | **1.5 hours**  | Wednesday    |
 |                  | **SocialLinks**     |                 | :black_square_button: | **1.5 hours**  | Wednesday    |
 | **Future**       |                     |                 |                       |                |              |
 |                  | **scroll** \*       |                 | :black_square_button: |                |              |

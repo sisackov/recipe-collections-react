@@ -7,13 +7,13 @@ import './Reset.css';
 
 function Reset() {
     const [email, setEmail] = useState('');
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading /* , error */] = useAuthState(auth);
     const history = useHistory();
 
     useEffect(() => {
         if (loading) return;
-        if (user) history.replace('/dashboard');
-    }, [user, loading]);
+        if (user) history.replace('/');
+    }, [user, loading, history]);
 
     return (
         <div className='reset'>

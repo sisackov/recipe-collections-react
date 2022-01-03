@@ -12,10 +12,6 @@ import NavBar from './components/NavBar/NavBar';
 function App() {
     return (
         <div className='App'>
-            {/* <RecipeList /> */}
-            {/* <RecipeView recipe={getEdmamRecipe(hits[3].recipe)} /> */}
-            {/* <RecipeView recipe={getDummySpoonacularRecipes()[4]} /> */}
-
             <Router>
                 <NavBar />
                 <Switch>
@@ -29,6 +25,7 @@ function App() {
                         component={RecipeView}
                     />
                 </Switch>
+                {/* TODO: footer */}
             </Router>
         </div>
     );

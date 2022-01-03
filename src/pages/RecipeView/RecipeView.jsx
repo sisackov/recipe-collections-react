@@ -2,15 +2,16 @@ import parse from 'html-react-parser';
 import RecipeSummary from '../../components/RecipeSummary/RecipeSummary';
 import NutrientsCard from '../../components/NutrientsCard/NutrientsCard';
 import './RecipeView.css';
-import { extractRecipeId, getCaloriesInSpoonacular } from '../../utils/utils';
+import { getCaloriesInSpoonacular } from '../../utils/utils';
 import IngredientsView from '../../components/IngredientsView/IngredientsView';
 import { useEffect, useState } from 'react';
 import RelatedItems from '../../components/RelatedItems/RelatedItems';
 import InstructionsView from '../../components/InstructionsView/InstructionsView';
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { getSpoonacularRecipeInfo } from '../../api/spoonacularAPI';
+// import { getSpoonacularRecipeInfo } from '../../api/spoonacularAPI';
 import Spinner from '../../components/Spinner/Spinner';
+import { getSpoonacularRecipeInfo } from '../../api/spoonacularDummy';
 
 function RecipeView(/* { recipe } */) {
     const { recipeId } = useParams();
@@ -24,14 +25,14 @@ function RecipeView(/* { recipe } */) {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                const data = await getSpoonacularRecipeInfo(
-                    extractRecipeId(recipeId),
-                    true
-                );
-                console.log('getSpoonacularRecipeInfo: ', data);
-                setData(data);
+                // const res = await getSpoonacularRecipeInfo(
+                //     extractRecipeId(recipeId),
+                //     true
+                // );
+                const res = getSpoonacularRecipeInfo;
+                console.log('getSpoonacularRecipeInfo: ', res);
+                setData(res);
             } catch (err) {
-                // console.log(err.message);
                 setErrorMsg(err.message);
             }
             setIsLoading(false);
@@ -73,13 +74,11 @@ function RecipeView(/* { recipe } */) {
                                 label='Edit'
                                 clickHandler={handleAddToCollections}
                                 styleName='btn-primary btn--orangered'
-                                // styleName='recipe-page--button'
                             />
                             <ButtonComponent
                                 label='Delete'
                                 clickHandler={handleAddToCollections}
                                 styleName='btn-primary btn--orangered'
-                                // styleName='recipe-page--button'
                             />
                         </div>
                     </div>
@@ -108,7 +107,6 @@ function RecipeView(/* { recipe } */) {
                             />
                         </div>
                         <div className='rpd--right'>
-                            {/* <NutrientsCard nutrients={recipe.nutrients} /> */}
                             <NutrientsCard
                                 nutrients={recipe.nutrition.nutrients}
                             />

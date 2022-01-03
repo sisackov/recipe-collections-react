@@ -5,7 +5,7 @@
     width: 100%;
 }
 
-.related-items__list--item__image img {
+.related-items__list--image img {
     width: 150px;
     height: 150px;
     object-fit: contain;
