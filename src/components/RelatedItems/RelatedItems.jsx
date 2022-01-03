@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useRef } from 'react/cjs/react.development';
 // import { getSpoonacularSimilar } from '../../api/spoonacularAPI';
 import Spinner from '../Spinner/Spinner';
 import './RelatedItems.css';
