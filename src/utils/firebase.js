@@ -1,11 +1,14 @@
 import { initializeApp } from 'firebase/app';
 import {
     collection,
+    collectionGroup,
     doc,
     getDoc,
     getDocs,
     getFirestore,
+    query,
     setDoc,
+    where,
 } from 'firebase/firestore';
 import {
     getAuth,
@@ -134,7 +137,7 @@ const logout = async () => {
 //****************************************************************************/
 //**                  Firestore database Functions                          **/
 //****************************************************************************/
-const getUsersFirestore = async () => {
+const getUsersFromDB = async () => {
     const querySnapshot = await getDocs(collection(db, 'users'));
     const userData = [];
     querySnapshot.forEach((collDoc) => {
@@ -143,23 +146,23 @@ const getUsersFirestore = async () => {
     return userData;
 };
 
-const getUserByIdFirestore = async (userId) => {
+const getUserByIdFromDB = async (userId) => {
     const docRef = doc(db, 'users', userId);
     const docSnap = await getDoc(docRef);
     return docSnap.data();
 };
 
-const setUserFirestore = async (userId, userData) => {
+const setUserInDB = async (userId, userData) => {
     return setDoc(doc(db, 'users', userId), userData);
 };
 
-const isUserExists = async (userId) => {
+const userExistsInDB = async (userId) => {
     const docRef = doc(db, 'users', userId);
     const docSnap = await getDoc(docRef);
     return docSnap.exists();
 };
 
-const setRecipeInFirestore = async (recipe) => {
+const setRecipeInDB = async (recipe) => {
     console.log('setRecipeInFirestore', recipe);
     const setResp = await setDoc(
         doc(db, 'recipes', recipe.recipeId || recipe.id),
@@ -169,10 +172,78 @@ const setRecipeInFirestore = async (recipe) => {
     return setResp;
 };
 
-const getRecipeById = async (recipeId) => {
+const getRecipeByIdFromDB = async (recipeId) => {
     const docRef = doc(db, 'recipes', recipeId);
     const docSnap = await getDoc(docRef);
     return docSnap.data();
+};
+
+/**
+ *
+ * @param {string[]} recipeIds array of recipe ids
+ * @returns
+ */
+const getRecipeByIdsFromDB = async (recipeIds) => {
+    const recipesQuery = query(
+        collectionGroup(db, 'recipes'),
+        where('recipeId', 'in', recipeIds)
+    );
+
+    const querySnapshot = await getDocs(recipesQuery);
+    // console.log('querySnapshot', querySnapshot);
+    const recipes = [];
+    querySnapshot.forEach((collDoc) => {
+        recipes.push(collDoc.data());
+    });
+    return recipes;
+};
+
+const setRecipeCollectionInDB = async (recCollection) => {
+    console.log('setRecipeCollection', recCollection);
+    const setResp = await setDoc(
+        doc(db, 'recipeCollections', recCollection.id),
+        recCollection
+    );
+    console.log('setResp', setResp);
+    return setResp;
+};
+
+const getAllRecipeCollectionFromDB = async () => {
+    const querySnapshot = await getDocs(collection(db, 'recipeCollections'));
+    const recipeCollections = [];
+    querySnapshot.forEach((collDoc) => {
+        recipeCollections.push(collDoc.data());
+    });
+    return recipeCollections;
+};
+
+const getRecipeCollectionByIdFromDB = async (collId) => {
+    const docRef = doc(db, 'recipeCollections', collId);
+    const docSnap = await getDoc(docRef);
+    return docSnap.data();
+};
+
+/**
+ * @param {string[]} collIds array of recipe collection ids
+ * @returns
+ */
+const getRecipeCollectionsByIdsFromDB = async (collIds) => {
+    // const docRef = doc(db, 'recipeCollections', collId);
+    // const docSnap = await getDoc(docRef);
+    // return docSnap.data();
+
+    const recCollQuery = query(
+        collectionGroup(db, 'recipeCollections'),
+        where('id', 'in', collIds)
+    );
+
+    const querySnapshot = await getDocs(recCollQuery);
+    // console.log('querySnapshot', querySnapshot);
+    const recipeCollections = [];
+    querySnapshot.forEach((collDoc) => {
+        recipeCollections.push(collDoc.data());
+    });
+    return recipeCollections;
 };
 
 export {
@@ -184,10 +255,15 @@ export {
     registerWithEmailAndPassword,
     sendPasswordResetEmail,
     logout,
-    getUsersFirestore,
-    getUserByIdFirestore,
-    setUserFirestore,
-    isUserExists,
-    setRecipeInFirestore,
-    getRecipeById,
+    getUsersFromDB,
+    getUserByIdFromDB,
+    setUserInDB,
+    userExistsInDB,
+    setRecipeInDB,
+    getRecipeByIdFromDB,
+    getRecipeByIdsFromDB,
+    setRecipeCollectionInDB,
+    getAllRecipeCollectionFromDB,
+    getRecipeCollectionsByIdsFromDB,
+    getRecipeCollectionByIdFromDB,
 };

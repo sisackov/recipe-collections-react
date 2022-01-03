@@ -30,7 +30,10 @@ const defaultCollections = [
         description: 'A collection of Side Dish recipes',
         searchUrl:
             'https://api.spoonacular.com/recipes/complexSearch?apiKey=46bdbd59e31d4fef9fc381b3a71e94ad&type=side%20dish',
-        recipes: [],
+        recipes: [
+            642676, 640085, 652717, 636901, 1095855, 1095967, 643422, 643775,
+            1095695, 640607,
+        ],
     },
     {
         id: 'collection-4',
@@ -46,4 +49,41 @@ const defaultCollections = [
     },
 ];
 
-export { defaultCollections };
+// const recipeColl = defaultCollections[2];
+// // const recIds = recipeColl.recipes.join(',');
+// // console.log('recIds: ', recIds);
+// // const spon = await getSpoonacularRecipeInfoBulk(recIds, true);
+// // console.log('spon: ', spon);
+
+// const recipeIds = recipeColl.recipes.map((recId) => `sponacular-${recId}`);
+// console.log('recipeIds: ', recipeIds);
+
+// const recipes = await getRecipeByIdsFromDB(recipeIds);
+// console.log('getRecipeByWithIdsArray: ', recipes);
+
+// const recipeCollection = {
+//     ...recipeColl,
+//     title: recipeColl.name.charAt(0).toUpperCase() + recipeColl.name.slice(1),
+//     id: uuidv4(),
+//     recipes: recipes.map((recipe) => {
+//         return {
+//             id: recipe.recipeId,
+//             title: recipe.title,
+//             image: recipe.image,
+//         };
+//     }),
+// };
+// delete recipeCollection.name;
+// console.log('recipeCollection: ', recipeCollection);
+
+// const reCollResponse = await setRecipeCollectionInDB(recipeCollection);
+// console.log('reCollResponse: ', reCollResponse);
+
+const defaultRecipeCollections = [
+    '054028c8-cf2b-4d21-a522-36946b1a1e52',
+    '4cf66185-7f4e-40fe-801c-47c6bf3d8400',
+    '57f44ee3-0618-4122-8603-ee9a956f4f0d',
+    '6cd78792-f1a9-4be5-8be9-4d8f8b1de0b2',
+];
+
+export { defaultCollections, defaultRecipeCollections };

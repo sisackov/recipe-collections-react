@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setRecipeInFirestore } from '../utils/firebase';
+import { setRecipeInDB } from '../utils/firebase';
 // import hits from './dummy.js';
 
 const spoonacularAPI = axios.create({
@@ -15,7 +15,7 @@ const mapSpoonacularId = (results, save = true) => {
             recipeId: `sponacular-${recipe.id}`,
             ...recipe,
         };
-        save && setRecipeInFirestore(newRecipe);
+        save && setRecipeInDB(newRecipe);
         return newRecipe;
     });
 };
@@ -65,8 +65,8 @@ const getSpoonacularRecipeInfo = async (id, nutrition) => {
 /**
  * Get information about multiple recipes at once.
  * This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
- * @param {*} ids
- * @param {*} nutrition
+ * @param {string} ids
+ * @param {boolean} nutrition
  * @returns
  */
 const getSpoonacularRecipeInfoBulk = async (ids, nutrition) => {

@@ -42,7 +42,7 @@ function RelatedItems({ recipe }) {
             );
         }
     };
-    //TODO  prev/next buttons don't work
+    //TODO  prev/next buttons don't work - implement with useeffect on offset
     const nextClick = (jump = 1) => {
         if (offset.current + jump < data.length) {
             offset.current += jump;

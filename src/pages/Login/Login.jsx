@@ -6,12 +6,12 @@ import {
     signInWithEmailAndPassword,
     signInWithGoogle,
     signInWithFacebook,
-    isUserExists,
-    setUserFirestore,
+    userExistsInDB,
+    setUserInDB,
 } from '../../utils/firebase.js';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import './Login.css';
-import { defaultCollections } from '../../utils/collectionsUtils';
+import { defaultRecipeCollections } from '../../utils/collectionsUtils';
 import Spinner from '../../components/Spinner/Spinner';
 
 function Login() {
@@ -24,14 +24,14 @@ function Login() {
         // console.log('login user: ', user);
         const saveUserInFirestore = async () => {
             try {
-                const userExists = await isUserExists(user.uid);
+                const userExists = await userExistsInDB(user.uid);
                 // console.log('userExists: ', userExists);
 
                 if (!userExists) {
-                    const setUserRes = await setUserFirestore(user.uid, {
+                    const setUserRes = await setUserInDB(user.uid, {
                         displayName: user.displayName,
                         email: user.email,
-                        collections: defaultCollections,
+                        collections: defaultRecipeCollections,
                     });
                     console.log('setUserFirestore: ', setUserRes);
                 }

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { getUser, getUsers } from '../../api/mockAPI';
-import { getSpoonacularRecipeInfoBulk } from '../../api/spoonacularAPI';
 import Spinner from '../../components/Spinner/Spinner';
-import { auth, getUserByIdFirestore } from '../../utils/firebase';
+import {
+    auth,
+    getRecipeCollectionsByIdsFromDB,
+    getUserByIdFromDB,
+} from '../../utils/firebase';
 
 const Collections = () => {
     const [data, setData] = useState([]);
@@ -15,21 +17,14 @@ const Collections = () => {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                const userData = await getUserByIdFirestore(user.uid);
-                // console.log('getUserFirestore: ', userData);
-                setData(userData.collections);
-
-                const ids = userData.collections[0].recipes
-                    .slice(0, 2)
-                    .join(',');
-                console.log('ids: ', ids);
-
-                const spon = await getSpoonacularRecipeInfoBulk(ids, true);
-                console.log('spon: ', spon);
+                const userData = await getUserByIdFromDB(user.uid);
+                const recipeCollections = await getRecipeCollectionsByIdsFromDB(
+                    userData.collections
+                );
+                setData(recipeCollections);
             } catch (err) {
                 setErrorMsg(err.message);
             }
-
             setIsLoading(false);
         };
 
@@ -43,11 +38,12 @@ const Collections = () => {
     }, [user]);
 
     const renderGrid = () => {
+        console.log('renderGrid', data, isLoading, errorMsg);
         if (isLoading) return <Spinner />;
         if (errorMsg) return <div className='error-message'>{errorMsg}</div>;
 
         return data.map((collection, index) => {
-            return <div key={collection.id}>{collection.name}</div>;
+            return <div key={collection.id}>{collection.title}</div>;
         });
     };
 
