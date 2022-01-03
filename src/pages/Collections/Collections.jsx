@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getUser, getUsers } from '../../api/mockAPI';
+import { getSpoonacularRecipeInfoBulk } from '../../api/spoonacularAPI';
 import Spinner from '../../components/Spinner/Spinner';
 import { auth, getUserByIdFirestore } from '../../utils/firebase';
 
@@ -17,9 +18,18 @@ const Collections = () => {
                 const userData = await getUserByIdFirestore(user.uid);
                 // console.log('getUserFirestore: ', userData);
                 setData(userData.collections);
+
+                const ids = userData.collections[0].recipes
+                    .slice(0, 2)
+                    .join(',');
+                console.log('ids: ', ids);
+
+                const spon = await getSpoonacularRecipeInfoBulk(ids, true);
+                console.log('spon: ', spon);
             } catch (err) {
                 setErrorMsg(err.message);
             }
+
             setIsLoading(false);
         };
 

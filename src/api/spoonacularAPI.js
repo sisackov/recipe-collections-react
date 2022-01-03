@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { setRecipeInFirestore } from '../utils/firebase';
 // import hits from './dummy.js';
 
 const spoonacularAPI = axios.create({
@@ -8,12 +9,14 @@ const spoonacularAPI = axios.create({
     },
 });
 
-const mapSpoonacularId = (results) => {
+const mapSpoonacularId = (results, save = true) => {
     return results.map((recipe) => {
-        return {
+        const newRecipe = {
             recipeId: `sponacular-${recipe.id}`,
             ...recipe,
         };
+        save && setRecipeInFirestore(newRecipe);
+        return newRecipe;
     });
 };
 
@@ -35,21 +38,6 @@ const getSpoonacularComplexSearch = async (
         ...(ingredients && { fillIngredients: true }),
         ...(nutrition && { addRecipeNutrition: true }),
     };
-    // if (query) {
-    //     param.query = query;
-    // }
-    // if (count) {
-    //     param.number = count;
-    // }
-    // if (recipeInfo) {
-    //     param.addRecipeInformation = true;
-    // }
-    // if (ingredients) {
-    //     param.fillIngredients = true;
-    // }
-    // if (nutrition) {
-    //     param.addRecipeNutrition = true;
-    // }
 
     const { data } = await spoonacularAPI.get('complexSearch', {
         params: {
@@ -57,13 +45,6 @@ const getSpoonacularComplexSearch = async (
         },
     });
     return mapSpoonacularId(data.results);
-
-    // data.results.map((item) => {
-    //     return {
-    //         recipeId: `sponacular-${item.id}`,
-    //         ...item,
-    //     };
-    // });
 };
 
 /**
@@ -95,7 +76,15 @@ const getSpoonacularRecipeInfoBulk = async (ids, nutrition) => {
             ids: ids,
         },
     });
-    return data;
+    // const recipes = Object.values(data.recipes).map((recipe) => recipe);
+    console.log('getSpoonacularRecipeInfoBulk', Object.values(data));
+    const recipes = [];
+    for (const recipe of data) {
+        console.log('getSpoonacularRecipeInfoBulk wer', recipe);
+        recipes.push(recipe);
+    }
+
+    return mapSpoonacularId(recipes);
 };
 
 /**
@@ -137,7 +126,7 @@ const getSpoonacularSimilar = async (id, numOfRecipes) => {
         },
     });
     console.log('getSpoonacularSimilar', data);
-    return mapSpoonacularId(data);
+    return mapSpoonacularId(data, false);
 };
 
 export {

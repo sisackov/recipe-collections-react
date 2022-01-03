@@ -159,14 +159,20 @@ const isUserExists = async (userId) => {
     return docSnap.exists();
 };
 
-const setRecipeInFirestore = async (recipeId, recipe) => {
-    return setDoc(doc(db, 'recipes', recipeId), recipe);
+const setRecipeInFirestore = async (recipe) => {
+    console.log('setRecipeInFirestore', recipe);
+    const setResp = await setDoc(
+        doc(db, 'recipes', recipe.recipeId || recipe.id),
+        recipe
+    );
+    console.log('setResp', setResp);
+    return setResp;
 };
 
-const isRecipeExists = async (recipeId) => {
+const getRecipeById = async (recipeId) => {
     const docRef = doc(db, 'recipes', recipeId);
     const docSnap = await getDoc(docRef);
-    return docSnap.exists();
+    return docSnap.data();
 };
 
 export {
@@ -183,5 +189,5 @@ export {
     setUserFirestore,
     isUserExists,
     setRecipeInFirestore,
-    isRecipeExists,
+    getRecipeById,
 };
