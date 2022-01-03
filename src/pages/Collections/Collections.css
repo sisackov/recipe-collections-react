@@ -2,3 +2,15 @@
     display: flex;
     flex-direction: column;
 }
+
+.collection-list__button--container {
+    background: transparent;
+    border-radius: 5px;
+
+    /* margin-right: auto; */
+}
+
+.collection-list__button--container svg {
+    width: 5rem;
+    align-self: flex-end;
+}

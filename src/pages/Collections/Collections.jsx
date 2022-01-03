@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import CollectionCard from '../../components/CollectionCard/CollectionCard';
@@ -7,6 +8,7 @@ import {
     getRecipeCollectionsByIdsFromDB,
     getUserByIdFromDB,
 } from '../../utils/firebase';
+import './Collections.css';
 
 const Collections = () => {
     const [data, setData] = useState([]);
@@ -43,19 +45,39 @@ const Collections = () => {
         if (isLoading) return <Spinner />;
         if (errorMsg) return <div className='error-message'>{errorMsg}</div>;
 
-        return data.map((collection, index) => {
+        return data.map((collection) => {
             return (
                 <div key={collection.id}>
-                    <CollectionCard collection={collection} />
+                    <CollectionCard
+                        collection={collection}
+                        editHandler={handleEdit}
+                        deleteHandler={handleDelete}
+                    />
                 </div>
             );
         });
     };
 
+    const handleCreate = () => {
+        console.log('handleCreateCollection');
+    };
+
+    const handleEdit = (collection) => {
+        console.log('handleEdit', collection);
+    };
+
+    const handleDelete = (collection) => {
+        console.log('handleDelete', collection);
+    };
+
     return (
         <div className='collections-list'>
             <h2>My Collections</h2>
-            {renderGrid()}
+            <button className='collection-list__button' onClick={handleCreate}>
+                <FontAwesomeIcon icon='plus' />
+                {/* <FontAwesomeIcon icon='pencil-alt' /> */}
+            </button>
+            <div className='collections-list__grid'>{renderGrid()}</div>
         </div>
     );
 };

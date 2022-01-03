@@ -1,17 +1,23 @@
 import './CollectionCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const CollectionCard = ({ collection }) => {
+const CollectionCard = ({ collection, editHandler, deleteHandler }) => {
     // console.log('CollectionCard', collection);
 
     return (
         <div className='collection-card'>
             <div className='collection-card__content'>
                 <div className='collection-card__buttons'>
-                    <button className='collection-card__button'>
+                    <button
+                        className='collection-card__button'
+                        onClick={() => editHandler(collection)}
+                    >
                         <FontAwesomeIcon icon='pencil-alt' />
                     </button>
-                    <button className='collection-card__button'>
+                    <button
+                        className='collection-card__button'
+                        onClick={() => deleteHandler(collection)}
+                    >
                         <FontAwesomeIcon icon='trash-alt' />
                     </button>
                 </div>
