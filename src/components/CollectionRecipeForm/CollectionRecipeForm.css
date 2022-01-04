@@ -1,0 +1,10 @@
+.collection-form-container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 320px;
+    padding: 1rem 0;
+}
+
+.collection-form-header {
+    text-align: center;
+}

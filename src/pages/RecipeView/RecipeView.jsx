@@ -9,28 +9,27 @@ import RelatedItems from '../../components/RelatedItems/RelatedItems';
 import InstructionsView from '../../components/InstructionsView/InstructionsView';
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-// import { getSpoonacularRecipeInfo } from '../../api/spoonacularAPI';
 import Spinner from '../../components/Spinner/Spinner';
-import { getSpoonacularRecipeInfo } from '../../api/spoonacularDummy';
+import { getRecipeByIdFromDB } from '../../utils/firebase';
+import Modal from '../../components/Modal/Modal';
+import CollectionRecipeForm from '../../components/CollectionRecipeForm/CollectionRecipeForm';
 
 function RecipeView(/* { recipe } */) {
     const { recipeId } = useParams();
-    const [data, setData] = useState({});
+    const [data, setData] = useState({}); //recipe object
     const [isLoading, setIsLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
-
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedIngredients, setSelectedIngredients] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                // const res = await getSpoonacularRecipeInfo(
-                //     extractRecipeId(recipeId),
-                //     true
-                // );
-                const res = getSpoonacularRecipeInfo;
-                console.log('getSpoonacularRecipeInfo: ', res);
+                // console.log('RecipeView: fetchData: recipeId: ', recipeId);
+                const recId = recipeId || 'sponacular-795751'; //!!! hardcoded for testing TODO: remove
+                const res = await getRecipeByIdFromDB(recId);
+                // console.log('getRecipeByIdFromDB: ', res);
                 setData(res);
             } catch (err) {
                 setErrorMsg(err.message);
@@ -41,14 +40,19 @@ function RecipeView(/* { recipe } */) {
         fetchData();
     }, [recipeId]);
 
-    const handleAddToCollections = () => {
-        console.log('add to collections');
-        //todo: add to collections
+    const renderModalContent = () => {
+        // console.log('RecipeView: renderModalContent: data: ', data.recipeId);
+        return (
+            <CollectionRecipeForm
+                recipe={data}
+                cancelHandler={() => setIsModalOpen(false)}
+            />
+        );
     };
 
     const renderRecipe = () => {
         const recipe = data;
-        console.log('recipe: ', recipe);
+        // console.log('recipe: ', recipe);
         if (isLoading) return <Spinner />;
         if (errorMsg) return <div className='error-message'>{errorMsg}</div>;
 
@@ -67,10 +71,10 @@ function RecipeView(/* { recipe } */) {
                             {/* TODO */}
                             <ButtonComponent
                                 label='Add to collections'
-                                clickHandler={handleAddToCollections}
+                                clickHandler={() => setIsModalOpen(true)}
                                 styleName='btn-primary btn--green'
                             />
-                            <ButtonComponent
+                            {/* <ButtonComponent
                                 label='Edit'
                                 clickHandler={handleAddToCollections}
                                 styleName='btn-primary btn--orangered'
@@ -79,7 +83,7 @@ function RecipeView(/* { recipe } */) {
                                 label='Delete'
                                 clickHandler={handleAddToCollections}
                                 styleName='btn-primary btn--orangered'
-                            />
+                            /> */}
                         </div>
                     </div>
 
@@ -112,7 +116,13 @@ function RecipeView(/* { recipe } */) {
                             />
                         </div>
                     </div>
-                    <RelatedItems recipe={recipe} />
+                    <Modal
+                        isModalOpen={isModalOpen}
+                        closeModal={() => setIsModalOpen(false)}
+                    >
+                        {renderModalContent()}
+                    </Modal>
+                    {/* <RelatedItems recipe={recipe} /> TODO */}
                 </div>
             )
         );

@@ -4,7 +4,7 @@ import './InstructionsView.css';
 
 const InstructionsView = ({ instructions, isForm }) => {
     const instructionsList = () => {
-        console.log('instructionsList', instructions);
+        // console.log('instructionsList', instructions);
         return (
             !isForm &&
             instructions.map((instruction, index) => {

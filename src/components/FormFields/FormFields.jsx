@@ -150,18 +150,32 @@ class RadioField extends Component {
 
 // Create component for select input
 class SelectField extends Component {
-    render() {
-        // Get all options from option prop
-        const selectOptions = this.props.options.split(', ');
+    state = {
+        selectData: this.props.selectData,
+        selectValue: this.props.selectValue,
+    };
 
-        // Generate list of options
-        const selectOptionsList = selectOptions.map((selectOption, index) => {
-            return (
-                <option key={index} value={index}>
-                    {selectOption}
-                </option>
-            );
-        });
+    componentDidUpdate(prevProps) {
+        if (prevProps.selectData !== this.props.selectData) {
+            this.setState({ selectData: this.props.selectData });
+        }
+        if (prevProps.selectValue !== this.props.selectValue) {
+            this.setState({ selectValue: this.props.selectValue });
+        }
+    }
+
+    render() {
+        console.log('selectData: ', this.state.selectData);
+        const { selectData } = this.state;
+        const selectDataOptionsList =
+            selectData &&
+            selectData.map((selectDataItem, index) => {
+                return (
+                    <option key={index} value={selectDataItem.value}>
+                        {selectDataItem.option}
+                    </option>
+                );
+            });
 
         return (
             <fieldset className='form-fieldset'>
@@ -172,6 +186,8 @@ class SelectField extends Component {
                 />
 
                 <select
+                    value={this.state.selectValue}
+                    onChange={this.props.changeHandler}
                     className='form-select-field'
                     defaultValue=''
                     id={this.props.htmlFor}
@@ -179,10 +195,9 @@ class SelectField extends Component {
                     required={this.props.required || null}
                 >
                     <option value='' disabled>
-                        Select one option
+                        {this.props.placeholder || 'Select one option'}
                     </option>
-
-                    {selectOptionsList}
+                    {selectDataOptionsList}
                 </select>
             </fieldset>
         );

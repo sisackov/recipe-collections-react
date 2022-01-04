@@ -38,8 +38,7 @@ function App() {
                 <NavBar />
                 <Switch>
                     {/* <Route exact path='/' component={RecipeList} /> */}
-                    <Route exact path='/' component={Collections} />
-                    {/* <Route exact path='/' component={CollectionForm} /> */}
+                    <Route exact path='/' component={RecipeView} />
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/register' component={Register} />
                     <Route exact path='/reset' component={Reset} />
@@ -48,6 +47,7 @@ function App() {
                         path='/recipe/:recipeId'
                         component={RecipeView}
                     />
+                    <Route exact path='/collections' component={Collections} />
                     <Route
                         exact
                         path='/collection/:collectionId'
