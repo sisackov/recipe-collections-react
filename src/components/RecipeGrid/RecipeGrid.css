@@ -1,0 +1,20 @@
+/* .recipe-grid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+} */
+
+.recipe-grid-container__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, auto));
+    grid-gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.recipe-card__button {
+    background: transparent;
+    border-radius: 5px;
+    align-self: flex-end;
+}

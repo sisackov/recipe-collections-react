@@ -51,5 +51,10 @@ export function getFromLocalStorage(key, isMap = false) {
 }
 
 export function extractRecipeId(recipeId) {
-    return recipeId.split('-')[1];
+    const id = recipeId.split('-');
+    return id.length > 1 ? id[1] : id[0];
+}
+
+export function getRecipeIdsArray(recipes) {
+    return recipes.map((recipe) => extractRecipeId(recipe.id));
 }

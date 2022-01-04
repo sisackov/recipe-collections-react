@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
 const CollectionCard = ({ collection, openCollectionForm, deleteHandler }) => {
-    // console.log('CollectionCard', collection);
+    console.log('CollectionCard', collection);
 
     return (
         <div className='collection-card'>

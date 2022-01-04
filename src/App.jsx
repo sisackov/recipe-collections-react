@@ -19,6 +19,7 @@ import {
     faWindowClose,
 } from '@fortawesome/free-solid-svg-icons';
 import FormExample from './components/FormFields/FormExample';
+import RecipeGrid from './components/RecipeGrid/RecipeGrid';
 
 library.add(
     faCheckSquare,
@@ -46,6 +47,11 @@ function App() {
                         exact
                         path='/recipe/:recipeId'
                         component={RecipeView}
+                    />
+                    <Route
+                        exact
+                        path='/collection/:collectionId'
+                        component={RecipeGrid}
                     />
                 </Switch>
                 {/* TODO: footer */}
