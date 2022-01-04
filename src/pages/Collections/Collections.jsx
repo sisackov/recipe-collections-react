@@ -89,7 +89,7 @@ const Collections = () => {
                 <div className='collections-list__grid'>{renderGrid()}</div>
                 <Modal
                     isModalOpen={isModalOpen}
-                    closeModal={() => setIsModalOpen(true)}
+                    closeModal={() => setIsModalOpen(false)}
                 >
                     <h2>Create Collection</h2>
                 </Modal>

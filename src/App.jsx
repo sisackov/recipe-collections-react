@@ -6,6 +6,7 @@ import Register from './pages/Register/Register';
 import Reset from './pages/Reset/Reset';
 import RecipeView from './pages/RecipeView/RecipeView';
 import NavBar from './components/NavBar/NavBar';
+import CollectionForm from './components/CollectionForm/CollectionForm';
 import Collections from './pages/Collections/Collections';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -17,7 +18,6 @@ import {
     fas,
     faWindowClose,
 } from '@fortawesome/free-solid-svg-icons';
-import { ModalProvider } from 'react-simple-hook-modal';
 
 library.add(
     faCheckSquare,
@@ -36,9 +36,8 @@ function App() {
                 <NavBar />
                 <Switch>
                     {/* <Route exact path='/' component={RecipeList} /> */}
-                    <ModalProvider>
-                        <Route exact path='/' component={Collections} />
-                    </ModalProvider>
+                    {/* <Route exact path='/' component={Collections} /> */}
+                    <Route exact path='/' component={CollectionForm} />
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/register' component={Register} />
                     <Route exact path='/reset' component={Reset} />
