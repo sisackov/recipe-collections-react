@@ -15,9 +15,19 @@ import {
     faTrashAlt,
     faPlus,
     fas,
+    faWindowClose,
 } from '@fortawesome/free-solid-svg-icons';
+import { ModalProvider } from 'react-simple-hook-modal';
 
-library.add(faCheckSquare, faCoffee, faPencilAlt, fas, faTrashAlt, faPlus);
+library.add(
+    faCheckSquare,
+    faCoffee,
+    faPencilAlt,
+    fas,
+    faTrashAlt,
+    faPlus,
+    faWindowClose
+);
 
 function App() {
     return (
@@ -26,7 +36,9 @@ function App() {
                 <NavBar />
                 <Switch>
                     {/* <Route exact path='/' component={RecipeList} /> */}
-                    <Route exact path='/' component={Collections} />
+                    <ModalProvider>
+                        <Route exact path='/' component={Collections} />
+                    </ModalProvider>
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/register' component={Register} />
                     <Route exact path='/reset' component={Reset} />

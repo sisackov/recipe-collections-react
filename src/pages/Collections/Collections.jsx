@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import CollectionCard from '../../components/CollectionCard/CollectionCard';
+import Modal from '../../components/Modal/Modal';
 import Spinner from '../../components/Spinner/Spinner';
 import {
     auth,
@@ -14,6 +15,7 @@ const Collections = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [user] = useAuthState(auth);
 
     useEffect(() => {
@@ -58,6 +60,10 @@ const Collections = () => {
         });
     };
 
+    const onAddCollection = () => {
+        // setShowModal(true);
+    };
+
     const handleCreate = () => {
         console.log('handleCreateCollection');
     };
@@ -71,14 +77,24 @@ const Collections = () => {
     };
 
     return (
-        <div className='collections-list'>
-            <h2>My Collections</h2>
-            <button className='collection-list__button' onClick={handleCreate}>
-                <FontAwesomeIcon icon='plus' />
-                {/* <FontAwesomeIcon icon='pencil-alt' /> */}
-            </button>
-            <div className='collections-list__grid'>{renderGrid()}</div>
-        </div>
+        <>
+            <div className='collections-list'>
+                <h2>My Collections</h2>
+                <button
+                    className='collection-list__button'
+                    onClick={() => setIsModalOpen(true)}
+                >
+                    <FontAwesomeIcon icon='plus' />
+                </button>
+                <div className='collections-list__grid'>{renderGrid()}</div>
+                <Modal
+                    isModalOpen={isModalOpen}
+                    closeModal={() => setIsModalOpen(true)}
+                >
+                    <h2>Create Collection</h2>
+                </Modal>
+            </div>
+        </>
     );
 };
 
