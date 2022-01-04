@@ -86,14 +86,14 @@ You can find React README [here](./misc/React_README.md).
 |                  |                     | NutrientsCard   | :white_check_mark:    | 3 hours        | Saturday eve |
 |                  |                     | IngredientsView | :white_check_mark:    | 2 hours        | Sunday       |
 |                  |                     | IngredientsForm | :black_square_button: | 2 hours        | Sunday       |
-|                  | **Netlify**         |                 | :black_square_button: | **2 hours**    | Sunday       |
+|                  | **Netlify**         |                 | :white_check_mark:    | **2 hours**    | Sunday       |
 |                  | **Login**           |                 | :white_check_mark:    | **6 hours**    |              |
 |                  |                     | LoginPage       | :white_check_mark:    | 3 hours        | Sunday       |
 |                  |                     | SignUpPage      | :white_check_mark:    | 3 hours        | Monday       |
 |                  | **Collections**     |                 | :black_square_button: | **6 hours**    | Monday       |
-|                  |                     | List            | :black_square_button: | 2 hours        | Monday       |
+|                  |                     | List            | :white_check_mark:    | 2 hours        | Monday       |
 |                  |                     | Recipes         | :black_square_button: | 2 hours        | Monday       |
-|                  |                     | Create          | :black_square_button: | 2 hours        | Monday       |
+|                  |                     | Create          | :white_check_mark:    | 2 hours        | Monday       |
 |                  | **Search**          |                 | :black_square_button: | **4 hours**    | Monday       |
 |                  |                     | SearchBar       | :black_square_button: | 3 hours        |              |
 |                  |                     | SearchList      | :black_square_button: | 1 hours        |              |

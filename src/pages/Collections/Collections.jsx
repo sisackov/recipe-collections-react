@@ -83,15 +83,14 @@ const Collections = () => {
                 //to the current user, and remove the default collection
                 //from user's collections
 
-                const updatedUserCollectionsIds = userData.collections.filter(
+                const filteredUserCollectionsIds = userData.collections.filter(
                     (collectionId) => collectionId !== savedCollection.id
                 );
 
                 updatedUserData = {
                     ...userData,
-                    collections: updatedUserCollectionsIds,
+                    collections: filteredUserCollectionsIds,
                 };
-                // setUserData(updatedUserData);
 
                 updatedData = updatedData.filter((collection) => {
                     return collection.id !== savedCollection.id;
@@ -105,26 +104,18 @@ const Collections = () => {
                 savedCollection = newCollection;
             }
 
-            const setCollResp = await setRecipeCollectionInDB(savedCollection);
-            console.log('setCollResp: ', setCollResp);
+            await setRecipeCollectionInDB(savedCollection);
+            setData([...updatedData, savedCollection]);
 
-            const newCollections = [...updatedData, savedCollection];
-            setData(newCollections);
-
-            // console.log('handleSaveForm data: ', data);
-            // console.log('handleSaveForm user: ', userData);
-            const newCollectionIds = [
-                ...updatedUserData.collections,
-                savedCollection.id,
-            ];
             const newUserData = {
                 ...updatedUserData,
-                collections: newCollectionIds,
+                collections: [
+                    ...updatedUserData.collections,
+                    savedCollection.id,
+                ],
             };
+            await setUserInDB(user.uid, newUserData);
             setUserData(newUserData);
-
-            const updateUserResp = await setUserInDB(user.uid, newUserData);
-            console.log('updateUserResp: ', updateUserResp);
         } catch (e) {
             setErrorMsg(e.message);
         }

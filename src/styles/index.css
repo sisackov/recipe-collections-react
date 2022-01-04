@@ -43,3 +43,7 @@ hr.rounded {
     border-top: 8px solid #333;
     border-radius: 5px;
 }
+
+.fa-icon-color {
+    color: tomato;
+}

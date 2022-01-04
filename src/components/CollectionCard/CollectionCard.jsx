@@ -13,13 +13,19 @@ const CollectionCard = ({ collection, openCollectionForm, deleteHandler }) => {
                         className='collection-card__button'
                         onClick={() => openCollectionForm(collection)}
                     >
-                        <FontAwesomeIcon icon='pencil-alt' />
+                        <FontAwesomeIcon
+                            className='fa-icon-color'
+                            icon='pencil-alt'
+                        />
                     </button>
                     <button
                         className='collection-card__button'
                         onClick={() => deleteHandler(collection)}
                     >
-                        <FontAwesomeIcon icon='trash-alt' />
+                        <FontAwesomeIcon
+                            className='fa-icon-color'
+                            icon='trash-alt'
+                        />
                     </button>
                 </div>
                 <div className='collection-card__text'>
