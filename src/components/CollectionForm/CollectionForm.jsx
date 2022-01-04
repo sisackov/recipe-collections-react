@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
     ButtonField,
     InputField,
@@ -77,14 +77,26 @@ import {
  * @param {*} collection if isNew is false, this is the collection to edit.
  * Otherwise, collection should be empty object.
  */
-const CollectionForm = ({ collection, editHandler, cancelHandler, isNew }) => {
-    const [title, setTitle] = useState(collection.title || '');
-    const [description, setDescription] = useState(
-        collection.description || ''
-    );
-    const [imageUrl, setImageUrl] = useState(collection.image || '');
+const CollectionForm = ({ collection, saveHandler, cancelHandler, isNew }) => {
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
+
+    useEffect(() => {
+        if (!isNew) {
+            setTitle(collection.title);
+            setDescription(collection.description);
+            setImageUrl(collection.image);
+        } else {
+            setTitle('');
+            setDescription('');
+            setImageUrl('');
+        }
+    }, [collection, isNew]);
 
     const handleSave = (e) => {
+        if (!title || !description) return; //form validation
+
         e.preventDefault();
         const newCollection = isNew
             ? {
@@ -103,7 +115,7 @@ const CollectionForm = ({ collection, editHandler, cancelHandler, isNew }) => {
                   image: imageUrl || DEFAULT_COLLECTION_IMAGE,
               };
         console.log('newCollection', newCollection);
-        editHandler(newCollection, isNew);
+        saveHandler(newCollection, isNew);
     };
 
     const handleCancel = (e) => {
@@ -112,6 +124,9 @@ const CollectionForm = ({ collection, editHandler, cancelHandler, isNew }) => {
 
     return (
         <form className='collection-form-container'>
+            <div className='collection-form-header'>
+                <h2>{isNew ? 'Create' : 'Edit'} Collection</h2>
+            </div>
             <InputField
                 hasLabel={true}
                 htmlFor='collection-title'
@@ -137,6 +152,7 @@ const CollectionForm = ({ collection, editHandler, cancelHandler, isNew }) => {
                 label='Image URL'
                 required={false}
                 type='text'
+                placeholder='https://example.com/image.jpg'
                 value={imageUrl}
                 onChange={(e) => setImageUrl(e.target.value)}
             />

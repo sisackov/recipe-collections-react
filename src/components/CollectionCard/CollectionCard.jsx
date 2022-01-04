@@ -1,7 +1,7 @@
 import './CollectionCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const CollectionCard = ({ collection, editHandler, deleteHandler }) => {
+const CollectionCard = ({ collection, openCollectionForm, deleteHandler }) => {
     // console.log('CollectionCard', collection);
 
     return (
@@ -10,7 +10,7 @@ const CollectionCard = ({ collection, editHandler, deleteHandler }) => {
                 <div className='collection-card__buttons'>
                     <button
                         className='collection-card__button'
-                        onClick={() => editHandler(collection)}
+                        onClick={() => openCollectionForm(collection)}
                     >
                         <FontAwesomeIcon icon='pencil-alt' />
                     </button>

@@ -116,7 +116,7 @@ class InputField extends Component {
                     required={this.props.required || null}
                     step={this.props.step || null}
                     type={this.props.type || 'text'}
-                    value={this.props.value || null}
+                    value={this.props.value || ''}
                     onChange={this.props.onChange || null}
                 />
             </fieldset>
@@ -207,7 +207,7 @@ class TextareaField extends Component {
                     name={this.props.name || null}
                     required={this.props.required || null}
                     rows={this.props.rows || null}
-                    value={this.props.value || null}
+                    value={this.props.value || ''}
                     onChange={this.props.onChange || null}
                 ></textarea>
             </fieldset>

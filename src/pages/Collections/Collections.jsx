@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import CollectionCard from '../../components/CollectionCard/CollectionCard';
+import CollectionForm from '../../components/CollectionForm/CollectionForm';
 import Modal from '../../components/Modal/Modal';
 import Spinner from '../../components/Spinner/Spinner';
 import {
@@ -16,6 +17,7 @@ const Collections = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [collectionObject, setCollectionObject] = useState({});
     const [user] = useAuthState(auth);
 
     useEffect(() => {
@@ -42,6 +44,12 @@ const Collections = () => {
         };
     }, [user]);
 
+    const openCollectionForm = (collectionObj) => {
+        console.log('openCollectionForm', collectionObj);
+        setIsModalOpen(true);
+        setCollectionObject(collectionObj);
+    };
+
     const renderGrid = () => {
         // console.log('renderGrid', data, isLoading, errorMsg);
         if (isLoading) return <Spinner />;
@@ -52,7 +60,7 @@ const Collections = () => {
                 <div key={collection.id}>
                     <CollectionCard
                         collection={collection}
-                        editHandler={handleEdit}
+                        openCollectionForm={openCollectionForm}
                         deleteHandler={handleDelete}
                     />
                 </div>
@@ -60,20 +68,34 @@ const Collections = () => {
         });
     };
 
-    const onAddCollection = () => {
-        // setShowModal(true);
+    const handleSaveForm = (savedCollection, isNew) => {
+        isNew
+            ? createCollection(savedCollection)
+            : updateCollection(savedCollection);
     };
 
-    const handleCreate = () => {
-        console.log('handleCreateCollection');
+    const createCollection = (collection) => {
+        console.log('createCollection', collection);
     };
 
-    const handleEdit = (collection) => {
+    const updateCollection = (collection) => {
         console.log('handleEdit', collection);
     };
 
     const handleDelete = (collection) => {
         console.log('handleDelete', collection);
+    };
+
+    const renderModalContent = () => {
+        const isNewForm = !collectionObject.id;
+        return (
+            <CollectionForm
+                collection={collectionObject}
+                saveHandler={handleSaveForm}
+                cancelHandler={() => setIsModalOpen(false)}
+                isNew={isNewForm}
+            />
+        );
     };
 
     return (
@@ -82,7 +104,7 @@ const Collections = () => {
                 <h2>My Collections</h2>
                 <button
                     className='collection-list__button'
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={() => openCollectionForm({})}
                 >
                     <FontAwesomeIcon icon='plus' />
                 </button>
@@ -91,7 +113,7 @@ const Collections = () => {
                     isModalOpen={isModalOpen}
                     closeModal={() => setIsModalOpen(false)}
                 >
-                    <h2>Create Collection</h2>
+                    {renderModalContent()}
                 </Modal>
             </div>
         </>
