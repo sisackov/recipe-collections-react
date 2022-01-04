@@ -11,7 +11,7 @@ import {
 } from '../../utils/firebase.js';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import './Login.css';
-import { defaultRecipeCollections } from '../../utils/collectionsUtils';
+import { DEFAULT_COLLECTION_LIST } from '../../utils/collectionsUtils';
 import Spinner from '../../components/Spinner/Spinner';
 
 function Login() {
@@ -31,7 +31,7 @@ function Login() {
                     const setUserRes = await setUserInDB(user.uid, {
                         displayName: user.displayName,
                         email: user.email,
-                        collections: defaultRecipeCollections,
+                        collections: DEFAULT_COLLECTION_LIST,
                     });
                     console.log('setUserFirestore: ', setUserRes);
                 }

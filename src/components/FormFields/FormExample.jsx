@@ -15,7 +15,7 @@ class FormExample extends React.Component {
         return (
             <form className='form-container' method='' action=''>
                 <InputField
-                    hasLabel='true'
+                    hasLabel={true}
                     htmlFor='textInput'
                     label='Text input'
                     required={true}
@@ -23,7 +23,7 @@ class FormExample extends React.Component {
                 />
 
                 <InputField
-                    hasLabel='true'
+                    hasLabel={true}
                     htmlFor='emailInput'
                     label='Email input'
                     required={true}
@@ -31,7 +31,7 @@ class FormExample extends React.Component {
                 />
 
                 <InputField
-                    hasLabel='true'
+                    hasLabel={true}
                     htmlFor='numberInput'
                     label='Number input'
                     required={true}
@@ -42,7 +42,7 @@ class FormExample extends React.Component {
                 />
 
                 <InputField
-                    hasLabel='true'
+                    hasLabel={true}
                     htmlFor='passwordInput'
                     label='Password input'
                     required={true}
@@ -50,7 +50,7 @@ class FormExample extends React.Component {
                 />
 
                 <SelectField
-                    hasLabel='true'
+                    hasLabel={true}
                     htmlFor='select'
                     label='Select'
                     options='one, two, three, option four, five'
@@ -58,7 +58,7 @@ class FormExample extends React.Component {
                 />
 
                 <DatalistField
-                    hasLabel='true'
+                    hasLabel={true}
                     htmlFor='datalist'
                     label='Datalist'
                     options='Chrome, Edge, Firefox, Internet Explorer, Opera, Safari, Vivaldi'
@@ -66,21 +66,21 @@ class FormExample extends React.Component {
                 />
 
                 <TextareaField
-                    hasLabel='true'
+                    hasLabel={true}
                     htmlFor='textarea'
                     label='Textarea'
                     required={true}
                 />
 
                 <CheckboxField
-                    hasLabel='true'
+                    hasLabel={true}
                     htmlFor='checkbox'
                     label='Checkbox'
                     required={true}
                 />
 
                 <RadioField
-                    hasLabel='true'
+                    hasLabel={true}
                     htmlFor='radioOne'
                     label='Radio one'
                     name='radios'
@@ -88,7 +88,7 @@ class FormExample extends React.Component {
                 />
 
                 <RadioField
-                    hasLabel='true'
+                    hasLabel={true}
                     htmlFor='radioTwo'
                     label='Radio two'
                     name='radios'

@@ -4,13 +4,14 @@ import './FormFields.css';
 // Create component for label
 class LabelField extends Component {
     render() {
-        if (this.props.hasLabel === 'true') {
+        if (this.props.hasLabel) {
             return (
                 <label className='form-label' htmlFor={this.props.htmlFor}>
                     {this.props.label}
                 </label>
             );
         }
+        return null;
     }
 }
 
@@ -23,6 +24,7 @@ class ButtonField extends Component {
                 className='form-button'
                 type={this.props.type || 'button'}
                 value={this.props.value || null}
+                onClick={this.props.clickHandler || null}
             >
                 {this.props.text}
             </button>
@@ -114,6 +116,8 @@ class InputField extends Component {
                     required={this.props.required || null}
                     step={this.props.step || null}
                     type={this.props.type || 'text'}
+                    value={this.props.value || null}
+                    onChange={this.props.onChange || null}
                 />
             </fieldset>
         );
@@ -203,6 +207,8 @@ class TextareaField extends Component {
                     name={this.props.name || null}
                     required={this.props.required || null}
                     rows={this.props.rows || null}
+                    value={this.props.value || null}
+                    onChange={this.props.onChange || null}
                 ></textarea>
             </fieldset>
         );
