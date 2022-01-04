@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app';
 import {
     collection,
     collectionGroup,
+    deleteDoc,
     doc,
     getDoc,
     getDocs,
@@ -246,6 +247,15 @@ const getRecipeCollectionsByIdsFromDB = async (collIds) => {
     return recipeCollections;
 };
 
+const deleteRecipeCollectionInDB = async (collectionId) => {
+    console.log('deleteRecipeCollectionInDB', collectionId);
+    const deleteResp = await deleteDoc(
+        doc(db, 'recipeCollections', collectionId)
+    );
+    console.log('setResp', deleteResp);
+    return deleteResp;
+};
+
 export {
     auth,
     db,
@@ -266,4 +276,5 @@ export {
     getAllRecipeCollectionFromDB,
     getRecipeCollectionsByIdsFromDB,
     getRecipeCollectionByIdFromDB,
+    deleteRecipeCollectionInDB,
 };

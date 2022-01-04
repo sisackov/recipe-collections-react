@@ -5,24 +5,22 @@
     height: 15rem;
     border-radius: 15px;
     border: coral 1px solid;
-}
-
-.collection-card__content {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    width: 100%;
-    padding: 10px;
-}
-
-.collection-card__image {
-    /* justify-self: flex-end; */
+    background: orange;
+    margin-bottom: 1rem;
 }
 
 .collection-card__image img {
     border-radius: 0 15px 15px 0;
     width: 15rem;
     height: 100%;
+}
+
+.collection-card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
 }
 
 .collection-card__button {
@@ -37,4 +35,17 @@
     justify-content: space-evenly;
     row-gap: 10px;
     width: 5rem;
+}
+
+.collection-card__text {
+    justify-self: center;
+    height: 9rem;
+}
+
+/* .collection-card__link {
+    justify-self: flex-end;
+} */
+
+.collection-card__link a {
+    font-size: 1.1rem;
 }

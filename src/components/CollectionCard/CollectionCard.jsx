@@ -1,5 +1,6 @@
 import './CollectionCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 const CollectionCard = ({ collection, openCollectionForm, deleteHandler }) => {
     // console.log('CollectionCard', collection);
@@ -21,8 +22,15 @@ const CollectionCard = ({ collection, openCollectionForm, deleteHandler }) => {
                         <FontAwesomeIcon icon='trash-alt' />
                     </button>
                 </div>
-                <h4>{collection.title}</h4>
-                <div>{collection.description}</div>
+                <div className='collection-card__text'>
+                    <h4>{collection.title}</h4>
+                    <div>{collection.description}</div>
+                </div>
+                <div className='collection-card__link'>
+                    <Link to={`/collection/${collection.id}`}>
+                        View Collection Recipes
+                    </Link>
+                </div>
             </div>
             <div className='collection-card__image'>
                 <img src={collection.image} alt={collection.title} />

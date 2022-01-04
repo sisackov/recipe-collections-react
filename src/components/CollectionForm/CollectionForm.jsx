@@ -77,7 +77,13 @@ import {
  * @param {*} collection if isNew is false, this is the collection to edit.
  * Otherwise, collection should be empty object.
  */
-const CollectionForm = ({ collection, saveHandler, cancelHandler, isNew }) => {
+const CollectionForm = ({
+    collection,
+    saveHandler,
+    cancelHandler,
+    isNew,
+    userId,
+}) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [imageUrl, setImageUrl] = useState('');
@@ -96,8 +102,8 @@ const CollectionForm = ({ collection, saveHandler, cancelHandler, isNew }) => {
 
     const handleSave = (e) => {
         if (!title || !description) return; //form validation
-
         e.preventDefault();
+
         const newCollection = isNew
             ? {
                   id: uuidV4(),
@@ -107,6 +113,7 @@ const CollectionForm = ({ collection, saveHandler, cancelHandler, isNew }) => {
                   searchUrl:
                       DEFAULT_COLLECTION_SEARCH_PREFIX + title.toLowerCase(),
                   recipes: [],
+                  createdBy: userId,
               }
             : {
                   ...collection,
@@ -114,7 +121,6 @@ const CollectionForm = ({ collection, saveHandler, cancelHandler, isNew }) => {
                   description,
                   image: imageUrl || DEFAULT_COLLECTION_IMAGE,
               };
-        console.log('newCollection', newCollection);
         saveHandler(newCollection, isNew);
     };
 
