@@ -18,6 +18,7 @@ import {
     fas,
     faWindowClose,
 } from '@fortawesome/free-solid-svg-icons';
+import FormExample from './components/FormFields/FormExample';
 
 library.add(
     faCheckSquare,
@@ -37,7 +38,7 @@ function App() {
                 <Switch>
                     {/* <Route exact path='/' component={RecipeList} /> */}
                     {/* <Route exact path='/' component={Collections} /> */}
-                    <Route exact path='/' component={CollectionForm} />
+                    <Route exact path='/' component={FormExample} />
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/register' component={Register} />
                     <Route exact path='/reset' component={Reset} />

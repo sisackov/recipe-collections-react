@@ -1,3 +1,9 @@
+.form-container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 320px;
+}
+
 .form-fieldset {
     padding: 0;
     margin: 0;
@@ -66,4 +72,11 @@
 
 .form-button:hover {
     background-color: #7bd4da;
+}
+
+.form-buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-bottom: 1rem;
 }

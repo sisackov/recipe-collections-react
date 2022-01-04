@@ -18,15 +18,15 @@ class LabelField extends Component {
 class ButtonField extends Component {
     render() {
         return (
-            <fieldset className='form-fieldset'>
-                <button
-                    className='form-button'
-                    type={this.props.type || 'button'}
-                    value={this.props.value || null}
-                >
-                    {this.props.text}
-                </button>
-            </fieldset>
+            // <fieldset className='form-fieldset'>
+            <button
+                className='form-button'
+                type={this.props.type || 'button'}
+                value={this.props.value || null}
+            >
+                {this.props.text}
+            </button>
+            // </fieldset>
         );
     }
 }

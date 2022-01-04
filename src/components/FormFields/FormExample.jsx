@@ -7,19 +7,18 @@ import {
     RadioField,
     SelectField,
     TextareaField,
-} from '../FormFields/FormFields';
-import './CollectionForm.css';
+} from './FormFields';
 
 // Create component for form
-class CollectionForm extends React.Component {
+class FormExample extends React.Component {
     render() {
         return (
-            <form className='collection-form-container' method='' action=''>
+            <form className='form-container' method='' action=''>
                 <InputField
                     hasLabel='true'
                     htmlFor='textInput'
                     label='Text input'
-                    required='true'
+                    required={true}
                     type='text'
                 />
 
@@ -27,7 +26,7 @@ class CollectionForm extends React.Component {
                     hasLabel='true'
                     htmlFor='emailInput'
                     label='Email input'
-                    required='true'
+                    required={true}
                     type='email'
                 />
 
@@ -35,7 +34,7 @@ class CollectionForm extends React.Component {
                     hasLabel='true'
                     htmlFor='numberInput'
                     label='Number input'
-                    required='true'
+                    required={true}
                     type='number'
                     min='0.5'
                     max='100'
@@ -46,7 +45,7 @@ class CollectionForm extends React.Component {
                     hasLabel='true'
                     htmlFor='passwordInput'
                     label='Password input'
-                    required='true'
+                    required={true}
                     type='password'
                 />
 
@@ -55,7 +54,7 @@ class CollectionForm extends React.Component {
                     htmlFor='select'
                     label='Select'
                     options='one, two, three, option four, five'
-                    required='true'
+                    required={true}
                 />
 
                 <DatalistField
@@ -63,21 +62,21 @@ class CollectionForm extends React.Component {
                     htmlFor='datalist'
                     label='Datalist'
                     options='Chrome, Edge, Firefox, Internet Explorer, Opera, Safari, Vivaldi'
-                    required='true'
+                    required={true}
                 />
 
                 <TextareaField
                     hasLabel='true'
                     htmlFor='textarea'
                     label='Textarea'
-                    required='true'
+                    required={true}
                 />
 
                 <CheckboxField
                     hasLabel='true'
                     htmlFor='checkbox'
                     label='Checkbox'
-                    required='true'
+                    required={true}
                 />
 
                 <RadioField
@@ -85,7 +84,7 @@ class CollectionForm extends React.Component {
                     htmlFor='radioOne'
                     label='Radio one'
                     name='radios'
-                    required='true'
+                    required={true}
                 />
 
                 <RadioField
@@ -93,16 +92,16 @@ class CollectionForm extends React.Component {
                     htmlFor='radioTwo'
                     label='Radio two'
                     name='radios'
-                    required='true'
+                    required={true}
                 />
 
                 <div className='form-buttons-container'>
-                    <ButtonField type='submit' value='submit' text='Save' />
-                    <ButtonField type='button' value='Cancel' text='Cancel' />
+                    <ButtonField value='save' text='Save' />
+                    <ButtonField value='cancel' text='Cancel' />
                 </div>
             </form>
         );
     }
 }
 
-export default CollectionForm;
+export default FormExample;
