@@ -14,7 +14,7 @@ const RecipeCard1 = ({ recipe, deleteHandler }) => {
         return recipe.title.split(' ').map((word, index) => {
             if (index % 2) {
                 return (
-                    <span key={`span-${word}-${index}`} className='orange'>
+                    <span key={`span-${word}-${index}`} className='orangered'>
                         {`${word} `}
                     </span>
                 );
@@ -23,60 +23,41 @@ const RecipeCard1 = ({ recipe, deleteHandler }) => {
         });
     };
 
+    const getDiets = () => {
+        const arrLength = recipe.diets.length;
+        let dietName = '';
+        return recipe.diets.map((diet, index) => {
+            if (index === arrLength - 1) {
+                dietName = diet;
+            } else {
+                dietName = diet + ' ' + String.fromCharCode(8226) + ' ';
+            }
+            return (
+                <span
+                    key={`sub-span-${diet}-${index}`}
+                    className='recipe-card__title--note'
+                >
+                    {dietName}
+                </span>
+            );
+        });
+    };
+
     return (
         <div className='recipe-card-container'>
             <div className='recipe-card__image'>
                 <img src={recipe.image} alt={recipe.title} />
+                {/* <div className='recipe-card__image--overlay'>
+                    <p>{recipe.servings} servings</p>
+                    <p>{recipe.readyInMinutes} minutes</p>
+                </div> */}
             </div>
             <div className='recipe-card__content'>
                 <h2 className='recipe-card__title'>{alternateTitle()}</h2>
-                <div className='card_text'>
-                    <p>
-                        Dig into the freshest veggies of the season! This
-                        salad-in-a-jar features a mixture of leafy greens and
-                        seasonal vegetables, fresh from the farmer's market.
-                    </p>
-                    <p>
-                        Served with your choice of dressing on the side:
-                        housemade ranch, cherry balsamic vinaigrette, creamy
-                        chipotle, avocado green goddess, or honey mustard. Add
-                        your choice of protein for $2 more.
-                    </p>
-                </div>
-                <button class='card_btn orange'>See more +</button>
+                <div className='recipe-card__title'>{getDiets()}</div>
             </div>
         </div>
     );
 };
 
 export default RecipeCard1;
-
-<li class='cards_item'>
-    <div class='card'>
-        <div class='card_image'>
-            <img
-                src='https://assets.codepen.io/652/photo-1468777675496-5782faaea55b.jpeg'
-                alt='mixed vegetable salad in a mason jar. '
-            />
-        </div>
-        <div class='card_content'>
-            <h2 class='card_title'>
-                Farmstand Salad <span class='orange'>&#x2022; $9</span>
-            </h2>
-            <div class='card_text'>
-                <p>
-                    Dig into the freshest veggies of the season! This
-                    salad-in-a-jar features a mixture of leafy greens and
-                    seasonal vegetables, fresh from the farmer's market.
-                </p>
-                <p>
-                    Served with your choice of dressing on the side: housemade
-                    ranch, cherry balsamic vinaigrette, creamy chipotle, avocado
-                    green goddess, or honey mustard. Add your choice of protein
-                    for $2 more.
-                </p>
-            </div>
-            <button class='card_btn orange'>See more +</button>
-        </div>
-    </div>
-</li>;

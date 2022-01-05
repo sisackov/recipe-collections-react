@@ -24,17 +24,9 @@
 
 body {
     font-family: 'PT Sans', sans-serif;
-    background-image: url('https://github.com/Javieer57/CPC-Card-Text/blob/main/assets/wood.jpg?raw=true');
+    background-image: url('../assets/images/wood-background.jpg');
     color: var(--dark);
     font-family: var(--body-font);
-
-    /* -webkit-font-smoothing: antialiased; */
-    /* -moz-osx-font-smoothing: grayscale; */
-    /* background: radial-gradient(
-        circle,
-        rgba(91, 173, 182, 1) 6%,
-        rgba(0, 255, 181, 1) 3%
-    ); */
 }
 
 hr {
@@ -69,4 +61,18 @@ hr.rounded {
 
 .fa-icon-color {
     color: tomato;
+}
+
+.orange {
+    color: var(--orange);
+}
+
+/* TODO */
+::selection {
+    background-color: var(--lighter-orange);
+    color: var(--white);
+}
+
+.orangered {
+    color: orangered;
 }

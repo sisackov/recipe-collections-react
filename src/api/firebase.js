@@ -21,6 +21,7 @@ import {
     GoogleAuthProvider,
     FacebookAuthProvider,
 } from 'firebase/auth';
+import { stripHtmlTags } from '../utils/utils';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -152,6 +153,10 @@ const userExistsInDB = async (userId) => {
 
 const setRecipeInDB = async (recipe) => {
     console.log('setRecipeInFirestore', recipe);
+    if (recipe.summaryArray) {
+        recipe.summary = stripHtmlTags(recipe.summary);
+        recipe.summaryArray = recipe.summary.split(' ');
+    }
     const setResp = await setDoc(
         doc(db, 'recipes', recipe.recipeId || recipe.id),
         recipe
@@ -188,21 +193,19 @@ const getRecipeByIdsFromDB = async (recipeIds) => {
 
 const setRecipeCollectionInDB = async (recCollection) => {
     console.log('setRecipeCollection', recCollection);
-    const setResp = await setDoc(
+    return setDoc(
         doc(db, 'recipeCollections', recCollection.id),
         recCollection
     );
-    console.log('setResp', setResp);
-    return setResp;
 };
 
-const getAllRecipeCollectionFromDB = async () => {
-    const querySnapshot = await getDocs(collection(db, 'recipeCollections'));
-    const recipeCollections = [];
+const getAllDocsInCollectionFromDB = async (collectionName) => {
+    const querySnapshot = await getDocs(collection(db, collectionName));
+    const docsData = [];
     querySnapshot.forEach((collDoc) => {
-        recipeCollections.push(collDoc.data());
+        docsData.push(collDoc.data());
     });
-    return recipeCollections;
+    return docsData;
 };
 
 const getRecipeCollectionByIdFromDB = async (collId) => {
@@ -281,7 +284,7 @@ export {
     getRecipeByIdFromDB,
     getRecipeByIdsFromDB,
     setRecipeCollectionInDB,
-    getAllRecipeCollectionFromDB,
+    getAllDocsInCollectionFromDB,
     getRecipeCollectionsByIdsFromDB,
     getRecipeCollectionByIdFromDB,
     deleteRecipeCollectionInDB,
