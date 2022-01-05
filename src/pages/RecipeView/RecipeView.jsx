@@ -5,7 +5,6 @@ import './RecipeView.css';
 import { getCaloriesInSpoonacular } from '../../utils/utils';
 import IngredientsView from '../../components/IngredientsView/IngredientsView';
 import { useEffect, useState } from 'react';
-import RelatedItems from '../../components/RelatedItems/RelatedItems';
 import InstructionsView from '../../components/InstructionsView/InstructionsView';
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
@@ -47,7 +46,6 @@ function RecipeView(/* { recipe } */) {
     }, [recipeId]);
 
     const renderModalContent = () => {
-        // console.log('RecipeView: renderModalContent: data: ', data.recipeId);
         return (
             <CollectionRecipeForm
                 recipe={data}

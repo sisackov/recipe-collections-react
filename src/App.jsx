@@ -5,7 +5,6 @@ import Register from './pages/Register/Register';
 import Reset from './pages/Reset/Reset';
 import RecipeView from './pages/RecipeView/RecipeView';
 import NavBar from './components/NavBar/NavBar';
-import CollectionForm from './components/CollectionForm/CollectionForm';
 import Collections from './pages/Collections/Collections';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -39,12 +38,11 @@ function App() {
             <Router>
                 <NavBar />
                 <Switch>
-                    {/* <Route exact path='/' component={RecipeList} /> */}
-                    <Route exact path='/' component={SearchBar} />
-                    <Route exact path='/search' component={SearchBar} />
+                    <Route exact path='/' component={RecipeList} />
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/register' component={Register} />
                     <Route exact path='/reset' component={Reset} />
+                    <Route exact path='/search' component={SearchBar} />
                     <Route
                         exact
                         path='/recipe/:recipeId'

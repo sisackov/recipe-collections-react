@@ -5,14 +5,12 @@ import {
     getRecipeCollectionByIdFromDB,
     setRecipeCollectionInDB,
 } from '../../api/firebase';
-import { getRecipeIdsArray } from '../../utils/utils';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import Spinner from '../Spinner/Spinner';
 import './RecipeGrid.css';
 
 const RecipeGrid = () => {
     const { collectionId } = useParams();
-    // console.log('RecipeGrid: path: ', collectionId);
     const [data, setData] = useState([]); //data is an array of recipe objects
     const [isLoading, setIsLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');

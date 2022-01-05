@@ -1,18 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import {
-    getSpoonacularAutocomplete,
-    getSpoonacularComplexSearch,
-} from '../../api/spoonacularAPI';
+import { getSpoonacularAutocomplete } from '../../api/spoonacularAPI';
 import Spinner from '../../components/Spinner/Spinner';
 import { searchRecipesInDB } from '../../api/firebase';
 import { capitalizeFirstLetters } from '../../utils/utils';
-import './SearchBar.css';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
-import RecipeGrid from '../../components/RecipeGrid/RecipeGrid';
-
-// Dummy data
-const REQUEST_URL = 'https://jonasjacek.github.io/colors/data.json';
+import './SearchBar.css';
 
 class SearchBar extends React.Component {
     state = {
@@ -21,15 +14,7 @@ class SearchBar extends React.Component {
         searchQuery: '',
         resultData: [],
         isLoading: false,
-        color: '',
     };
-
-    // fetch data
-    async componentDidMount() {
-        fetch(REQUEST_URL)
-            .then((response) => response.json())
-            .then((data) => this.setState({ data }));
-    }
 
     // Select the wrapper and toggle class 'focus'
     onFocus = (e) => e.target.parentNode.parentNode.classList.add('focus');
@@ -105,7 +90,7 @@ class SearchBar extends React.Component {
 
     showSearchResults = () => {
         const { resultData, isLoading } = this.state;
-        if (isLoading) return <Spinner spinner='1' />;
+        if (isLoading) return <Spinner />;
         if (!resultData.length) return null;
 
         return resultData.map((recipe) => {

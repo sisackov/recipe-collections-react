@@ -65,15 +65,12 @@ const signInWithFacebook = async () => {
     try {
         const result = await signInWithPopup(auth, facebookProvider);
         const credential = FacebookAuthProvider.credentialFromResult(result);
+        console.log('credential', credential);
         // const accessToken = credential.accessToken;
         // The signed-in user info.
         // const user = result.user;
-
-        // localStorage.setItem('token', accessToken);
-        // localStorage.setItem('user', JSON.stringify(user));
     } catch (err) {
         console.error(err);
-        alert(err.message);
     }
 };
 
