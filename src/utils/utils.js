@@ -29,6 +29,8 @@ export function getLoremIpsum(count) {
 }
 
 export const getCaloriesInSpoonacular = (recipe) => {
+    console.log('getCaloriesInSpoonacular', recipe);
+    if (!recipe.nutrition) return 0;
     const calories = recipe.nutrition.nutrients.find(
         (nutrient) => nutrient.title === 'Calories'
     );

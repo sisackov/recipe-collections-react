@@ -20,6 +20,21 @@ class Spinner extends React.Component {
         );
     }
 
+    selectSpinner = () => {
+        const { spinner } = this.props;
+        if (!spinner) return this.renderSpinner1();
+        switch (spinner) {
+            case '1':
+                return this.renderSpinner1();
+            case '2':
+                return this.renderSpinner2();
+            case '3':
+                return this.renderSpinner3();
+            default:
+                return this.renderSpinner1();
+        }
+    };
+
     render() {
         return (
             <div className='background-spinner'>{this.renderSpinner2()}</div>

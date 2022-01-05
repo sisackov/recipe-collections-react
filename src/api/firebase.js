@@ -247,10 +247,12 @@ const deleteRecipeCollectionInDB = async (collectionId) => {
 
 const searchRecipesInDB = async (searchTerm) => {
     console.log('searchRecipesInDB', searchTerm);
+    const strlength = searchTerm.length;
+
     const recipesQuery = query(
         collectionGroup(db, 'recipes'),
-        where('summary', '>=', searchTerm),
-        where('summary', '<', searchTerm.charAt(0) + '\uf8ff')
+        where('summary', '>=', searchTerm.slice(0, strlength - 2)),
+        where('summary', '<', searchTerm.slice(strlength - 1))
     );
 
     const querySnapshot = await getDocs(recipesQuery);

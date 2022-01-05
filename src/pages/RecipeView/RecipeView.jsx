@@ -10,9 +10,10 @@ import InstructionsView from '../../components/InstructionsView/InstructionsView
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import Spinner from '../../components/Spinner/Spinner';
-import { getRecipeByIdFromDB } from '../../api/firebase';
+import { getRecipeByIdFromDB, setRecipeInDB } from '../../api/firebase';
 import Modal from '../../components/Modal/Modal';
 import CollectionRecipeForm from '../../components/CollectionRecipeForm/CollectionRecipeForm';
+import { getSpoonacularRecipeInfo } from '../../api/spoonacularAPI';
 
 function RecipeView(/* { recipe } */) {
     const { recipeId } = useParams();
@@ -26,10 +27,15 @@ function RecipeView(/* { recipe } */) {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                // console.log('RecipeView: fetchData: recipeId: ', recipeId);
-                const recId = recipeId || 'sponacular-795751'; //!!! hardcoded for testing TODO: remove
-                const res = await getRecipeByIdFromDB(recId);
-                // console.log('getRecipeByIdFromDB: ', res);
+                const res = await getRecipeByIdFromDB(recipeId);
+                if (!res.nutrition) {
+                    const nutrition = await getSpoonacularRecipeInfo(
+                        res.id,
+                        true
+                    );
+                    res.nutrition = nutrition.nutrition;
+                    setRecipeInDB(res);
+                }
                 setData(res);
             } catch (err) {
                 setErrorMsg(err.message);
@@ -74,16 +80,6 @@ function RecipeView(/* { recipe } */) {
                                 clickHandler={() => setIsModalOpen(true)}
                                 styleName='btn-primary btn--green'
                             />
-                            {/* <ButtonComponent
-                                label='Edit'
-                                clickHandler={handleAddToCollections}
-                                styleName='btn-primary btn--orangered'
-                            />
-                            <ButtonComponent
-                                label='Delete'
-                                clickHandler={handleAddToCollections}
-                                styleName='btn-primary btn--orangered'
-                            /> */}
                         </div>
                     </div>
 

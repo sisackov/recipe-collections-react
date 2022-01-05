@@ -8,6 +8,8 @@ import Spinner from '../../components/Spinner/Spinner';
 import { searchRecipesInDB } from '../../api/firebase';
 import { capitalizeFirstLetters } from '../../utils/utils';
 import './SearchBar.css';
+import RecipeCard from '../../components/RecipeCard/RecipeCard';
+import RecipeGrid from '../../components/RecipeGrid/RecipeGrid';
 
 // Dummy data
 const REQUEST_URL = 'https://jonasjacek.github.io/colors/data.json';
@@ -18,6 +20,7 @@ class SearchBar extends React.Component {
         searchTerm: '',
         searchQuery: '',
         resultData: [],
+        isLoading: false,
         color: '',
     };
 
@@ -26,9 +29,6 @@ class SearchBar extends React.Component {
         fetch(REQUEST_URL)
             .then((response) => response.json())
             .then((data) => this.setState({ data }));
-
-        const resp = await searchRecipesInDB('italian sub');
-        console.log(resp);
     }
 
     // Select the wrapper and toggle class 'focus'
@@ -54,43 +54,33 @@ class SearchBar extends React.Component {
 
     // Select item
     onClickItem = (item) => {
-        // this.setState({
-        //     searchTerm: '',
-        //     searchQuery: item,
-        //     searchData: [],
-        //     color: item,
-        // });
         this.handleRecipeSearch(item);
     };
 
     onClickSearch = () => {
-        // this.setState({
-        //     searchTerm: '',
-        //     searchQuery: this.state.searchTerm,
-        //     searchData: [],
-        // });
-        // console.log('Search clicked', this.state.searchTerm);
         this.handleRecipeSearch(this.state.searchTerm);
     };
 
     handleRecipeSearch = async (searchRecipe) => {
-        // console.log('Searching... ', searchRecipe);
-        this.setState({
-            searchTerm: '',
-            searchQuery: searchRecipe,
-            searchData: [],
-        });
-        console.log('Searching... ', capitalizeFirstLetters(searchRecipe));
-        // const searchResponse = await getSpoonacularComplexSearch(
-        //     searchRecipe,
-        //     10,
-        //     true,
-        //     true,
-        //     true
-        // );
+        if (searchRecipe.length > 2) {
+            this.setState({
+                searchTerm: '',
+                searchQuery: searchRecipe,
+                searchData: [],
+                isLoading: true,
+            });
+            console.log('Searching... ', capitalizeFirstLetters(searchRecipe));
 
-        // console.log('Search response: ', searchResponse);
-        // this.setState({ resultData: searchResponse });
+            const resp = await searchRecipesInDB(
+                capitalizeFirstLetters(searchRecipe)
+            );
+            console.log('resp: ', resp);
+
+            this.setState({
+                resultData: resp,
+                isLoading: false,
+            });
+        }
     };
 
     dropdownItems = () => {
@@ -114,24 +104,13 @@ class SearchBar extends React.Component {
     };
 
     showSearchResults = () => {
-        return <div>{this.state.resultData}</div>;
-        const { resultData } = this.state;
-        // console.log('showSearchResults', resultData);
+        const { resultData, isLoading } = this.state;
+        if (isLoading) return <Spinner spinner='1' />;
+        if (!resultData.length) return null;
 
-        // const { color } = this.state;
-        // return (
-        //     color && (
-        //         <p className='result'>
-        //             <b>Color:</b>
-        //             {color.name}
-        //             <span
-        //                 className='box'
-        //                 style={{ backgroundColor: color.hexString }}
-        //             />
-        //             {color.hexString}
-        //         </p>
-        //     )
-        // );
+        return resultData.map((recipe) => {
+            return <RecipeCard key={recipe.id} recipe={recipe} />;
+        });
     };
 
     render() {
@@ -161,7 +140,9 @@ class SearchBar extends React.Component {
                     </div>
                     {this.dropdownItems()}
                 </div>
-                {this.showSearchResults()}
+                <div className='search-bar-results'>
+                    {this.showSearchResults()}
+                </div>
             </div>
         );
     }
