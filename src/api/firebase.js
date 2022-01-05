@@ -122,9 +122,6 @@ const sendPasswordResetEmail = async (email) => {
 
 const logout = async () => {
     await signOut(auth);
-    // localStorage.removeItem('token');
-    // localStorage.removeItem('user');
-    // return res;
 };
 
 //****************************************************************************/
@@ -248,6 +245,23 @@ const deleteRecipeCollectionInDB = async (collectionId) => {
     return deleteResp;
 };
 
+const searchRecipesInDB = async (searchTerm) => {
+    console.log('searchRecipesInDB', searchTerm);
+    const recipesQuery = query(
+        collectionGroup(db, 'recipes'),
+        where('summary', '>=', searchTerm),
+        where('summary', '<', searchTerm.charAt(0) + '\uf8ff')
+    );
+
+    const querySnapshot = await getDocs(recipesQuery);
+    // console.log('querySnapshot', querySnapshot);
+    const recipes = [];
+    querySnapshot.forEach((collDoc) => {
+        recipes.push(collDoc.data());
+    });
+    return recipes;
+};
+
 export {
     auth,
     db,
@@ -269,4 +283,5 @@ export {
     getRecipeCollectionsByIdsFromDB,
     getRecipeCollectionByIdFromDB,
     deleteRecipeCollectionInDB,
+    searchRecipesInDB,
 };

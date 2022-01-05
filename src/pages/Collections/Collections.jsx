@@ -13,7 +13,7 @@ import {
     getUserByIdFromDB,
     setRecipeCollectionInDB,
     setUserInDB,
-} from '../../utils/firebase';
+} from '../../api/firebase';
 import './Collections.css';
 
 const Collections = () => {

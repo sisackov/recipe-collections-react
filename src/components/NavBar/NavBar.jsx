@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
-import { auth, logout } from '../../utils/firebase.js';
+import { auth, logout } from '../../api/firebase.js';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 const NavBar = (props) => {
@@ -20,7 +20,7 @@ const NavBar = (props) => {
             return (
                 <div className='nav__left'>
                     <div className='navbar__item'>
-                        <Link to='/'>Home</Link>
+                        <Link to='/collections'>Collections</Link>
                     </div>
                     <div className='navbar__item'>
                         <Link to='/search'>Search</Link>
@@ -42,7 +42,11 @@ const NavBar = (props) => {
     return (
         <header className='navbar'>
             {/* TODO: hamburger menu goes here */}
-            <div className='navbar__title navbar__item'>RecipeCollections</div>
+            <div className='navbar__title'>
+                <Link to='/' className='navbar__title'>
+                    RecipeCollections
+                </Link>
+            </div>
             {renderLeftNav()}
         </header>
     );

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setRecipeInDB } from '../utils/firebase';
+import { setRecipeInDB } from './firebase';
 // import hits from './dummy.js';
 
 const spoonacularAPI = axios.create({

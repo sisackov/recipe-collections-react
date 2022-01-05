@@ -8,7 +8,7 @@ import {
     signInWithFacebook,
     userExistsInDB,
     setUserInDB,
-} from '../../utils/firebase.js';
+} from '../../api/firebase.js';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import './Login.css';
 import { DEFAULT_COLLECTION_LIST } from '../../utils/collectionsUtils';

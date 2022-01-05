@@ -4,7 +4,7 @@ import {
     getRecipeByIdsFromDB,
     getRecipeCollectionByIdFromDB,
     setRecipeCollectionInDB,
-} from '../../utils/firebase';
+} from '../../api/firebase';
 import { getRecipeIdsArray } from '../../utils/utils';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import Spinner from '../Spinner/Spinner';

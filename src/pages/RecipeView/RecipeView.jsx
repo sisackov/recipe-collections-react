@@ -10,7 +10,7 @@ import InstructionsView from '../../components/InstructionsView/InstructionsView
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import Spinner from '../../components/Spinner/Spinner';
-import { getRecipeByIdFromDB } from '../../utils/firebase';
+import { getRecipeByIdFromDB } from '../../api/firebase';
 import Modal from '../../components/Modal/Modal';
 import CollectionRecipeForm from '../../components/CollectionRecipeForm/CollectionRecipeForm';
 

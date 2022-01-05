@@ -6,7 +6,7 @@ import {
     registerWithEmailAndPassword,
     signInWithGoogle,
     signInWithFacebook,
-} from '../../utils/firebase.js';
+} from '../../api/firebase.js';
 import './Register.css';
 
 function Register() {

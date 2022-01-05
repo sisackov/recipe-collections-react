@@ -5,6 +5,7 @@ import {
     getSpoonacularComplexSearch,
 } from '../../api/spoonacularAPI';
 import Spinner from '../../components/Spinner/Spinner';
+import { searchRecipesInDB } from '../../api/firebase';
 import { capitalizeFirstLetters } from '../../utils/utils';
 import './SearchBar.css';
 
@@ -21,10 +22,13 @@ class SearchBar extends React.Component {
     };
 
     // fetch data
-    componentDidMount() {
+    async componentDidMount() {
         fetch(REQUEST_URL)
             .then((response) => response.json())
             .then((data) => this.setState({ data }));
+
+        const resp = await searchRecipesInDB('italian sub');
+        console.log(resp);
     }
 
     // Select the wrapper and toggle class 'focus'
@@ -77,15 +81,16 @@ class SearchBar extends React.Component {
             searchData: [],
         });
         console.log('Searching... ', capitalizeFirstLetters(searchRecipe));
-        const searchResponse = await getSpoonacularComplexSearch(
-            searchRecipe,
-            10,
-            true,
-            true,
-            true
-        );
-        console.log('Search response: ', searchResponse);
-        this.setState({ resultData: searchResponse });
+        // const searchResponse = await getSpoonacularComplexSearch(
+        //     searchRecipe,
+        //     10,
+        //     true,
+        //     true,
+        //     true
+        // );
+
+        // console.log('Search response: ', searchResponse);
+        // this.setState({ resultData: searchResponse });
     };
 
     dropdownItems = () => {

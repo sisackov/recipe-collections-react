@@ -12,7 +12,7 @@ import {
     getRecipeCollectionsByIdsFromDB,
     getUserByIdFromDB,
     setRecipeCollectionInDB,
-} from '../../utils/firebase';
+} from '../../api/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Spinner from '../Spinner/Spinner';
 
