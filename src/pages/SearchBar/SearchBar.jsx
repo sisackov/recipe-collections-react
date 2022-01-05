@@ -3,7 +3,6 @@ import React from 'react';
 import { getSpoonacularAutocomplete } from '../../api/spoonacularAPI';
 import Spinner from '../../components/Spinner/Spinner';
 import { searchRecipesInDB } from '../../api/firebase';
-import { capitalizeFirstLetters } from '../../utils/utils';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import './SearchBar.css';
 

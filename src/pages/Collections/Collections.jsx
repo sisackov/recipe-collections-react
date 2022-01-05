@@ -61,10 +61,10 @@ const Collections = () => {
         if (isLoading) return <Spinner />;
         if (errorMsg) return <div className='error-message'>{errorMsg}</div>;
 
-        return data.map((collection) => {
+        return data.map((collection, index) => {
             return (
                 <CollectionCard
-                    key={collection.id}
+                    key={`${collection.id}-${index}`}
                     collection={collection}
                     openCollectionForm={openCollectionForm}
                     deleteHandler={handleDelete}
@@ -73,7 +73,7 @@ const Collections = () => {
         });
     };
 
-    const handleSaveForm = async (savedCollection, isNew) => {
+    const handleSaveForm = async (savedCollection) => {
         try {
             let updatedData = [...data];
             let updatedUserData = { ...userData };
@@ -163,11 +163,10 @@ const Collections = () => {
                     className='collection-list__button'
                     onClick={() => openCollectionForm({})}
                 >
-                    <FontAwesomeIcon icon='plus' />
+                    <FontAwesomeIcon icon='plus' className='fa-icon-color' />
+                    <span> Add Collection</span>
                 </button>
-                <div className='collections-list__container'>
-                    {renderGrid()}
-                </div>
+                <div className='grid-list'>{renderGrid()}</div>
                 <Modal
                     isModalOpen={isModalOpen}
                     closeModal={() => setIsModalOpen(false)}

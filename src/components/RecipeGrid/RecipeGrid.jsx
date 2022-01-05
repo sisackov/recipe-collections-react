@@ -7,7 +7,6 @@ import {
 } from '../../api/firebase';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import Spinner from '../Spinner/Spinner';
-import './RecipeGrid.css';
 
 const RecipeGrid = () => {
     const { collectionId } = useParams();
@@ -92,7 +91,7 @@ const RecipeGrid = () => {
     return (
         <div className='recipe-grid-container'>
             <h2>{collectionData.title} Collection</h2>
-            {<div className='grid-list'>{renderGrid()}</div>}
+            {<div className='flex-list'>{renderGrid()}</div>}
         </div>
     );
 };
