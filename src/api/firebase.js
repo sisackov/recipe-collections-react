@@ -7,6 +7,7 @@ import {
     getDoc,
     getDocs,
     getFirestore,
+    limit,
     query,
     setDoc,
     where,
@@ -248,8 +249,11 @@ const searchRecipesInDB = async (searchTerm) => {
 
     const recipesQuery = query(
         collectionGroup(db, 'recipes'),
-        where('summary', '>=', searchTerm.slice(0, strlength - 2)),
-        where('summary', '<', searchTerm.slice(strlength - 1))
+        // where('summary', '>=', searchTerm.slice(0, strlength - 2)),
+        // where('summary', '<', searchTerm.slice(strlength - 1))
+        where('summary', '>=', searchTerm),
+        where('summary', '<', searchTerm)
+        // , limit(10)
     );
 
     const querySnapshot = await getDocs(recipesQuery);
