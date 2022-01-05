@@ -67,3 +67,7 @@ export function capitalizeFirstLetters(words) {
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
 }
+
+export function stripHtmlTags(html) {
+    return html.replace(/<[^>]*>?/gm, '');
+}

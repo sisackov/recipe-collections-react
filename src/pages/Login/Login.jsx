@@ -21,7 +21,6 @@ function Login() {
     const history = useHistory();
 
     useEffect(() => {
-        // console.log('login user: ', user);
         const saveUserInFirestore = async () => {
             try {
                 const userExists = await userExistsInDB(user.uid);
@@ -42,9 +41,8 @@ function Login() {
 
         if (user) {
             saveUserInFirestore();
-            history.replace('/');
+            history.push('/');
         }
-        //TODO:  if user is logged in - update login context and redirect to landing page
     }, [user, loading, history]);
 
     if (loading) {

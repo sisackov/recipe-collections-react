@@ -81,22 +81,20 @@ You can find React README [here](./misc/React_README.md).
 |                  | **Recipes**         |                 | :black_square_button: | **11.5 hours** |              |
 |                  |                     | RecipeCard      | :white_check_mark:    | 2 hours        | Thursday     |
 |                  |                     | RecipeView      | :white_check_mark:    | 2 hours        | Thursday     |
-|                  |                     | RecipeEdit      | :black_square_button: | 2 hours        | Saturday eve |
 |                  |                     | RecipeSummary   | :white_check_mark:    | 0.5 hours      | Saturday eve |
 |                  |                     | NutrientsCard   | :white_check_mark:    | 3 hours        | Saturday eve |
 |                  |                     | IngredientsView | :white_check_mark:    | 2 hours        | Sunday       |
-|                  |                     | IngredientsForm | :black_square_button: | 2 hours        | Sunday       |
 |                  | **Netlify**         |                 | :white_check_mark:    | **2 hours**    | Sunday       |
 |                  | **Login**           |                 | :white_check_mark:    | **6 hours**    |              |
 |                  |                     | LoginPage       | :white_check_mark:    | 3 hours        | Sunday       |
 |                  |                     | SignUpPage      | :white_check_mark:    | 3 hours        | Monday       |
-|                  | **Collections**     |                 | :black_square_button: | **6 hours**    | Monday       |
+|                  | **Collections**     |                 | :white_check_mark:    | **6 hours**    | Monday       |
 |                  |                     | List            | :white_check_mark:    | 2 hours        | Monday       |
-|                  |                     | Recipes         | :black_square_button: | 2 hours        | Monday       |
+|                  |                     | Recipes         | :white_check_mark:    | 2 hours        | Monday       |
 |                  |                     | Create          | :white_check_mark:    | 2 hours        | Monday       |
-|                  | **Search**          |                 | :black_square_button: | **4 hours**    | Monday       |
-|                  |                     | SearchBar       | :black_square_button: | 3 hours        |              |
-|                  |                     | SearchList      | :black_square_button: | 1 hours        |              |
+|                  | **Search**          |                 | :white_check_mark:    | **4 hours**    | Monday       |
+|                  |                     | SearchBar       | :white_check_mark:    | 3 hours        |              |
+|                  |                     | SearchList      | :white_check_mark:    | 1 hours        |              |
 |                  | **Styling**         |                 | :black_square_button: | **8 hours**    | Tuesday      |
 | **Nice To Have** |                     |                 |                       |                |              |
 |                  | **Hamburger**       |                 | :black_square_button: | **2 hours**    | Tuesday      |
@@ -104,12 +102,11 @@ You can find React README [here](./misc/React_README.md).
 |                  | **Calculator**      |                 | :black_square_button: | **8 hours**    | Wednesday    |
 |                  | **RelatedCarousel** |                 | :white_check_mark:    | **1.5 hours**  | Wednesday    |
 |                  | **SocialLinks**     |                 | :black_square_button: | **1.5 hours**  | Wednesday    |
+|                  |                     | RecipeEdit      | :black_square_button: | 2 hours        |              |
+|                  |                     | IngredientsForm | :black_square_button: | 2 hours        |              |
 | **Future**       |                     |                 |                       |                |              |
 |                  | **scroll** \*       |                 | :black_square_button: |                |              |
-|                  | **postman** \*\*    |                 | :black_square_button: |                |              |
 
 #### **Notes**
 
 \* add infinite scroll to landing page/RecipeGrid
-
-\*\* switch from mockApi to postman API

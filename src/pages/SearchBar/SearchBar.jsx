@@ -6,6 +6,7 @@ import { searchRecipesInDB } from '../../api/firebase';
 import { capitalizeFirstLetters } from '../../utils/utils';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import './SearchBar.css';
+import RecipeCard1 from '../../components/RecipeCard/RecipeCard1';
 
 class SearchBar extends React.Component {
     state = {
@@ -16,8 +17,12 @@ class SearchBar extends React.Component {
         isLoading: false,
     };
 
+    // componentDidMount() {
+
     // Select the wrapper and toggle class 'focus'
-    onFocus = (e) => e.target.parentNode.parentNode.classList.add('focus');
+    onFocus = (e) => {
+        e.target.parentNode.parentNode.classList.add('focus');
+    };
     onBlur = (e) => e.target.parentNode.parentNode.classList.remove('focus');
 
     fetchAutoComplete = async (searchTerm) => {
@@ -94,7 +99,7 @@ class SearchBar extends React.Component {
         if (!resultData.length) return null;
 
         return resultData.map((recipe) => {
-            return <RecipeCard key={recipe.id} recipe={recipe} />;
+            return <RecipeCard1 key={recipe.id} recipe={recipe} />;
         });
     };
 

@@ -244,16 +244,15 @@ const deleteRecipeCollectionInDB = async (collectionId) => {
 };
 
 const searchRecipesInDB = async (searchTerm) => {
+    //!TODO - implement search stopped working
     console.log('searchRecipesInDB', searchTerm);
     const strlength = searchTerm.length;
 
     const recipesQuery = query(
         collectionGroup(db, 'recipes'),
-        // where('summary', '>=', searchTerm.slice(0, strlength - 2)),
-        // where('summary', '<', searchTerm.slice(strlength - 1))
-        where('summary', '>=', searchTerm),
-        where('summary', '<', searchTerm)
-        // , limit(10)
+        where('title', '>=', searchTerm),
+        where('title', '<', searchTerm.charAt(strlength - 1) + '\uf8ff')
+        // limit(10)
     );
 
     const querySnapshot = await getDocs(recipesQuery);
