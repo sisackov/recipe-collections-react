@@ -1,5 +1,4 @@
 import './styles/App.css';
-// import RecipeList from './pages/RecipeList/RecipeList';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
@@ -17,9 +16,11 @@ import {
     faPlus,
     fas,
     faWindowClose,
+    faSearch,
 } from '@fortawesome/free-solid-svg-icons';
-import FormExample from './components/FormFields/FormExample';
 import RecipeGrid from './components/RecipeGrid/RecipeGrid';
+import SearchBar from './pages/SearchBar/SearchBar';
+import RecipeList from './pages/RecipeList/RecipeList';
 
 library.add(
     faCheckSquare,
@@ -28,7 +29,8 @@ library.add(
     fas,
     faTrashAlt,
     faPlus,
-    faWindowClose
+    faWindowClose,
+    faSearch
 );
 
 function App() {
@@ -38,7 +40,8 @@ function App() {
                 <NavBar />
                 <Switch>
                     {/* <Route exact path='/' component={RecipeList} /> */}
-                    <Route exact path='/' component={RecipeView} />
+                    <Route exact path='/' component={SearchBar} />
+                    <Route exact path='/search' component={SearchBar} />
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/register' component={Register} />
                     <Route exact path='/reset' component={Reset} />

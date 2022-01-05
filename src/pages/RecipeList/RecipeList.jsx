@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
-import { getSpoonacularRandomRecipes } from '../../api/spoonacularDummy';
-// import { getSpoonacularRandomRecipes } from '../../api/spoonacularAPI';
+import { getSpoonacularRandomRecipes } from '../../api/spoonacularAPI';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import Spinner from '../../components/Spinner/Spinner';
-// import useDataFetcher from '../../hooks/useDataFetcher'; //TODO
 import './RecipeList.css';
 
 function RecipeList() {
@@ -16,11 +14,10 @@ function RecipeList() {
 
     useEffect(() => {
         const fetchData = async () => {
-            // localStorage.clear();TODO
             setIsLoading(true);
             try {
-                // const res = await getSpoonacularRandomRecipes(20);
-                const res = getSpoonacularRandomRecipes;
+                const res = await getSpoonacularRandomRecipes(100);
+                // const res = getSpoonacularRandomRecipes;
                 console.log('getSpoonacularRandomRecipes: ', res);
                 setData(res);
             } catch (err) {

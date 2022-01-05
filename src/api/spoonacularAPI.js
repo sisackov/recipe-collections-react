@@ -10,6 +10,7 @@ const spoonacularAPI = axios.create({
 });
 
 const mapSpoonacularId = (results, save = true) => {
+    console.log('mapSpoonacularId', results);
     return results.map((recipe) => {
         const newRecipe = {
             recipeId: `sponacular-${recipe.id}`,
@@ -44,6 +45,7 @@ const getSpoonacularComplexSearch = async (
             ...param,
         },
     });
+    console.log('getSpoonacularComplexSearch', data);
     return mapSpoonacularId(data.results);
 };
 
@@ -116,7 +118,8 @@ const getSpoonacularAutocomplete = async (query, numOfResults) => {
             number: numOfResults,
         },
     });
-    return data.results;
+    // console.log('getSpoonacularAutocomplete', data);
+    return data;
 };
 
 const getSpoonacularSimilar = async (id, numOfRecipes) => {

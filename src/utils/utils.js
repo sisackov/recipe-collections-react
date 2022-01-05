@@ -58,3 +58,10 @@ export function extractRecipeId(recipeId) {
 export function getRecipeIdsArray(recipes) {
     return recipes.map((recipe) => extractRecipeId(recipe.id));
 }
+
+export function capitalizeFirstLetters(words) {
+    return words
+        .split(' ')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}

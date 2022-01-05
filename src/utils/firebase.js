@@ -49,12 +49,10 @@ const signInWithGoogle = async () => {
     try {
         const result = await signInWithPopup(auth, googleProvider);
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
+        console.log('credential', credential);
+        // const token = credential.accessToken;
         // The signed-in user info.
-        const user = result.user;
-
-        localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(user));
+        // const user = result.user;
     } catch (err) {
         console.error(err);
         alert(err.message);
@@ -67,12 +65,12 @@ const signInWithFacebook = async () => {
     try {
         const result = await signInWithPopup(auth, facebookProvider);
         const credential = FacebookAuthProvider.credentialFromResult(result);
-        const accessToken = credential.accessToken;
+        // const accessToken = credential.accessToken;
         // The signed-in user info.
-        const user = result.user;
+        // const user = result.user;
 
-        localStorage.setItem('token', accessToken);
-        localStorage.setItem('user', JSON.stringify(user));
+        // localStorage.setItem('token', accessToken);
+        // localStorage.setItem('user', JSON.stringify(user));
     } catch (err) {
         console.error(err);
         alert(err.message);
@@ -89,6 +87,7 @@ const signInWithEmailAndPassword = async (email, password) => {
             password
         );
         const user = userCredential.user;
+        console.log('signInWithEmailAndPassword', user);
         localStorage.setItem('user', JSON.stringify(user));
     } catch (err) {
         console.error(err);
@@ -104,34 +103,27 @@ const registerWithEmailAndPassword = async (name, email, password) => {
             password
         );
         const user = userCredential.user;
-
-        localStorage.setItem('user', JSON.stringify(user));
-        // await db.collection('users').add({
-        //     uid: user.uid,
-        //     name,
-        //     authProvider: 'local',
-        //     email,
-        // });
+        console.log('registerWithEmailAndPassword', user);
     } catch (err) {
         console.error(err);
-        alert(err.message);
+        // alert(err.message);
     }
 };
 
 const sendPasswordResetEmail = async (email) => {
     try {
         await auth.sendPasswordResetEmail(email);
-        alert('Password reset link sent!');
+        // alert('Password reset link sent!');
     } catch (err) {
         console.error(err);
-        alert(err.message);
+        // alert(err.message);
     }
 };
 
 const logout = async () => {
     await signOut(auth);
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    // localStorage.removeItem('token');
+    // localStorage.removeItem('user');
     // return res;
 };
 

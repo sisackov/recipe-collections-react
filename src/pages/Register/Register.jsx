@@ -59,12 +59,6 @@ function Register() {
                 >
                     Register with Google
                 </button>
-                <button
-                    className='register__btn register__facebook'
-                    onClick={signInWithFacebook}
-                >
-                    Register with Google
-                </button>
 
                 <div>
                     Already have an account? <Link to='/'>Login</Link> now.
