@@ -38,7 +38,7 @@ function App() {
             <Router>
                 <NavBar />
                 <Switch>
-                    <Route exact path='/' component={RecipeList} />
+                    <Route exact path='/' component={SearchBar} />
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/register' component={Register} />
                     <Route exact path='/reset' component={Reset} />

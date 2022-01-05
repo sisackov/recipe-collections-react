@@ -68,33 +68,8 @@
     cursor: pointer;
 }
 
-.result {
-    display: flex;
-    align-items: center;
-}
-.result b {
-    margin-right: 0.5em;
-}
-.result span {
-    margin: 0 0.5em;
-    width: 1em;
-    height: 1em;
-    border-radius: 0.5em;
-}
-
 @keyframes enlarge {
     to {
         max-height: 10em;
     }
-}
-
-.search-bar-results {
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fill,
-        minmax(var(--grid-card-width), auto)
-    );
-    grid-gap: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
 }

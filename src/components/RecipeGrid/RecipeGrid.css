@@ -1,16 +1,5 @@
-.recipe-grid-container__cards {
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fill,
-        minmax(var(--grid-card-width), auto)
-    );
-    grid-gap: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.recipe-card__button {
+/* .recipe-card__button {
     background: transparent;
     border-radius: 5px;
     align-self: flex-end;
-}
+} */

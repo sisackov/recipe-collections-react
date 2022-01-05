@@ -152,18 +152,20 @@ const userExistsInDB = async (userId) => {
 };
 
 const setRecipeInDB = async (recipe) => {
-    console.log('setRecipeInFirestore', recipe);
-    if (recipe.summaryArray) {
+    if (!recipe.summaryArray) {
         recipe.summary = stripHtmlTags(recipe.summary);
         recipe.summaryArray = recipe.summary.split(' ');
     }
+    console.log('setRecipeInFirestore', recipe);
     const setResp = await setDoc(
         doc(db, 'recipes', recipe.recipeId || recipe.id),
         recipe
     );
-    console.log('setResp', setResp);
+    // console.log('setResp', setResp);
     return setResp;
 };
+
+//! TODO: use constants
 
 const getRecipeByIdFromDB = async (recipeId) => {
     const docRef = doc(db, 'recipes', recipeId);
@@ -192,7 +194,7 @@ const getRecipeByIdsFromDB = async (recipeIds) => {
 };
 
 const setRecipeCollectionInDB = async (recCollection) => {
-    console.log('setRecipeCollection', recCollection);
+    // console.log('setRecipeCollection', recCollection);
     return setDoc(
         doc(db, 'recipeCollections', recCollection.id),
         recCollection
@@ -219,10 +221,6 @@ const getRecipeCollectionByIdFromDB = async (collId) => {
  * @returns
  */
 const getRecipeCollectionsByIdsFromDB = async (collIds) => {
-    // const docRef = doc(db, 'recipeCollections', collId);
-    // const docSnap = await getDoc(docRef);
-    // return docSnap.data();
-
     const recCollQuery = query(
         collectionGroup(db, 'recipeCollections'),
         where('id', 'in', collIds)
@@ -238,28 +236,25 @@ const getRecipeCollectionsByIdsFromDB = async (collIds) => {
 };
 
 const deleteRecipeCollectionInDB = async (collectionId) => {
-    console.log('deleteRecipeCollectionInDB', collectionId);
+    // console.log('deleteRecipeCollectionInDB', collectionId);
     const deleteResp = await deleteDoc(
         doc(db, 'recipeCollections', collectionId)
     );
-    console.log('setResp', deleteResp);
+    // console.log('setResp', deleteResp);
     return deleteResp;
 };
 
 const searchRecipesInDB = async (searchTerm) => {
-    //!TODO - implement search stopped working
-    console.log('searchRecipesInDB', searchTerm);
-    const strlength = searchTerm.length;
-
+    const recipesRef = collection(db, 'recipes');
+    const searchArray = searchTerm.split(' ');
     const recipesQuery = query(
-        collectionGroup(db, 'recipes'),
-        where('title', '>=', searchTerm),
-        where('title', '<', searchTerm.charAt(strlength - 1) + '\uf8ff')
-        // limit(10)
+        recipesRef,
+        where('summaryArray', 'array-contains-any', searchArray),
+        limit(12)
     );
+    // console.log('searchRecipesInDB', recipesQuery);
 
     const querySnapshot = await getDocs(recipesQuery);
-    // console.log('querySnapshot', querySnapshot);
     const recipes = [];
     querySnapshot.forEach((collDoc) => {
         recipes.push(collDoc.data());

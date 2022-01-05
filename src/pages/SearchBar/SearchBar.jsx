@@ -6,18 +6,23 @@ import { searchRecipesInDB } from '../../api/firebase';
 import { capitalizeFirstLetters } from '../../utils/utils';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import './SearchBar.css';
-import RecipeCard1 from '../../components/RecipeCard/RecipeCard';
 
 class SearchBar extends React.Component {
-    state = {
-        searchData: [],
-        searchTerm: '',
-        searchQuery: '',
-        resultData: [],
-        isLoading: false,
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchData: [],
+            searchTerm: '',
+            searchQuery: '',
+            resultData: [],
+            isLoading: false,
+        };
+        this.searchRef = React.createRef();
+    }
 
-    // componentDidMount() {
+    componentDidMount() {
+        this.searchRef.current.focus();
+    }
 
     // Select the wrapper and toggle class 'focus'
     onFocus = (e) => {
@@ -59,12 +64,10 @@ class SearchBar extends React.Component {
                 searchData: [],
                 isLoading: true,
             });
-            console.log('Searching... ', capitalizeFirstLetters(searchRecipe));
+            // console.log('Searching... ', capitalizeFirstLetters(searchRecipe));
 
-            const resp = await searchRecipesInDB(
-                capitalizeFirstLetters(searchRecipe)
-            );
-            console.log('resp: ', resp);
+            const resp = await searchRecipesInDB(searchRecipe);
+            // console.log('resp: ', resp);
 
             this.setState({
                 resultData: resp,
@@ -99,7 +102,7 @@ class SearchBar extends React.Component {
         if (!resultData.length) return null;
 
         return resultData.map((recipe) => {
-            return <RecipeCard1 key={recipe.id} recipe={recipe} />;
+            return <RecipeCard key={recipe.id} recipe={recipe} />;
         });
     };
 
@@ -110,6 +113,7 @@ class SearchBar extends React.Component {
                     <div className='search-bar'>
                         <input
                             id='searchTerm'
+                            ref={this.searchRef}
                             type='search'
                             placeholder='Search a recipe...'
                             value={this.state.searchTerm}
@@ -130,9 +134,7 @@ class SearchBar extends React.Component {
                     </div>
                     {this.dropdownItems()}
                 </div>
-                <div className='search-bar-results'>
-                    {this.showSearchResults()}
-                </div>
+                <div className='flex-list'>{this.showSearchResults()}</div>
             </div>
         );
     }

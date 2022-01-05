@@ -44,42 +44,59 @@ const RecipeCard = ({ recipe, deleteHandler }) => {
     };
 
     return (
-        <div className='recipe-card-container' onClick={handleCardClick}>
-            <div className='recipe-card__image'>
-                {deleteHandler && (
-                    <button
-                        className='recipe-card__button'
-                        onClick={() => deleteHandler(recipe)}
-                    >
-                        <FontAwesomeIcon
-                            className='fa-icon-color'
-                            icon='trash-alt'
-                        />
-                    </button>
-                )}
-                <img src={recipe.image} alt={recipe.title} />
-                <div className='recipe-card__overlay'>
-                    <div>
-                        Serves:
-                        <span className='gold'>
-                            {' '}
-                            {recipe.servings} servings
-                        </span>
-                    </div>
-                    <div>
-                        Prep Time:
-                        <span className='gold'>
-                            {' '}
-                            {recipe.readyInMinutes} minutes
-                        </span>
+        <div className='recipe-card__item'>
+            <div className='recipe-card-container' onClick={handleCardClick}>
+                <div className='recipe-card__image'>
+                    {deleteHandler && (
+                        <button
+                            className='recipe-card__button'
+                            onClick={() => deleteHandler(recipe)}
+                        >
+                            <FontAwesomeIcon
+                                className='fa-icon-color'
+                                icon='trash-alt'
+                            />
+                        </button>
+                    )}
+                    <img src={recipe.image} alt={recipe.title} />
+                    <div className='recipe-card__overlay'>
+                        <div>
+                            Serves:
+                            <span className='gold'>
+                                {' '}
+                                {recipe.servings} servings
+                            </span>
+                        </div>
+                        <div>
+                            Prep Time:
+                            <span className='gold'>
+                                {' '}
+                                {recipe.readyInMinutes} minutes
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className='recipe-card__content'>
-                <h2 className='recipe-card__title'>{alternateTitle()}</h2>
-                <div className='recipe-card__title'>{getDiets()}</div>
+                <div className='recipe-card__content'>
+                    <h2 className='recipe-card__title'>{alternateTitle()}</h2>
+                    <div className='recipe-card__title'>{getDiets()}</div>
+                </div>
             </div>
         </div>
+
+        // <div class='cards_item'>
+        //     <div class='card'>
+        //         <div class='card_image'>
+        //             <img src='https://picsum.photos/500/300/?image=10' />
+        //         </div>
+        //         <div class='card_content'>
+        //             <h2 class='card_title'>Card Grid Layout</h2>
+        //             <p class='card_text'>
+        //                 Demo of pixel perfect pure CSS simple responsive card
+        //                 grid layout
+        //             </p>
+        //         </div>
+        //     </div>
+        // </div>
     );
 };
 

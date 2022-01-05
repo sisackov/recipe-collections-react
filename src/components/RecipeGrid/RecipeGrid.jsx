@@ -6,7 +6,6 @@ import {
     setRecipeCollectionInDB,
 } from '../../api/firebase';
 import RecipeCard from '../RecipeCard/RecipeCard';
-import RecipeCard1 from '../RecipeCard/RecipeCard';
 import Spinner from '../Spinner/Spinner';
 import './RecipeGrid.css';
 
@@ -80,7 +79,7 @@ const RecipeGrid = () => {
             collectionData.id &&
             data.map((recipe) => {
                 return (
-                    <RecipeCard1
+                    <RecipeCard
                         key={recipe.id}
                         recipe={recipe}
                         deleteHandler={handleDelete}
@@ -93,7 +92,7 @@ const RecipeGrid = () => {
     return (
         <div className='recipe-grid-container'>
             <h2>{collectionData.title} Collection</h2>
-            {<div className='recipe-grid-container__cards'>{renderGrid()}</div>}
+            {<div className='grid-list'>{renderGrid()}</div>}
         </div>
     );
 };

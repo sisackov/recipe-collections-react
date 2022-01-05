@@ -16,8 +16,16 @@
     margin-bottom: 14px;
 }
 
+@media (min-width: 500px) {
+    .recipe-card-container {
+        width: 90%;
+    }
+}
+
 .recipe-card-container img {
-    width: 100%;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
 }
 
 .recipe-card__content {
@@ -76,4 +84,22 @@
     width: 2rem;
     height: 2rem;
     background-color: rgba(53, 46, 15, 0.25);
+}
+
+.recipe-card__item {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+    .recipe-card__item {
+        width: 50%;
+    }
+}
+
+@media (min-width: 56rem) {
+    .recipe-card__item {
+        width: 33.3333%;
+    }
 }
