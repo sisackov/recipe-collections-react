@@ -6,7 +6,7 @@ import { searchRecipesInDB } from '../../api/firebase';
 import { capitalizeFirstLetters } from '../../utils/utils';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import './SearchBar.css';
-import RecipeCard1 from '../../components/RecipeCard/RecipeCard1';
+import RecipeCard1 from '../../components/RecipeCard/RecipeCard';
 
 class SearchBar extends React.Component {
     state = {

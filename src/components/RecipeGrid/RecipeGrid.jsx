@@ -6,7 +6,7 @@ import {
     setRecipeCollectionInDB,
 } from '../../api/firebase';
 import RecipeCard from '../RecipeCard/RecipeCard';
-import RecipeCard1 from '../RecipeCard/RecipeCard1';
+import RecipeCard1 from '../RecipeCard/RecipeCard';
 import Spinner from '../Spinner/Spinner';
 import './RecipeGrid.css';
 

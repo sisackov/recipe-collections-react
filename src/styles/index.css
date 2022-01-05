@@ -60,7 +60,7 @@ hr.rounded {
 }
 
 .fa-icon-color {
-    color: tomato;
+    color: red;
 }
 
 .orange {
@@ -75,4 +75,8 @@ hr.rounded {
 
 .orangered {
     color: orangered;
+}
+
+.gold {
+    color: gold;
 }
