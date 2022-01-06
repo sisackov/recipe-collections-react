@@ -88,13 +88,13 @@ function Login() {
                     Login with Google
                 </button>
 
-                <div
+                {/* <div
                     className='login__btn login__facebook'
                     onClick={signInWithFacebook}
                 >
                     <img src={fb_login} alt='fb_login' />
                     Login with Facebook
-                </div>
+                </div> */}
                 <div>
                     <Link to={RESET_PASSWORD_PATH}>Forgot Password</Link>
                 </div>

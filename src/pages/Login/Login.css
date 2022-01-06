@@ -1,23 +1,31 @@
 .login {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    padding-top: 6rem;
 }
 
 .login__container {
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: #dcdcdc;
+    background-color: rgba(202, 64, 87, 0.4);
     padding: 30px;
+    border-radius: 10px;
+}
+
+.login__container button {
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 .login__textBox {
     padding: 10px;
     font-size: 18px;
     margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .login__btn {
