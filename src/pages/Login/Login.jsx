@@ -14,7 +14,7 @@ import './Login.css';
 import { DEFAULT_COLLECTION_LIST } from '../../utils/collectionsUtils';
 import Spinner from '../../components/Spinner/Spinner';
 import {
-    HOME_PATH,
+    COLLECTIONS_PATH,
     REGISTER_PATH,
     RESET_PASSWORD_PATH,
 } from '../../utils/constants';
@@ -46,7 +46,7 @@ function Login() {
 
         if (user) {
             saveUserInFirestore();
-            history.push(HOME_PATH);
+            history.push(COLLECTIONS_PATH); //redirect to collections on login
         }
     }, [user, loading, history]);
 
