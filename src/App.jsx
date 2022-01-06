@@ -47,7 +47,7 @@ function App() {
             <Router>
                 <NavBar />
                 <Switch>
-                    <Route exact path={HOME_PATH} component={SearchBar} />
+                    <Route exact path={HOME_PATH} component={RecipeList} />
                     <Route exact path={LOGIN_PATH} component={Login} />
                     <Route exact path={REGISTER_PATH} component={Register} />
                     <Route exact path={RESET_PASSWORD_PATH} component={Reset} />
@@ -68,7 +68,6 @@ function App() {
                         component={RecipeGrid}
                     />
                 </Switch>
-                {/* TODO: footer */}
             </Router>
         </div>
     );

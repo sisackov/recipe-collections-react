@@ -1,33 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './IngredientsView.css';
 
-const IngredientsView = ({
-    ingredients,
-    selectedIngredients,
-    setSelectedIngredients,
-    isForm,
-}) => {
-    const [cartItems, setCartItems] = useState([]);
-    const [isAllInCart, setIsAllInCart] = useState(false);
+const IngredientsView = ({ ingredients, isForm }) => {
+    // const [cartItems, setCartItems] = useState([]);
+    // const [isAllInCart, setIsAllInCart] = useState(false);
 
-    const handleCartUpdate = (index) => {
-        if (index < 0) {
-            const newCartItems = [...ingredients];
-            console.log('newCartItems: ', newCartItems);
-            setCartItems(newCartItems);
-            setIsAllInCart(true);
-        } else {
-            const newItem = ingredients[index];
-            const updatedCartItems = [...cartItems];
-            const itemIndex = cartItems.findIndex(
-                (item) => item.index === index
-            );
-            if (itemIndex < 0) {
-                updatedCartItems.push(newItem);
-            }
-            setCartItems(updatedCartItems);
-        }
-    };
+    // const handleCartUpdate = (index) => {
+    //     if (index < 0) {
+    //         const newCartItems = [...ingredients];
+    //         console.log('newCartItems: ', newCartItems);
+    //         setCartItems(newCartItems);
+    //         setIsAllInCart(true);
+    //     } else {
+    //         const newItem = ingredients[index];
+    //         const updatedCartItems = [...cartItems];
+    //         const itemIndex = cartItems.findIndex(
+    //             (item) => item.index === index
+    //         );
+    //         if (itemIndex < 0) {
+    //             updatedCartItems.push(newItem);
+    //         }
+    //         setCartItems(updatedCartItems);
+    //     }
+    // };
 
     const ingredientsList = () => {
         return (
@@ -38,7 +33,7 @@ const IngredientsView = ({
                     <li key={`ingredient-${ingredient.originalString}`}>
                         <div className='ingredients-view__ingredient--line'>
                             <span>{ingredient.original}</span>
-                            <button
+                            {/* <button
                                 className='ingredients-view__ingredient--button'
                                 disabled={isAllInCart}
                                 onClick={() => {
@@ -46,7 +41,7 @@ const IngredientsView = ({
                                 }}
                             >
                                 Add To Cart
-                            </button>
+                            </button> */}
                         </div>
                     </li>
                 );
@@ -60,15 +55,15 @@ const IngredientsView = ({
             <ol className='ingredients-view__ingredient-list'>
                 {ingredientsList()}
             </ol>
-            <button
+            {/* <button
                 className='ingredients-view__cart-button'
                 onClick={() => {
                     handleCartUpdate(-1);
                 }}
             >
-                {/* <i className='fas fa-plus'></i> */}
+                 <i className='fas fa-plus'></i> 
                 Add All To Cart
-            </button>
+            </button> */}
         </div>
     );
 };

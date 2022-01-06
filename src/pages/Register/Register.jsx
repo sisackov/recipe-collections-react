@@ -5,7 +5,6 @@ import {
     auth,
     registerWithEmailAndPassword,
     signInWithGoogle,
-    signInWithFacebook,
 } from '../../api/firebase.js';
 import { HOME_PATH, LOGIN_PATH } from '../../utils/constants.js';
 import './Register.css';

@@ -6,7 +6,6 @@ import { getCaloriesInSpoonacular } from '../../utils/utils';
 import IngredientsView from '../../components/IngredientsView/IngredientsView';
 import { useEffect, useState } from 'react';
 import InstructionsView from '../../components/InstructionsView/InstructionsView';
-import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import Spinner from '../../components/Spinner/Spinner';
 import { getRecipeByIdFromDB, setRecipeInDB } from '../../api/firebase';
@@ -66,20 +65,12 @@ function RecipeView() {
                 <div className='recipe-page'>
                     <h1 className='recipe-page__title'>{recipe.title}</h1>
                     <div className='recipe-page__subtitle'>
-                        {/* TODO: add TAG components */}
                         <RecipeSummary
                             prepTime={recipe.readyInMinutes}
                             calories={getCaloriesInSpoonacular(recipe)}
                             servings={recipe.servings}
                         />
                         <div className='rps__buttons'>
-                            {/* TODO */}
-                            {/* <ButtonComponent
-                                label='Add to collections'
-                                clickHandler={() => setIsModalOpen(true)}
-                                styleName='btn-primary btn--green'
-                            /> */}
-
                             <button
                                 className='collection-list__button'
                                 onClick={() => setIsModalOpen(true)}

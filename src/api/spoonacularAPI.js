@@ -1,11 +1,11 @@
 import axios from 'axios';
+import { SPOONACULAR_API_KEY } from '../utils/keys';
 import { setRecipeInDB } from './firebase';
-// import hits from './dummy.js';
 
 const spoonacularAPI = axios.create({
     baseURL: 'https://api.spoonacular.com/recipes',
     params: {
-        apiKey: '46bdbd59e31d4fef9fc381b3a71e94ad',
+        apiKey: SPOONACULAR_API_KEY,
     },
 });
 
