@@ -78,7 +78,7 @@ You can find React README [here](./misc/React_README.md).
 |                  |                     | FDC             | :white_check_mark:    | 0.5 hours      | Thursday     |
 |                  |                     | Mockup          | :white_check_mark:    | 0.5 hours      | Thursday     |
 |                  |                     | Spoonacular     | :white_check_mark:    | 0.5 hours      | Thursday     |
-|                  | **Recipes**         |                 | :black_square_button: | **11.5 hours** |              |
+|                  | **Recipes**         |                 | :white_check_mark:    | **11.5 hours** |              |
 |                  |                     | RecipeCard      | :white_check_mark:    | 2 hours        | Thursday     |
 |                  |                     | RecipeView      | :white_check_mark:    | 2 hours        | Thursday     |
 |                  |                     | RecipeSummary   | :white_check_mark:    | 0.5 hours      | Saturday eve |
@@ -95,12 +95,12 @@ You can find React README [here](./misc/React_README.md).
 |                  | **Search**          |                 | :white_check_mark:    | **4 hours**    | Monday       |
 |                  |                     | SearchBar       | :white_check_mark:    | 3 hours        |              |
 |                  |                     | SearchList      | :white_check_mark:    | 1 hours        |              |
-|                  | **Styling**         |                 | :black_square_button: | **8 hours**    | Tuesday      |
+|                  | **Styling**         |                 | :white_check_mark:    | **8 hours**    | Tuesday      |
 | **Nice To Have** |                     |                 |                       |                |              |
 |                  | **Hamburger**       |                 | :black_square_button: | **2 hours**    | Tuesday      |
 |                  | **Shop Cart**       |                 | :black_square_button: | **3 hours**    | Tuesday      |
 |                  | **Calculator**      |                 | :black_square_button: | **8 hours**    | Wednesday    |
-|                  | **RelatedCarousel** |                 | :white_check_mark:    | **1.5 hours**  | Wednesday    |
+|                  | **RelatedCarousel** |                 | :black_square_button: | **1.5 hours**  | Wednesday    |
 |                  | **SocialLinks**     |                 | :black_square_button: | **1.5 hours**  | Wednesday    |
 |                  |                     | RecipeEdit      | :black_square_button: | 2 hours        |              |
 |                  |                     | IngredientsForm | :black_square_button: | 2 hours        |              |
