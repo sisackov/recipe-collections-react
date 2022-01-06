@@ -13,8 +13,9 @@ import { getRecipeByIdFromDB, setRecipeInDB } from '../../api/firebase';
 import Modal from '../../components/Modal/Modal';
 import CollectionRecipeForm from '../../components/CollectionRecipeForm/CollectionRecipeForm';
 import { getSpoonacularRecipeInfo } from '../../api/spoonacularAPI';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function RecipeView(/* { recipe } */) {
+function RecipeView() {
     const { recipeId } = useParams();
     const [data, setData] = useState({}); //recipe object
     const [isLoading, setIsLoading] = useState(false);
@@ -73,11 +74,22 @@ function RecipeView(/* { recipe } */) {
                         />
                         <div className='rps__buttons'>
                             {/* TODO */}
-                            <ButtonComponent
+                            {/* <ButtonComponent
                                 label='Add to collections'
                                 clickHandler={() => setIsModalOpen(true)}
                                 styleName='btn-primary btn--green'
-                            />
+                            /> */}
+
+                            <button
+                                className='collection-list__button'
+                                onClick={() => setIsModalOpen(true)}
+                            >
+                                <FontAwesomeIcon
+                                    icon='plus'
+                                    className='fa-icon-color'
+                                />
+                                <span> Add to your collections</span>
+                            </button>
                         </div>
                     </div>
 

@@ -5,6 +5,7 @@ import Spinner from '../Spinner/Spinner';
 import './RelatedItems.css';
 import recipeIcon from '../../assets/images/recipe-cartoon.jpg';
 import { getSpoonacularSimilar } from '../../api/spoonacularDummy';
+import { RECIPE_PATH } from '../../utils/constants';
 
 // const corsProxy = 'https://intense-mesa-62220.herokuapp.com/';
 const RELATED_ITEMS_LIMIT = 5;
@@ -69,7 +70,7 @@ function RelatedItems({ recipe }) {
                         {`${item.title}
                         Serves ${item.servings}`}
                     </div>
-                    <Link to={`/recipe/${item.recipeId}`}>
+                    <Link to={`${RECIPE_PATH}/${item.recipeId}`}>
                         <div className='related-items__list--item__link'>
                             View Recipe
                         </div>

@@ -22,6 +22,7 @@ import {
     FacebookAuthProvider,
 } from 'firebase/auth';
 import { stripHtmlTags } from '../utils/utils';
+import { GOOGLE_API_KEY } from '../utils/keys';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -29,7 +30,7 @@ import { stripHtmlTags } from '../utils/utils';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: 'AIzaSyAv3WiFf1zSUI-AXF5hn6WDDDAtqY9LYl4',
+    apiKey: GOOGLE_API_KEY,
     authDomain: 'react-recipe-collections.firebaseapp.com',
     projectId: 'react-recipe-collections',
     storageBucket: 'react-recipe-collections.appspot.com',
@@ -157,12 +158,7 @@ const setRecipeInDB = async (recipe) => {
         recipe.summaryArray = recipe.summary.split(' ');
     }
     console.log('setRecipeInFirestore', recipe);
-    const setResp = await setDoc(
-        doc(db, 'recipes', recipe.recipeId || recipe.id),
-        recipe
-    );
-    // console.log('setResp', setResp);
-    return setResp;
+    return setDoc(doc(db, 'recipes', recipe.recipeId || recipe.id), recipe);
 };
 
 //! TODO: use constants
@@ -240,7 +236,7 @@ const deleteRecipeCollectionInDB = async (collectionId) => {
     const deleteResp = await deleteDoc(
         doc(db, 'recipeCollections', collectionId)
     );
-    // console.log('setResp', deleteResp);
+    console.log('setResp', deleteResp);
     return deleteResp;
 };
 

@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useHistory } from 'react-router-dom';
+import { RECIPE_PATH } from '../../utils/constants';
 import './RecipeCard.css';
 
 const RecipeCard = ({ recipe, deleteHandler }) => {
     const history = useHistory();
 
     const handleCardClick = (e) => {
-        console.log('RecipeCard: handleCardClick: e: ', e);
-        history.push(`/recipe/${recipe.recipeId}`);
+        history.push(`${RECIPE_PATH}/${recipe.recipeId}`);
     };
 
     const alternateTitle = () => {

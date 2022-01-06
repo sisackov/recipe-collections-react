@@ -6,12 +6,13 @@
 }
 
 .collection-list__button {
-    background: transparent;
+    background: rgba(255, 20, 147, 0.4);
     border-radius: 5px;
 
     align-self: center;
     margin: 1rem 1.1rem 0.6rem 0; /* top | right | bottom | left */
     padding: 0.3rem;
+    cursor: pointer;
 }
 
 .collections-list__container {

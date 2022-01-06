@@ -1,6 +1,7 @@
 import './CollectionCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
+import { COLLECTIONS_PATH } from '../../utils/constants';
 
 const CollectionCard = ({ collection, openCollectionForm, deleteHandler }) => {
     return (
@@ -32,7 +33,7 @@ const CollectionCard = ({ collection, openCollectionForm, deleteHandler }) => {
                         <div>{collection.description}</div>
                     </div>
                     <div className='collection-card__link'>
-                        <Link to={`/collection/${collection.id}`}>
+                        <Link to={`${COLLECTIONS_PATH}/${collection.id}`}>
                             View Collection Recipes
                         </Link>
                     </div>

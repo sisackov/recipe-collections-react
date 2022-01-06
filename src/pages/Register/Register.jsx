@@ -7,6 +7,7 @@ import {
     signInWithGoogle,
     signInWithFacebook,
 } from '../../api/firebase.js';
+import { HOME_PATH, LOGIN_PATH } from '../../utils/constants.js';
 import './Register.css';
 
 function Register() {
@@ -23,7 +24,7 @@ function Register() {
 
     useEffect(() => {
         if (loading) return;
-        if (user) history.replace('/');
+        if (user) history.push(HOME_PATH);
     }, [user, loading, history]);
 
     return (
@@ -61,7 +62,8 @@ function Register() {
                 </button>
 
                 <div>
-                    Already have an account? <Link to='/'>Login</Link> now.
+                    Already have an account? <Link to={LOGIN_PATH}>Login</Link>{' '}
+                    now.
                 </div>
             </div>
         </div>

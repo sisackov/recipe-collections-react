@@ -20,6 +20,15 @@ import {
 import RecipeGrid from './components/RecipeGrid/RecipeGrid';
 import SearchBar from './pages/SearchBar/SearchBar';
 import RecipeList from './pages/RecipeList/RecipeList';
+import {
+    COLLECTIONS_PATH,
+    HOME_PATH,
+    LOGIN_PATH,
+    RECIPE_PATH,
+    REGISTER_PATH,
+    RESET_PASSWORD_PATH,
+    SEARCH_PATH,
+} from './utils/constants';
 
 library.add(
     faCheckSquare,
@@ -38,20 +47,24 @@ function App() {
             <Router>
                 <NavBar />
                 <Switch>
-                    <Route exact path='/' component={SearchBar} />
-                    <Route exact path='/login' component={Login} />
-                    <Route exact path='/register' component={Register} />
-                    <Route exact path='/reset' component={Reset} />
-                    <Route exact path='/search' component={SearchBar} />
+                    <Route exact path={HOME_PATH} component={SearchBar} />
+                    <Route exact path={LOGIN_PATH} component={Login} />
+                    <Route exact path={REGISTER_PATH} component={Register} />
+                    <Route exact path={RESET_PASSWORD_PATH} component={Reset} />
+                    <Route exact path={SEARCH_PATH} component={SearchBar} />
                     <Route
                         exact
-                        path='/recipe/:recipeId'
+                        path={`${RECIPE_PATH}/:recipeId`}
                         component={RecipeView}
                     />
-                    <Route exact path='/collections' component={Collections} />
                     <Route
                         exact
-                        path='/collection/:collectionId'
+                        path={COLLECTIONS_PATH}
+                        component={Collections}
+                    />
+                    <Route
+                        exact
+                        path={`${COLLECTIONS_PATH}/:collectionId`}
                         component={RecipeGrid}
                     />
                 </Switch>

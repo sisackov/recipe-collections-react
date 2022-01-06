@@ -13,6 +13,11 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import './Login.css';
 import { DEFAULT_COLLECTION_LIST } from '../../utils/collectionsUtils';
 import Spinner from '../../components/Spinner/Spinner';
+import {
+    HOME_PATH,
+    REGISTER_PATH,
+    RESET_PASSWORD_PATH,
+} from '../../utils/constants';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -41,7 +46,7 @@ function Login() {
 
         if (user) {
             saveUserInFirestore();
-            history.push('/');
+            history.push(HOME_PATH);
         }
     }, [user, loading, history]);
 
@@ -91,11 +96,11 @@ function Login() {
                     Login with Facebook
                 </div>
                 <div>
-                    <Link to='/reset'>Forgot Password</Link>
+                    <Link to={RESET_PASSWORD_PATH}>Forgot Password</Link>
                 </div>
                 <div>
-                    Don't have an account? <Link to='/register'>Register</Link>{' '}
-                    now.
+                    Don't have an account?{' '}
+                    <Link to={REGISTER_PATH}>Register</Link> now.
                 </div>
             </div>
         </div>
