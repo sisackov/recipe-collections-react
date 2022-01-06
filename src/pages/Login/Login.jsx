@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import fb_login from '../../assets/images/fb_login.png';
+// import fb_login from '../../assets/images/fb_login.png';
 import {
     auth,
     signInWithEmailAndPassword,
     signInWithGoogle,
-    signInWithFacebook,
     userExistsInDB,
     setUserInDB,
 } from '../../api/firebase.js';
