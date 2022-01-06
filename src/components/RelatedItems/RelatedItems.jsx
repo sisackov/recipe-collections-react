@@ -1,10 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-// import { getSpoonacularSimilar } from '../../api/spoonacularAPI';
 import Spinner from '../Spinner/Spinner';
 import './RelatedItems.css';
 import recipeIcon from '../../assets/images/recipe-cartoon.jpg';
-import { getSpoonacularSimilar } from '../../api/spoonacularDummy';
 import { RECIPE_PATH } from '../../utils/constants';
 
 // const corsProxy = 'https://intense-mesa-62220.herokuapp.com/';
@@ -23,9 +21,10 @@ function RelatedItems({ recipe }) {
             setIsLoading(true);
             try {
                 // const res = await getSpoonacularSimilar(recipeId.current);
-                const res = getSpoonacularSimilar;
-                setData(res);
-                setItems(res.slice(0, RELATED_ITEMS_LIMIT));
+                // const res = getSpoonacularSimilar;
+                // setData(res);
+                setData([]);
+                // setItems(res.slice(0, RELATED_ITEMS_LIMIT));
             } catch (err) {
                 setErrorMsg(err.message);
             }

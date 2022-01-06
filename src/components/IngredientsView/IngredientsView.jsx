@@ -27,7 +27,7 @@ const IngredientsView = ({ ingredients, isForm }) => {
     const ingredientsList = () => {
         return (
             !isForm &&
-            ingredients.map((ingredient, index) => {
+            ingredients.map((ingredient) => {
                 // console.log('ingredient: ', ingredient);
                 return (
                     <li key={`ingredient-${ingredient.originalString}`}>

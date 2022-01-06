@@ -1,13 +1,7 @@
-import { /* useEffect, */ useState } from 'react';
+import { useState } from 'react';
 
-function CheckboxComponent({ isChecked /* , updateChecked, index */ }) {
+function CheckboxComponent() {
     const [checked, setChecked] = useState(false);
-
-    // useEffect(() => {
-    //     if (isChecked !== checked) {
-    //         updateChecked(index);
-    //     }
-    // }, [isChecked, checked, updateChecked, index]);
 
     return (
         <input

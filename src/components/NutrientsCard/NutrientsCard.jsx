@@ -1,8 +1,6 @@
 import './NutrientsCard.css';
 
 const NutrientsCard = ({ nutrients }) => {
-    // console.log('nutrients: ', nutrients);
-
     const parseQuantity = (quantity, unit) => {
         if (quantity < 1000) {
             return `${quantity} ${unit}`;
@@ -18,7 +16,6 @@ const NutrientsCard = ({ nutrients }) => {
 
             default:
                 return `${quantity} ${unit}`;
-            // return `${normalizedQuantity} ${unit.slice(1)}`;
         }
     };
 

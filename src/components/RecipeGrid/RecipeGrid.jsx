@@ -43,17 +43,17 @@ const RecipeGrid = () => {
     }, [collectionId]);
 
     const handleDelete = async (recipe) => {
-        console.log('RecipeGrid: handleDelete: recipe: ', recipe);
+        // console.log('RecipeGrid: handleDelete: recipe: ', recipe);
         const newCollectionData = {
             ...collectionData,
             recipes: collectionData.recipes.filter(
                 (collectionRecipe) => collectionRecipe.id !== recipe.recipeId
             ),
         };
-        console.log(
-            'RecipeGrid: handleDelete: newCollectionData: ',
-            newCollectionData
-        );
+        // console.log(
+        //     'RecipeGrid: handleDelete: newCollectionData: ',
+        //     newCollectionData
+        // );
         try {
             if (collectionData.createdBy) {
                 await setRecipeCollectionInDB(newCollectionData);
