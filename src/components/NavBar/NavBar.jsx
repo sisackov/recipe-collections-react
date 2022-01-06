@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './NavBar.css';
 import { auth, logout } from '../../api/firebase.js';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -11,7 +11,13 @@ import {
 } from '../../utils/constants';
 
 const NavBar = () => {
-    const [user /* , loading, error */] = useAuthState(auth);
+    const [user] = useAuthState(auth);
+    const history = useHistory();
+
+    const handleLogout = () => {
+        logout();
+        history.push(HOME_PATH);
+    };
 
     const renderRightNav = () => {
         if (user) {
@@ -24,7 +30,7 @@ const NavBar = () => {
                         <Link to={COLLECTIONS_PATH}>Collections</Link>
                     </li>
                     <li className='nav-item'>
-                        <div onClick={logout}>Logout</div>
+                        <div onClick={handleLogout}>Logout</div>
                     </li>
                 </ul>
             );
