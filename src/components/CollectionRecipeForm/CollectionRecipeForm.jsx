@@ -1,14 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import {
-    ButtonField,
-    SelectField,
-    TextareaField,
-} from '../FormFields/FormFields';
+import React, { useEffect, useState } from 'react';
+import { ButtonField } from '../FormFields/FormFields';
 import './CollectionRecipeForm.css';
-import { v4 as uuidV4 } from 'uuid';
 import {
     auth,
-    getRecipeCollectionByIdFromDB,
     getRecipeCollectionsByIdsFromDB,
     getUserByIdFromDB,
     setRecipeCollectionInDB,
