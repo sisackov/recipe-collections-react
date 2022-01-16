@@ -22,7 +22,6 @@ import {
     FacebookAuthProvider,
 } from 'firebase/auth';
 import { stripHtmlTags } from '../utils/utils';
-import { GOOGLE_API_KEY } from '../utils/keys';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -30,7 +29,7 @@ import { GOOGLE_API_KEY } from '../utils/keys';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: GOOGLE_API_KEY,
+    apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
     authDomain: 'react-recipe-collections.firebaseapp.com',
     projectId: 'react-recipe-collections',
     storageBucket: 'react-recipe-collections.appspot.com',
